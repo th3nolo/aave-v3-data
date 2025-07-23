@@ -3,30 +3,115 @@
 > 🚀 **Real-time Aave V3 protocol data** - lending rates, reserve configurations, liquidity metrics across all networks. Updated hourly via GitHub Actions.
 
 [![Updated Hourly](https://img.shields.io/badge/Updated-Hourly-brightgreen)](https://github.com/th3nolo/aave-v3-data/actions)
-[![Networks](https://img.shields.io/badge/Networks-15+-blue)]()
+[![Networks](https://img.shields.io/badge/Networks-13-blue)](https://th3nolo.github.io/aave-v3-data/)
+[![Assets](https://img.shields.io/badge/Assets-190+-orange)](https://th3nolo.github.io/aave-v3-data/api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Quick Access:** 
-- 🔗 JSON API: `https://th3nolo.github.io/aave-v3-data/aave_v3_data.json`
-- 📊 Web View: `https://th3nolo.github.io/aave-v3-data/`
-- 🏛️ Governance: `https://th3nolo.github.io/aave-v3-data/governance_monitoring.html`
-- 🤖 LLM Ready: Clean structured data for AI/ML applications
+## 🌟 Access Points
 
-## 🎯 Quick Start - Copy & Paste Examples
+| Endpoint | Description | Best For |
+|----------|-------------|-----------|
+| 🚀 **[API Dashboard](https://th3nolo.github.io/aave-v3-data/api/)** | Interactive API explorer with live endpoints | Quick data exploration |
+| 📊 **[Data Tables](https://th3nolo.github.io/aave-v3-data/)** | Formatted HTML tables with sorting/filtering | Visual analysis |
+| 🔗 **[Raw JSON](https://th3nolo.github.io/aave-v3-data/aave_v3_data.json)** | Complete dataset (CDN-backed, ~2MB) | Programmatic access |
+| 🏛️ **[Governance Monitor](https://th3nolo.github.io/aave-v3-data/governance_monitoring.html)** | Track parameter changes & proposals | Risk monitoring |
+
+## ⚡ Key Features
+
+- **📈 Real-time Data**: Hourly updates via GitHub Actions
+- **🌍 13 Networks**: Ethereum, Polygon, Arbitrum, Optimism, Base, zkSync & more
+- **💰 190+ Assets**: Complete reserve parameters for all supported tokens
+- **🔄 100% Uptime**: GitHub Pages CDN with automatic failover
+- **🤖 LLM-Optimized**: Clean JSON structure perfect for AI/ML applications
+- **🛡️ Health Monitoring**: Built-in validation and error reporting
+
+## 🤔 What's This?
+
+This API provides **free, real-time access** to Aave V3 lending protocol data across all supported networks. Perfect for:
+
+- **🏦 DeFi Developers**: Build lending aggregators, yield optimizers, or risk dashboards
+- **📊 Data Analysts**: Track lending rates, TVL, and protocol health metrics
+- **🤖 Trading Bots**: Monitor arbitrage opportunities across networks
+- **🎓 Researchers**: Analyze DeFi lending markets and user behavior
+- **💼 Risk Managers**: Track exposure and liquidation parameters
+
+No API keys required. No rate limits. Just pure data.
+
+## 🎯 Quick Start Examples
+
+### 🔥 One-Liner Commands
 
 ```bash
-# Get USDC rates on all networks (one command!)
+# Get best stablecoin yields across all networks
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq -r '[.networks | to_entries[] | . as $n | .value[] | 
+  select(.symbol | test("USD|DAI")) | 
+  {network: $n.key, symbol, rate: (.current_liquidity_rate * 100)}] | 
+  sort_by(.rate) | reverse | .[0:5] | 
+  .[] | "\(.symbol) on \(.network): \(.rate | tostring[0:4])% APY"'
+
+# Compare USDC rates on all networks
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
   jq -r '.networks | to_entries[] | 
-  "\(.key): USDC Supply: \(.value[] | 
-  select(.symbol=="USDC") | .current_liquidity_rate)%"' 2>/dev/null
+  "\(.key): USDC Supply \((.value[] | 
+  select(.symbol=="USDC") | .current_liquidity_rate * 100 | tostring[0:4]))% APY"' 2>/dev/null
 
-# Find best stablecoin yields
+# Find highest risk assets (LTV > 80%)
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
-  jq '[.networks | to_entries[] | . as $n | .value[] | 
-  select(.symbol | test("USD|DAI")) | 
-  {network: $n.key, symbol, rate: .current_liquidity_rate}] | 
-  sort_by(.rate) | reverse | .[0:5]'
+  jq '[.networks | to_entries[] | .value[] | 
+  select(.loan_to_value > 0.80)] | 
+  sort_by(-.loan_to_value) | .[0:5] | 
+  .[] | "\(.symbol): \(.loan_to_value * 100)% LTV"'
+```
+
+### 🌐 API Endpoints
+
+```bash
+# Interactive API Dashboard
+open https://th3nolo.github.io/aave-v3-data/api/
+
+# Get all data endpoints
+curl https://th3nolo.github.io/aave-v3-data/api/v1/data.json
+
+# Direct network access (example URLs)
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.json     # Full dataset
+https://th3nolo.github.io/aave-v3-data/governance_history.json # Governance data
+https://th3nolo.github.io/aave-v3-data/health_report.json      # System health
+```
+
+### 📋 Data Structure Sample
+
+```json
+{
+  "metadata": {
+    "last_updated": "2025-07-22T21:38:59Z",
+    "network_summary": {
+      "total_active_networks": 13,
+      "total_assets": 190,
+      "success_rate": 1.0
+    }
+  },
+  "networks": {
+    "ethereum": [
+      {
+        "symbol": "USDC",
+        "decimals": 6,
+        "loan_to_value": 0.75,
+        "liquidation_threshold": 0.78,
+        "liquidation_bonus": 0.045,
+        "current_liquidity_rate": 0.038016,  // 3.80% APY
+        "current_variable_borrow_rate": 0.050252,  // 5.03% APY
+        "supply_cap": 381,
+        "borrow_cap": 63488,
+        "active": true,
+        "frozen": false,
+        "a_token_address": "0x98c23e9d8f34fefb1b7bd6a91b7ff122f4e16f5c"
+      }
+      // ... more assets
+    ],
+    // ... more networks
+  }
+}
 ```
 
 ## 🌐 Live Data Access
@@ -456,7 +541,7 @@ This data includes:
 - Supply/borrow caps and current utilization
 - Interest rates and protocol fees
 - Asset status flags (active, frozen, borrowing enabled)
-- Real-time data across 15+ blockchain networks
+- Real-time data across 13 blockchain networks
 
 Example queries:
 - "What is the current liquidation threshold for USDC on Polygon?"
