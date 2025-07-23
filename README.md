@@ -395,16 +395,16 @@ https://raw.githubusercontent.com/th3nolo/aave-v3-data/main/aave_v3_data.json
 #### Example URLs
 ```
 # HTML Interface
-https://johndoe.github.io/aave-data/aave_v3_data.html
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.html
 
 # JSON API
-https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.json
 
 # Health Report
-https://raw.githubusercontent.com/johndoe/aave-data/main/health_report.json
+https://th3nolo.github.io/aave-v3-data/health_report.json
 
 # Validation Report
-https://raw.githubusercontent.com/johndoe/aave-data/main/validation_report.json
+https://th3nolo.github.io/aave-v3-data/validation_report.json
 ```
 
 ## 💻 Usage Examples
@@ -428,7 +428,7 @@ https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/aave_v3_data.html
 #### Example URLs
 ```
 # Personal deployment
-https://johndoe.github.io/aave-data/aave_v3_data.html
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.html
 
 # Team deployment
 https://defi-team.github.io/protocol-monitor/aave_v3_data.html
@@ -449,7 +449,7 @@ https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO-NAME/main/aave_v3_data
 ##### ChatGPT/Claude Integration
 ```
 You can access current Aave V3 protocol data from:
-https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.json
 
 This data includes:
 - Liquidation thresholds and LTV ratios for all assets
@@ -499,7 +499,7 @@ Please analyze the data and provide a comprehensive answer.
     return context, aave_data
 
 # Usage
-data_url = "https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json"
+data_url = "https://th3nolo.github.io/aave-v3-data/aave_v3_data.json"
 context, data = query_aave_data_for_llm(
     "What are the safest assets to use as collateral based on liquidation thresholds?",
     data_url
@@ -511,7 +511,7 @@ context, data = query_aave_data_for_llm(
 // Fetch and display Aave data
 async function fetchAaveData() {
     const response = await fetch(
-        'https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json'
+        'https://th3nolo.github.io/aave-v3-data/aave_v3_data.json'
     );
     const data = await response.json();
     
@@ -564,7 +564,7 @@ def analyze_aave_data():
     """Comprehensive Aave data analysis."""
     
     # Fetch data
-    url = "https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json"
+    url = "https://th3nolo.github.io/aave-v3-data/aave_v3_data.json"
     response = requests.get(url)
     data = response.json()
     
@@ -626,25 +626,25 @@ find_asset_across_networks('USDC')
 #### cURL and Command Line Usage
 ```bash
 # Fetch complete data
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | jq .
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq .
 
 # Get specific network data
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | jq '.networks.ethereum'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum'
 
 # Find USDC across all networks
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | \
-  jq '.networks[] | map(select(.symbol == "USDC")) | .[] | {network: .network, ltv: .loan_to_value, lt: .liquidation_threshold}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq '.networks | to_entries[] | {network: .key, usdc: (.value[] | select(.symbol == "USDC") | {ltv: .loan_to_value, lt: .liquidation_threshold})}'
 
 # Get assets with highest LTV
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | \
-  jq '[.networks[] | .[] | select(.loan_to_value > 0.75)] | sort_by(-.loan_to_value) | .[0:5]'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq '[.networks | to_entries[] | .value[] | select(.loan_to_value > 0.75)] | sort_by(-.loan_to_value) | .[0:5]'
 
 # Check data freshness
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | \
-  jq '.metadata | {last_updated, total_networks, total_assets, execution_time}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq '.metadata | {last_updated, network_summary, data_version, generated_at}'
 
 # Monitor specific asset
-curl -s https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json | \
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
   jq '.networks.polygon[] | select(.symbol == "USDC") | {symbol, ltv: .loan_to_value, lt: .liquidation_threshold, active}'
 ```
 
@@ -718,7 +718,7 @@ class AaveRiskMonitor:
         return (ltv_risk * 0.6 + buffer_risk * 0.4)
 
 # Usage
-monitor = AaveRiskMonitor("https://raw.githubusercontent.com/johndoe/aave-data/main/aave_v3_data.json")
+monitor = AaveRiskMonitor("https://th3nolo.github.io/aave-v3-data/aave_v3_data.json")
 risk_analysis = monitor.analyze_risk_levels()
 
 print(f"Overall Risk Score: {risk_analysis['overall_risk_score']:.2f}")
