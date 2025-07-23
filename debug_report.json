@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-07-22T12:13:58.985314",
+  "health_summary": {
+    "timestamp": "2025-07-22T12:13:58.985317",
+    "networks": {},
+    "overall_stats": {
+      "total_networks": 0,
+      "healthy_networks": 0,
+      "degraded_networks": 0,
+      "unhealthy_networks": 0
+    }
+  },
+  "performance_report": {
+    "timestamp": "2025-07-22T12:13:58.985320",
+    "profiler_stats": {},
+    "network_metrics": {},
+    "overall_stats": {
+      "total_networks": 0,
+      "total_rpc_calls": 0,
+      "total_successful_calls": 0,
+      "total_failed_calls": 0,
+      "total_assets_processed": 0,
+      "average_network_time": 0,
+      "average_rpc_time": 0
+    }
+  },
+  "endpoint_health": {},
+  "network_metrics": {}
+}

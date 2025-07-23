@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-07-22T12:13:58.977855",
+  "freshness_score": 1.0,
+  "networks_checked": 13,
+  "networks_with_fresh_data": 13,
+  "networks_with_stale_data": 0,
+  "stale_networks": [],
+  "validation_errors": [],
+  "validation_warnings": [],
+  "oldest_data_age_hours": 15889.063604959721,
+  "newest_data_age_hours": 0.0013827375
+}

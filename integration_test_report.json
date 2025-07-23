@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-07-22T16:16:45.592288",
+  "total_tests": 7,
+  "passed_tests": 7,
+  "failed_tests": 0,
+  "success_rate": 1.0,
+  "execution_time": 2.670896291732788,
+  "test_results": {
+    "Complete Workflow Execution": true,
+    "Automated Daily Updates": true,
+    "Manual Workflow Triggering": true,
+    "JSON API Accessibility": true,
+    "HTML Page Rendering": true,
+    "LLM Consumption Validation": true,
+    "End-to-End Validation": true
+  },
+  "github_pages_url": null,
+  "github_raw_url": null
+}

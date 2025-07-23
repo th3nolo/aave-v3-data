@@ -1,0 +1,24 @@
+{
+  "valid": [
+    "ethereum",
+    "polygon",
+    "arbitrum",
+    "optimism",
+    "avalanche",
+    "metis",
+    "base",
+    "gnosis",
+    "bnb",
+    "scroll",
+    "celo",
+    "mantle",
+    "zksync",
+    "linea"
+  ],
+  "invalid": [
+    "sonic"
+  ],
+  "errors": {
+    "sonic": "empty result"
+  }
+}

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aave V3 Governance Monitoring</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .timestamp {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+        
+        .summary-card.critical {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+        
+        .summary-card.warning {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+        
+        .summary-card.success {
+            border-left-color: #27ae60;
+            background: #f0f9f4;
+        }
+        
+        .summary-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .summary-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .alert {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .alert.critical {
+            background: #fdf2f2;
+            border-left-color: #e74c3c;
+            color: #c0392b;
+        }
+        
+        .alert.high {
+            background: #fef9e7;
+            border-left-color: #f39c12;
+            color: #d68910;
+        }
+        
+        .alert.medium {
+            background: #e8f4fd;
+            border-left-color: #3498db;
+            color: #2980b9;
+        }
+        
+        .alert.low {
+            background: #f0f9f4;
+            border-left-color: #27ae60;
+            color: #229954;
+        }
+        
+        .alert-header {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .alert-message {
+            font-size: 0.95em;
+        }
+        
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .changes-table th,
+        .changes-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .changes-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .changes-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .risk-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .risk-critical {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .risk-high {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .risk-medium {
+            background: #3498db;
+            color: white;
+        }
+        
+        .risk-low {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .change-value {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .change-positive {
+            color: #27ae60;
+        }
+        
+        .change-negative {
+            color: #e74c3c;
+        }
+        
+        .posts-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .post-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .post-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .post-title a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .post-title a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        .post-meta {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .post-description {
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .relevance-score {
+            background: #3498db;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .validation-score {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .validation-score.warning {
+            color: #f39c12;
+        }
+        
+        .validation-score.error {
+            color: #e74c3c;
+        }
+        
+        .no-data {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            padding: 40px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+        }
+        
+        .footer-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .changes-table {
+                font-size: 0.9em;
+            }
+            
+            .changes-table th,
+            .changes-table td {
+                padding: 8px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ Aave V3 Governance Monitoring</h1>
+            <p class="subtitle">Real-time parameter tracking and governance activity monitoring</p>
+            <div class="timestamp">Last updated: July 22, 2025 at 07:40 PM UTC</div>
+        </header>
+
+        
+    <div class="section">
+        <h2>📊 Summary</h2>
+        <div class="summary-grid">
+            <div class="summary-card critical">
+                <div class="summary-number">1</div>
+                <div class="summary-label">Critical Changes</div>
+            </div>
+            <div class="summary-card success">
+                <div class="summary-number">0</div>
+                <div class="summary-label">High Risk Changes</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number">3</div>
+                <div class="summary-label">Total Parameter Changes</div>
+            </div>
+            <div class="summary-card critical">
+                <div class="summary-number">1</div>
+                <div class="summary-label">Active Alerts</div>
+            </div>
+        </div>
+    </div>
+    
+        
+        
+    <div class="section">
+        <h2>🚨 Alerts</h2>
+        
+        <div class="alert critical">
+            <div class="alert-header">🔴 Critical Parameter Change</div>
+            <div class="alert-message">CRITICAL: 1 critical parameter changes detected</div>
+            <div style="margin-top: 8px; font-size: 0.9em;">Affects 1 parameter changes</div>
+        </div>
+        
+        <div class="alert low">
+            <div class="alert-header">🟢 High Relevance Governance Activity</div>
+            <div class="alert-message">INFO: 2 high-relevance governance posts detected</div>
+            
+        </div>
+        
+    </div>
+    
+        
+        
+    <div class="section">
+        <h2>📈 Parameter Changes</h2>
+        <table class="changes-table">
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>Network</th>
+                    <th>Parameter</th>
+                    <th>Old Value</th>
+                    <th>New Value</th>
+                    <th>Change %</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td>WETH</td>
+            <td>Polygon</td>
+            <td>Reserve Factor</td>
+            <td class="change-value">15.0%</td>
+            <td class="change-value change-positive">↗️ 20.0%</td>
+            <td>33.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>WBTC</td>
+            <td>Arbitrum</td>
+            <td>Loan To Value</td>
+            <td class="change-value">70.0%</td>
+            <td class="change-value change-negative">↘️ 68.0%</td>
+            <td>2.9%</td>
+            <td><span class="risk-badge risk-medium">medium</span></td>
+        </tr>
+        
+        <tr>
+            <td>USDC</td>
+            <td>Ethereum</td>
+            <td>Liquidation Threshold</td>
+            <td class="change-value">78.0%</td>
+            <td class="change-value change-positive">↗️ 80.0%</td>
+            <td>2.6%</td>
+            <td><span class="risk-badge risk-medium">medium</span></td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
+        
+        
+    <div class="section">
+        <h2>🏛️ Recent Governance Activity</h2>
+        <div class="posts-grid">
+            
+        <div class="post-card">
+            <div class="post-title">
+                <a href="https://governance.aave.com/t/risk-parameter-update-usdc/123" target="_blank">Risk Parameter Update for USDC on Ethereum</a>
+            </div>
+            <div class="post-meta">
+                Source: Aave Governance | 
+                Relevance: <span class="relevance-score">8.5</span>
+                 | 2025-01-20T10:00:00Z
+            </div>
+            <div class="post-description">Proposal to update liquidation threshold for USDC from 78% to 80% to improve protocol safety.</div>
+        </div>
+        
+        <div class="post-card">
+            <div class="post-title">
+                <a href="https://governance.aave.com/t/quarterly-risk-assessment/124" target="_blank">Quarterly Risk Assessment - Q1 2025</a>
+            </div>
+            <div class="post-meta">
+                Source: Risk Updates | 
+                Relevance: <span class="relevance-score">7.2</span>
+                 | 2025-01-19T15:30:00Z
+            </div>
+            <div class="post-description">Comprehensive risk assessment covering all major assets across networks.</div>
+        </div>
+        
+        <div class="post-card">
+            <div class="post-title">
+                <a href="https://governance.aave.com/t/new-asset-listing-wsteth/125" target="_blank">New Asset Listing: wstETH on Base</a>
+            </div>
+            <div class="post-meta">
+                Source: Aave Governance | 
+                Relevance: <span class="relevance-score">6.8</span>
+                 | 2025-01-18T09:15:00Z
+            </div>
+            <div class="post-description">Proposal to add wstETH as collateral on Base network with initial risk parameters.</div>
+        </div>
+        
+        </div>
+    </div>
+    
+        
+        
+    <div class="section">
+        <h2>🔍 Governance Validation</h2>
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-number">✅</div>
+                <div class="summary-label">Validation Status</div>
+            </div>
+            <div class="summary-card">
+                <div class="validation-score ">95.0%</div>
+                <div class="summary-label">Consistency Score</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number">45</div>
+                <div class="summary-label">Assets Validated</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number">5</div>
+                <div class="summary-label">Networks Validated</div>
+            </div>
+        </div>
+        
+        <h3>⚠️ Validation Warnings</h3><ul><li>Minor discrepancy in USDC reserve factor on Polygon (expected 0.10, found 0.101)</li></ul>
+    </div>
+    
+        
+        
+    <footer>
+        <div>
+            Generated by Aave V3 Data Fetcher | 
+            <strong>Governance Monitoring System</strong>
+        </div>
+        <div class="footer-links">
+            <a href="aave_v3_data.html">📊 Protocol Data</a>
+            <a href="aave_v3_data.json">📄 JSON API</a>
+            <a href="governance_monitoring_report.json">🏛️ Governance JSON</a>
+            <a href="https://governance.aave.com" target="_blank">🗳️ Aave Governance</a>
+        </div>
+    </footer>
+    
+    </div>
+</body>
+</html>

@@ -1,0 +1,4101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aave V3 Protocol Data</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .metadata {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .metadata-item {
+            text-align: center;
+        }
+        
+        .metadata-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .metadata-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .network-section {
+            margin: 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .network-section:last-child {
+            border-bottom: none;
+        }
+        
+        .network-header {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .network-stats {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            padding: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f1f3f4;
+            vertical-align: middle;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .symbol-cell {
+            font-weight: bold;
+            color: #667eea;
+            min-width: 80px;
+        }
+        
+        .address-cell {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.8em;
+            color: #6c757d;
+            min-width: 120px;
+        }
+        
+        .percentage-cell {
+            text-align: right;
+            font-weight: 500;
+            min-width: 70px;
+        }
+        
+        .boolean-cell {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .number-cell {
+            text-align: right;
+            font-weight: 500;
+            min-width: 80px;
+        }
+        
+        .status-active {
+            color: #28a745;
+        }
+        
+        .status-inactive {
+            color: #dc3545;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .metadata {
+                padding: 15px;
+            }
+            
+            .metadata-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .network-header {
+                padding: 12px 20px;
+                font-size: 1.1em;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            table {
+                font-size: 0.8em;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .metadata-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .network-header {
+                padding: 10px 15px;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+            
+            .address-cell {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Aave V3 Protocol Data</h1>
+            <p>Real-time liquidation thresholds, LTV ratios, and protocol parameters across all supported networks</p>
+        </div>
+        
+        
+<div class="metadata">
+    <div class="metadata-grid">
+        <div class="metadata-item">
+            <span class="metadata-value">13</span>
+            <span class="metadata-label">Networks</span>
+        </div>
+        <div class="metadata-item">
+            <span class="metadata-value">190</span>
+            <span class="metadata-label">Total Assets</span>
+        </div>
+        <div class="metadata-item">
+            <span class="metadata-value">190</span>
+            <span class="metadata-label">Active Assets</span>
+        </div>
+        <div class="metadata-item">
+            <span class="metadata-value">2025-07-22 21:38 UTC</span>
+            <span class="metadata-label">Last Updated</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Arbitrum One</span>
+        <span class="network-stats">19 assets • 19 active • 15 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">AAVE</td>
+        <td class="address-cell">0xba5d...7196</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">14</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ARB</td>
+        <td class="address-cell">0x912c...6548</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">58.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">155</td>
+        <td class="number-cell">243</td>
+        <td class="number-cell">38.75K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI</td>
+        <td class="address-cell">0xda10...0da1</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">227</td>
+        <td class="number-cell">199</td>
+        <td class="number-cell">8.34K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">EURS</td>
+        <td class="address-cell">0xd22a...b68b</td>
+        <td class="percentage-cell">67.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">40.00M</td>
+        <td class="number-cell">19</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">65.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FRAX</td>
+        <td class="address-cell">0x17fc...bd6f</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GHO</td>
+        <td class="address-cell">0x7dff...8b33</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">249</td>
+        <td class="number-cell">129</td>
+        <td class="number-cell">15.86K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LINK</td>
+        <td class="address-cell">0xf97f...9fb4</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">5.39K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LUSD</td>
+        <td class="address-cell">0x93b3...425b</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MAI</td>
+        <td class="address-cell">0x3f56...ea0d</td>
+        <td class="percentage-cell">1.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">95.00%</td>
+        <td class="number-cell">160.00M</td>
+        <td class="number-cell">79</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">53.39K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xff97...5cc8</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">85</td>
+        <td class="number-cell">66</td>
+        <td class="number-cell">4.62K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xaf88...5831</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">145</td>
+        <td class="number-cell">6.49K</td>
+        <td class="number-cell">9.22K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0xfd08...cbb9</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">199</td>
+        <td class="number-cell">2.41K</td>
+        <td class="number-cell">27.17K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0x2f2a...5b0f</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">320</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x82af...bab1</td>
+        <td class="percentage-cell">84.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">41</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">21.93K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ezETH</td>
+        <td class="address-cell">0x2416...eea5</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">rETH</td>
+        <td class="address-cell">0xec70...ffa8</td>
+        <td class="percentage-cell">74.00%</td>
+        <td class="percentage-cell">69.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">rsETH</td>
+        <td class="address-cell">0x4186...b41f</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0x3575...4dbe</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">29</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x5979...0529</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.20%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">16</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">6.15K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Avalanche C-Chain</span>
+        <span class="network-stats">14 assets • 14 active • 11 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">AAVE.e</td>
+        <td class="address-cell">0x63a7...86d9</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">AUSD</td>
+        <td class="address-cell">0x0000...012a</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">69.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">63</td>
+        <td class="number-cell">289</td>
+        <td class="number-cell">60.10K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">BTC.b</td>
+        <td class="address-cell">0x152b...3e50</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">6.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">300</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI.e</td>
+        <td class="address-cell">0xd586...8d70</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">49</td>
+        <td class="number-cell">101</td>
+        <td class="number-cell">40.86K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FRAX</td>
+        <td class="address-cell">0xd24c...da64</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GHO</td>
+        <td class="address-cell">0xfc42...9e73</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">21.57K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LINK.e</td>
+        <td class="address-cell">0x5947...27a3</td>
+        <td class="percentage-cell">71.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">107</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">12.46K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MAI</td>
+        <td class="address-cell">0x5c49...3f3b</td>
+        <td class="percentage-cell">1.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">95.00%</td>
+        <td class="number-cell">16.00M</td>
+        <td class="number-cell">4</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">10.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xb97e...8a6e</td>
+        <td class="percentage-cell">79.50%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">4.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">26</td>
+        <td class="number-cell">3.43K</td>
+        <td class="number-cell">14.91K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDt</td>
+        <td class="address-cell">0x9702...a8c7</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">43</td>
+        <td class="number-cell">1.59K</td>
+        <td class="number-cell">59.90K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WAVAX</td>
+        <td class="address-cell">0xb31f...66c7</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">68.00%</td>
+        <td class="percentage-cell">9.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">78</td>
+        <td class="number-cell">118</td>
+        <td class="number-cell">1.75K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC.e</td>
+        <td class="address-cell">0x50b7...b218</td>
+        <td class="percentage-cell">67.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">6.25%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.10K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH.e</td>
+        <td class="address-cell">0x49d5...0bab</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">9</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">31.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">sAVAX</td>
+        <td class="address-cell">0x2b2c...a4be</td>
+        <td class="percentage-cell">55.00%</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">73</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>BNB Smart Chain</span>
+        <span class="network-stats">8 assets • 8 active • 8 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">BTCB</td>
+        <td class="address-cell">0x7130...ad9c</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">180</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">Cake</td>
+        <td class="address-cell">0x0e09...ce82</td>
+        <td class="percentage-cell">61.00%</td>
+        <td class="percentage-cell">55.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">5.60B</td>
+        <td class="number-cell">36</td>
+        <td class="number-cell">9</td>
+        <td class="number-cell">10.18K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ETH</td>
+        <td class="address-cell">0x2170...33f8</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">8.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FDUSD</td>
+        <td class="address-cell">0xc5f0...6409</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">113</td>
+        <td class="number-cell">164</td>
+        <td class="number-cell">52.10K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x8ac7...580d</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">56</td>
+        <td class="number-cell">823</td>
+        <td class="number-cell">63.87K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0x55d3...7955</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">188</td>
+        <td class="number-cell">1.37K</td>
+        <td class="number-cell">19.07K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBNB</td>
+        <td class="address-cell">0xbb4c...095c</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">35</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">36.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x26c5...611c</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Base</span>
+        <span class="network-stats">13 assets • 13 active • 9 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">AAVE</td>
+        <td class="address-cell">0x6370...814b</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">60.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">EURC</td>
+        <td class="address-cell">0x60a3...db42</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">183</td>
+        <td class="number-cell">363</td>
+        <td class="number-cell">54.87K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GHO</td>
+        <td class="address-cell">0x6bb7...10ee</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">56</td>
+        <td class="number-cell">686</td>
+        <td class="number-cell">42.30K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LBTC</td>
+        <td class="address-cell">0xecac...11c1</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">68.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x8335...2913</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">225</td>
+        <td class="number-cell">3.37K</td>
+        <td class="number-cell">9.22K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDbC</td>
+        <td class="address-cell">0xd9aa...b6ca</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">124</td>
+        <td class="number-cell">18</td>
+        <td class="number-cell">14.35K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x4200...0006</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">31</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">44.46K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cbBTC</td>
+        <td class="address-cell">0xcbb7...33bf</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">640</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cbETH</td>
+        <td class="address-cell">0x2ae3...ec22</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">430</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ezETH</td>
+        <td class="address-cell">0x2416...eea5</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0x04c0...150a</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">29</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wrsETH</td>
+        <td class="address-cell">0xedfa...bea0</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0xc1cb...e452</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">6</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">5.46K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Celo</span>
+        <span class="network-stats">6 assets • 6 active • 6 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">CELO</td>
+        <td class="address-cell">0x471e...a438</td>
+        <td class="percentage-cell">61.00%</td>
+        <td class="percentage-cell">55.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">800.00M</td>
+        <td class="number-cell">74</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">3.39K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xceba...118c</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">86</td>
+        <td class="number-cell">48</td>
+        <td class="number-cell">4.27K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0x4806...3d5e</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">227</td>
+        <td class="number-cell">54</td>
+        <td class="number-cell">61.06K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0xd221...d9af</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">900</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cEUR</td>
+        <td class="address-cell">0xd876...ca73</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">39</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">12.93K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cUSD</td>
+        <td class="address-cell">0x765d...282a</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">61</td>
+        <td class="number-cell">17</td>
+        <td class="number-cell">55.89K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Ethereum Mainnet</span>
+        <span class="network-stats">49 assets • 49 active • 35 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">1INCH</td>
+        <td class="address-cell">0x1111...c302</td>
+        <td class="percentage-cell">67.00%</td>
+        <td class="percentage-cell">57.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.89B</td>
+        <td class="number-cell">42</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">16.45K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">AAVE</td>
+        <td class="address-cell">0x7fc6...dae9</td>
+        <td class="percentage-cell">76.00%</td>
+        <td class="percentage-cell">69.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">195</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">BAL</td>
+        <td class="address-cell">0xba10...4e3d</td>
+        <td class="percentage-cell">59.00%</td>
+        <td class="percentage-cell">57.00%</td>
+        <td class="percentage-cell">8.30%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">4.64B</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">15</td>
+        <td class="number-cell">16.96K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">CRV</td>
+        <td class="address-cell">0xd533...cd52</td>
+        <td class="percentage-cell">41.00%</td>
+        <td class="percentage-cell">35.00%</td>
+        <td class="percentage-cell">8.30%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">35.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">115</td>
+        <td class="number-cell">106</td>
+        <td class="number-cell">53.18K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI</td>
+        <td class="address-cell">0x6b17...1d0f</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">87</td>
+        <td class="number-cell">4.13K</td>
+        <td class="number-cell">8.64K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ENS</td>
+        <td class="address-cell">0xc183...9d72</td>
+        <td class="percentage-cell">49.00%</td>
+        <td class="percentage-cell">39.00%</td>
+        <td class="percentage-cell">8.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.64B</td>
+        <td class="number-cell">24</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">20.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ETHx</td>
+        <td class="address-cell">0xa35b...a15b</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">74.50%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">9</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">EURC</td>
+        <td class="address-cell">0x1aba...c33c</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">172</td>
+        <td class="number-cell">99</td>
+        <td class="number-cell">11.94K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FBTC</td>
+        <td class="address-cell">0xc96d...c364</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">100</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FRAX</td>
+        <td class="address-cell">0x853d...b99e</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">FXS</td>
+        <td class="address-cell">0x3432...64d0</td>
+        <td class="percentage-cell">42.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">6.40B</td>
+        <td class="number-cell">36</td>
+        <td class="number-cell">5</td>
+        <td class="number-cell">2.32K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GHO</td>
+        <td class="address-cell">0x40d1...6c2f</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">100.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">3.05K</td>
+        <td class="number-cell">49.66K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">KNC</td>
+        <td class="address-cell">0xdefa...7202</td>
+        <td class="percentage-cell">37.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">36</td>
+        <td class="number-cell">5</td>
+        <td class="number-cell">22.32K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LBTC</td>
+        <td class="address-cell">0x8236...4494</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LDO</td>
+        <td class="address-cell">0x5a98...1b32</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">40.00%</td>
+        <td class="percentage-cell">9.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">4.00B</td>
+        <td class="number-cell">196</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">41.25K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LINK</td>
+        <td class="address-cell">0x5149...86ca</td>
+        <td class="percentage-cell">71.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">18</td>
+        <td class="number-cell">198</td>
+        <td class="number-cell">23.87K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LUSD</td>
+        <td class="address-cell">0x5f98...8ba0</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">4.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">172</td>
+        <td class="number-cell">76</td>
+        <td class="number-cell">19.26K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MKR</td>
+        <td class="address-cell">0x9f8f...79a2</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">19.20B</td>
+        <td class="number-cell">5</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PT-USDe-31JUL2025</td>
+        <td class="address-cell">0x9174...d667</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">26</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PT-eUSDE-14AUG2025</td>
+        <td class="address-cell">0x14bd...e617</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">52</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PT-eUSDE-29MAY2025</td>
+        <td class="address-cell">0x50d2...a545</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PT-sUSDE-25SEP2025</td>
+        <td class="address-cell">0x9f56...5f77</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">52</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PT-sUSDE-31JUL2025</td>
+        <td class="address-cell">0x3b3f...f634</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">225</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PYUSD</td>
+        <td class="address-cell">0x6c3e...a0e8</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">56</td>
+        <td class="number-cell">228</td>
+        <td class="number-cell">57.79K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">RLUSD</td>
+        <td class="address-cell">0x8292...17ed</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">52</td>
+        <td class="number-cell">1.83K</td>
+        <td class="number-cell">3.58K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">RPL</td>
+        <td class="address-cell">0xd335...a51f</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">205</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">41.25K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">SNX</td>
+        <td class="address-cell">0xc011...2a6f</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">95.00%</td>
+        <td class="number-cell">1.60K</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">STG</td>
+        <td class="address-cell">0xaf51...2cd6</td>
+        <td class="percentage-cell">37.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">4.80B</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">48</td>
+        <td class="number-cell">54.27K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">UNI</td>
+        <td class="address-cell">0x1f98...f984</td>
+        <td class="percentage-cell">74.00%</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">27.20B</td>
+        <td class="number-cell">184</td>
+        <td class="number-cell">5</td>
+        <td class="number-cell">2.32K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xa0b8...eb48</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">4.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">163</td>
+        <td class="number-cell">381</td>
+        <td class="number-cell">63.49K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDS</td>
+        <td class="address-cell">0xdc03...384f</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">240</td>
+        <td class="number-cell">5.49K</td>
+        <td class="number-cell">10.75K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0xdac1...1ec7</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">4.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">210</td>
+        <td class="number-cell">41.27K</td>
+        <td class="number-cell">34.30K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDe</td>
+        <td class="address-cell">0x4c9e...68b3</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">135</td>
+        <td class="number-cell">10.07K</td>
+        <td class="number-cell">52.48K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDtb</td>
+        <td class="address-cell">0xc139...ac1c</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">188</td>
+        <td class="number-cell">1.22K</td>
+        <td class="number-cell">46.08K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0x2260...c599</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">12</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">28.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0xc02a...6cc2</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.50%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">44</td>
+        <td class="number-cell">16.42K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cbBTC</td>
+        <td class="address-cell">0xcbb7...33bf</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">5</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.44K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">cbETH</td>
+        <td class="address-cell">0xbe98...9704</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">4</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">2.40K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">crvUSD</td>
+        <td class="address-cell">0xf939...1b4e</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">196</td>
+        <td class="number-cell">38</td>
+        <td class="number-cell">9.63K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">eBTC</td>
+        <td class="address-cell">0x657e...c642</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">67.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">eUSDe</td>
+        <td class="address-cell">0x90d2...cc8f</td>
+        <td class="percentage-cell">0.10%</td>
+        <td class="percentage-cell">0.05%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">133</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">osETH</td>
+        <td class="address-cell">0xf1c9...0e38</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.50%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">85</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">rETH</td>
+        <td class="address-cell">0xae78...6393</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">21</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">rsETH</td>
+        <td class="address-cell">0xa129...e5a7</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">117</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">sDAI</td>
+        <td class="address-cell">0x83f2...beea</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">4.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">196</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">sUSDe</td>
+        <td class="address-cell">0x9d39...3497</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">8.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">214</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">tBTC</td>
+        <td class="address-cell">0x1808...3a88</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">275</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0xcd5f...b7ee</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">77.50%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">25</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x7f39...2ca0</td>
+        <td class="percentage-cell">81.00%</td>
+        <td class="percentage-cell">78.50%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">173</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">21.25K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Gnosis Chain</span>
+        <span class="network-stats">8 assets • 8 active • 7 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">EURe</td>
+        <td class="address-cell">0xcb44...c56e</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">42</td>
+        <td class="number-cell">228</td>
+        <td class="number-cell">57.79K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GNO</td>
+        <td class="address-cell">0x9c58...cedb</td>
+        <td class="percentage-cell">53.00%</td>
+        <td class="percentage-cell">48.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">43</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">20.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0xddaf...7a83</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">40.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">98</td>
+        <td class="number-cell">30</td>
+        <td class="number-cell">33.92K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC.e</td>
+        <td class="address-cell">0x2a22...76f0</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">113</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">21.57K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x6a02...f6e1</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">3.50K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WXDAI</td>
+        <td class="address-cell">0xe91d...a97d</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">85</td>
+        <td class="number-cell">549</td>
+        <td class="number-cell">20.74K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">sDAI</td>
+        <td class="address-cell">0xaf20...3701</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">198</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x6c76...6ea6</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">400</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Linea</span>
+        <span class="network-stats">7 assets • 7 active • 5 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x1762...e1ff</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">220</td>
+        <td class="number-cell">41</td>
+        <td class="number-cell">13.02K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0xa219...2b93</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">244</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">48.03K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0x3aab...a9b4</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">2</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0xe5d7...f34f</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">4.40K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ezETH</td>
+        <td class="address-cell">0x2416...eea5</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0x1bf7...8aa6</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.50%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0xb5be...fc8f</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">75</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Metis Andromeda</span>
+        <span class="network-stats">5 assets • 5 active • 5 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">Metis</td>
+        <td class="address-cell">0xdead...0000</td>
+        <td class="percentage-cell">40.00%</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">146</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">32.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x4200...000a</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">720</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">m.DAI</td>
+        <td class="address-cell">0x4c07...6ce0</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">244</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">48.03K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">m.USDC</td>
+        <td class="address-cell">0xea32...1a21</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">21.57K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">m.USDT</td>
+        <td class="address-cell">0xbb06...f4dc</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">74</td>
+        <td class="number-cell">61</td>
+        <td class="number-cell">2.30K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Optimism</span>
+        <span class="network-stats">14 assets • 14 active • 12 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">AAVE</td>
+        <td class="address-cell">0x76fb...9278</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">4</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI</td>
+        <td class="address-cell">0xda10...0da1</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">106</td>
+        <td class="number-cell">53.18K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LINK</td>
+        <td class="address-cell">0x350a...a7f6</td>
+        <td class="percentage-cell">71.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">57</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">18.46K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LUSD</td>
+        <td class="address-cell">0xc40f...2819</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MAI</td>
+        <td class="address-cell">0xdfa4...4b02</td>
+        <td class="percentage-cell">1.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">95.00%</td>
+        <td class="number-cell">208.00M</td>
+        <td class="number-cell">158</td>
+        <td class="number-cell">8</td>
+        <td class="number-cell">712</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">OP</td>
+        <td class="address-cell">0x4200...0042</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">58.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">18</td>
+        <td class="number-cell">19</td>
+        <td class="number-cell">54.82K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x7f5c...1607</td>
+        <td class="percentage-cell">78.50%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">42</td>
+        <td class="number-cell">236</td>
+        <td class="number-cell">33.50K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x0b2c...ff85</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">114</td>
+        <td class="number-cell">1.20K</td>
+        <td class="number-cell">41.26K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0x94b0...8e58</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">215</td>
+        <td class="number-cell">350</td>
+        <td class="number-cell">62.40K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0x68f1...2095</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">250</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x4200...0006</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">8</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">32.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">rETH</td>
+        <td class="address-cell">0x9bce...b81d</td>
+        <td class="percentage-cell">74.00%</td>
+        <td class="percentage-cell">69.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">sUSD</td>
+        <td class="address-cell">0x8c6f...c8d9</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.40%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x1f32...4ebb</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.20%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">8</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.50K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Polygon</span>
+        <span class="network-stats">21 assets • 21 active • 16 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">AAVE</td>
+        <td class="address-cell">0xd6df...c90b</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">63.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">24</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">BAL</td>
+        <td class="address-cell">0x9a71...76a3</td>
+        <td class="percentage-cell">42.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">88</td>
+        <td class="number-cell">4</td>
+        <td class="number-cell">27.86K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">CRV</td>
+        <td class="address-cell">0x1723...10af</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">35.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">85</td>
+        <td class="number-cell">4</td>
+        <td class="number-cell">37.86K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI</td>
+        <td class="address-cell">0x8f3c...a063</td>
+        <td class="percentage-cell">77.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">42</td>
+        <td class="number-cell">244</td>
+        <td class="number-cell">9.22K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DPI</td>
+        <td class="address-cell">0x8595...a369</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">35.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">779</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">EURA</td>
+        <td class="address-cell">0xe0b5...7db4</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">73</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">53.39K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">EURS</td>
+        <td class="address-cell">0xe111...ae99</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">65.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">1.08B</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">GHST</td>
+        <td class="address-cell">0x385e...54a7</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">35.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">111</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">23.39K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LINK</td>
+        <td class="address-cell">0x53e0...ad39</td>
+        <td class="percentage-cell">71.00%</td>
+        <td class="percentage-cell">66.00%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">134</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">32.63K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MaticX</td>
+        <td class="address-cell">0xfa68...efb6</td>
+        <td class="percentage-cell">60.00%</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">112</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">SUSHI</td>
+        <td class="address-cell">0x0b3f...a50a</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">73</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">48.93K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x2791...4174</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">60.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">66</td>
+        <td class="number-cell">213</td>
+        <td class="number-cell">40.83K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x3c49...3359</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">94</td>
+        <td class="number-cell">1.37K</td>
+        <td class="number-cell">19.07K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0xc213...8e8f</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">25.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">212</td>
+        <td class="number-cell">1.30K</td>
+        <td class="number-cell">65.34K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0x1bfd...bfd6</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">6.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">851</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x7ceb...f619</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">12</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">14.79K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WPOL</td>
+        <td class="address-cell">0x0d50...1270</td>
+        <td class="percentage-cell">73.00%</td>
+        <td class="percentage-cell">68.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">34</td>
+        <td class="number-cell">1.02K</td>
+        <td class="number-cell">22.21K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">jEUR</td>
+        <td class="address-cell">0x4e3d...fb4c</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">29</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">34.46K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">miMATIC</td>
+        <td class="address-cell">0xa3fa...97f1</td>
+        <td class="percentage-cell">1.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">95.00%</td>
+        <td class="number-cell">288.00M</td>
+        <td class="number-cell">219</td>
+        <td class="number-cell">10</td>
+        <td class="number-cell">44.64K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">stMATIC</td>
+        <td class="address-cell">0x3a58...f3c4</td>
+        <td class="percentage-cell">58.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">44</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x03b5...bccd</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.20%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">2</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">570</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>Scroll</span>
+        <span class="network-stats">5 assets • 5 active • 5 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">SCR</td>
+        <td class="address-cell">0xd296...7b1b</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">20.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">183</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">28.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x06ef...63a4</td>
+        <td class="percentage-cell">78.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">184</td>
+        <td class="number-cell">82</td>
+        <td class="number-cell">26.05K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x5300...0004</td>
+        <td class="percentage-cell">83.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">6.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">15.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">13.50K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0x01f0...c506</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">72.50%</td>
+        <td class="percentage-cell">7.50%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">45.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">3</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0xf610...da32</td>
+        <td class="percentage-cell">79.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">7.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.00K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+
+<div class="network-section">
+    <div class="network-header">
+        <span>zkSync Era</span>
+        <span class="network-stats">21 assets • 21 active • 15 borrowable</span>
+    </div>
+    <div class="table-container">
+        <table>
+            <tr>
+        <th>Symbol</th>
+        <th>Asset Address</th>
+        <th>Liquidation Threshold</th>
+        <th>LTV</th>
+        <th>LB</th>
+        <th>Active</th>
+        <th>Frozen</th>
+        <th>Borrowing</th>
+        <th>Stable Borrow</th>
+        <th>Paused</th>
+        <th>Isolation</th>
+        <th>Reserve Factor</th>
+        <th>Debt Ceiling</th>
+        <th>eMode</th>
+        <th>Supply Cap</th>
+        <th>Borrow Cap</th>
+    </tr>
+
+    <tr>
+        <td class="symbol-cell">BUSD</td>
+        <td class="address-cell">0x2039...f181</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">Cake</td>
+        <td class="address-cell">0x3a28...cecd</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">DAI</td>
+        <td class="address-cell">0x4b9e...b656</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">244</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">48.03K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">KS-LP USDC.e-USDT</td>
+        <td class="address-cell">0x4d32...1ef6</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">8.00M</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">LUSD</td>
+        <td class="address-cell">0x5032...6115</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">244</td>
+        <td class="number-cell">13</td>
+        <td class="number-cell">48.03K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">M-BTC</td>
+        <td class="address-cell">0xe757...75ab</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">30</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">MUTE</td>
+        <td class="address-cell">0x0e97...1d42</td>
+        <td class="percentage-cell">90.00%</td>
+        <td class="percentage-cell">60.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">48.00M</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">45</td>
+        <td class="number-cell">50.88K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ONEZ</td>
+        <td class="address-cell">0x9005...55ad</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">PEPE</td>
+        <td class="address-cell">0xfd28...7c71</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">8.00M</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">SWORD</td>
+        <td class="address-cell">0x240f...5fa4</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">7</td>
+        <td class="number-cell">41.25K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC</td>
+        <td class="address-cell">0x1d17...38d4</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">215</td>
+        <td class="number-cell">305</td>
+        <td class="number-cell">11.52K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDC.e</td>
+        <td class="address-cell">0x3355...aaf4</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">215</td>
+        <td class="number-cell">305</td>
+        <td class="number-cell">11.52K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USDT</td>
+        <td class="address-cell">0x4932...ba4c</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">220</td>
+        <td class="number-cell">41</td>
+        <td class="number-cell">13.02K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">USN</td>
+        <td class="address-cell">0x0469...c0b6</td>
+        <td class="percentage-cell">60.00%</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="number-cell">320.00M</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">34.46K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">VC</td>
+        <td class="address-cell">0x99bb...87f2</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="number-cell">8.00M</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WBTC</td>
+        <td class="address-cell">0xbbeb...1011</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">10.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">45</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">WETH</td>
+        <td class="address-cell">0x5aea...9a91</td>
+        <td class="percentage-cell">82.50%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="percentage-cell">50.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">4.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">ZK</td>
+        <td class="address-cell">0x5a7d...af3e</td>
+        <td class="percentage-cell">85.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">84</td>
+        <td class="number-cell">1.86K</td>
+        <td class="number-cell">37.50K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wUSDM</td>
+        <td class="address-cell">0xa900...442b</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="number-cell">1.60B</td>
+        <td class="number-cell">137</td>
+        <td class="number-cell">15</td>
+        <td class="number-cell">16.96K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">weETH</td>
+        <td class="address-cell">0xc1fa...924a</td>
+        <td class="percentage-cell">75.00%</td>
+        <td class="percentage-cell">70.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">30.00%</td>
+        <td class="number-cell">1.60M</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.00K</td>
+    </tr>
+    <tr>
+        <td class="symbol-cell">wstETH</td>
+        <td class="address-cell">0x703b...e867</td>
+        <td class="percentage-cell">82.00%</td>
+        <td class="percentage-cell">80.00%</td>
+        <td class="percentage-cell">5.00%</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">✅ Yes</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="boolean-cell">❌ No</td>
+        <td class="percentage-cell">0.00%</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">0</td>
+        <td class="number-cell">1.00K</td>
+    </tr>
+        </table>
+    </div>
+</div>
+        
+        <div class="footer">
+            <p>
+                Data automatically updated daily from on-chain sources • 
+                Generated on 2025-07-22 at 21:38 UTC • 
+                <a href="https://github.com/aave/aave-v3-core" target="_blank">Aave V3 Protocol</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

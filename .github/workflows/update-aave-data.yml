@@ -1,0 +1,63 @@
+name: Update Aave V3 Data
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        
+    - name: Run Aave data fetcher with governance monitoring
+      run: python aave_fetcher.py --turbo --monitor-governance --governance-alerts --validate-governance
+      
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git add aave_v3_data.json aave_v3_data.html governance_monitoring.html governance_monitoring_report.json governance_validation_report.json governance_history.json
+        git commit -m "Update Aave V3 data and governance monitoring - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        git push
+        
+    - name: Log deployment info
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        echo "Data updated successfully!"
+        echo "GitHub Pages will automatically rebuild and deploy the updated content"
+        echo "Protocol Data HTML: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/aave_v3_data.html"
+        echo "Governance Monitoring HTML: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/governance_monitoring.html"
+        echo "Protocol Data JSON: https://raw.githubusercontent.com/${{ github.repository }}/main/aave_v3_data.json"
+        echo "Governance Monitoring JSON: https://raw.githubusercontent.com/${{ github.repository }}/main/governance_monitoring_report.json"
+        
+    - name: No changes detected
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: |
+        echo "No changes detected in Aave V3 data - skipping commit"

@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-07-22T16:28:03.888346",
+  "networks": {},
+  "overall_stats": {
+    "total_networks": 0,
+    "healthy_networks": 0,
+    "degraded_networks": 0,
+    "unhealthy_networks": 0
+  }
+}

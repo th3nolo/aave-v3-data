@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-07-22T16:16:05.511706",
+  "execution_time": 49.25943851470947,
+  "test_summary": {
+    "total_tests": 6,
+    "successful_tests": 6,
+    "failed_tests": 0,
+    "success_rate": 1.0
+  },
+  "test_results": {
+    "Complete Integration Testing": true,
+    "Deployment Validation": true,
+    "LLM Consumption Testing": true,
+    "GitHub Actions Workflow": true,
+    "Data Validation": true,
+    "Performance Validation": true
+  },
+  "individual_reports": {
+    "integration": {
+      "timestamp": "2025-07-22T16:15:22.595950",
+      "total_tests": 7,
+      "passed_tests": 7,
+      "failed_tests": 0,
+      "success_rate": 1.0,
+      "execution_time": 6.292780160903931,
+      "test_results": {
+        "Complete Workflow Execution": true,
+        "Automated Daily Updates": true,
+        "Manual Workflow Triggering": true,
+        "JSON API Accessibility": true,
+        "HTML Page Rendering": true,
+        "LLM Consumption Validation": true,
+        "End-to-End Validation": true
+      },
+      "github_pages_url": null,
+      "github_raw_url": null
+    },
+    "deployment": {
+      "timestamp": "2025-07-22T16:15:22.648018",
+      "github_repository": null,
+      "validation_results": {
+        "Local Files": true,
+        "GitHub Pages Config": true,
+        "Pages Deployment": true,
+        "JSON API": true,
+        "Workflow Execution": true,
+        "Data Freshness": true
+      },
+      "summary": {
+        "total_validations": 6,
+        "passed_validations": 6,
+        "success_rate": 1.0,
+        "deployment_ready": true
+      }
+    },
+    "llm": {
+      "timestamp": "2025-07-22T16:15:22.698849",
+      "github_repository": null,
+      "test_results": {
+        "Data Structure for LLM": true,
+        "Common LLM Queries": true,
+        "API Accessibility": true,
+        "LLM Integration Examples": true,
+        "Performance for LLM": true
+      },
+      "summary": {
+        "total_tests": 5,
+        "passed_tests": 5,
+        "success_rate": 1.0,
+        "llm_ready": true
+      }
+    }
+  },
+  "deployment_readiness": {
+    "ready_for_deployment": true,
+    "critical_tests_passed": false,
+    "performance_compliant": true
+  },
+  "recommendations": [
+    "System is ready for production deployment"
+  ]
+}

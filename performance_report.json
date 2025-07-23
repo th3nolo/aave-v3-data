@@ -1,0 +1,116 @@
+{
+  "timestamp": "2025-07-22T16:28:03.888513",
+  "profiler_stats": {},
+  "network_metrics": {},
+  "network_prioritization_stats": {
+    "ethereum": {
+      "tier": "CRITICAL",
+      "weight": 3.0,
+      "average_time": 1.80678391456604,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "polygon": {
+      "tier": "CRITICAL",
+      "weight": 2.5,
+      "average_time": 1.2712106704711914,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "arbitrum": {
+      "tier": "CRITICAL",
+      "weight": 2.5,
+      "average_time": 2.1236836910247803,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "optimism": {
+      "tier": "HIGH",
+      "weight": 2.0,
+      "average_time": 1.0053470134735107,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "avalanche": {
+      "tier": "HIGH",
+      "weight": 2.0,
+      "average_time": 2.4817569255828857,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "base": {
+      "tier": "HIGH",
+      "weight": 1.8,
+      "average_time": 2.5250730514526367,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "bnb": {
+      "tier": "MEDIUM",
+      "weight": 1.5,
+      "average_time": 1.077272891998291,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "gnosis": {
+      "tier": "MEDIUM",
+      "weight": 1.3,
+      "average_time": 2.1937313079833984,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "scroll": {
+      "tier": "MEDIUM",
+      "weight": 1.2,
+      "average_time": 0.9900963306427002,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "metis": {
+      "tier": "LOW",
+      "weight": 1.0,
+      "average_time": 1.3588550090789795,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "celo": {
+      "tier": "LOW",
+      "weight": 1.0,
+      "average_time": 1.302117109298706,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "linea": {
+      "tier": "LOW",
+      "weight": 0.8,
+      "average_time": 0.8731036186218262,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    },
+    "zksync": {
+      "tier": "LOW",
+      "weight": 0.8,
+      "average_time": 2.4430596828460693,
+      "failure_rate": 0.0,
+      "total_attempts": 1
+    }
+  },
+  "cache_stats": {
+    "total_entries": 203,
+    "expired_entries": 0,
+    "active_entries": 203,
+    "category_counts": {},
+    "cache_hit_potential": 0,
+    "average_performance_score": 1.9773399014778323
+  },
+  "overall_stats": {
+    "total_networks": 0,
+    "total_rpc_calls": 0,
+    "total_successful_calls": 0,
+    "total_failed_calls": 0,
+    "total_assets_processed": 0,
+    "average_network_time": 0.0,
+    "average_rpc_time": 0.0,
+    "overall_success_rate": 0.0
+  }
+}

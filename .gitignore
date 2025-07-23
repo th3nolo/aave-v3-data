@@ -1,0 +1,111 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# Environment Variables
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+
+# Security - Never commit these
+*.pem
+*.key
+*.cert
+*.crt
+private_key.txt
+secrets.json
+credentials.json
+
+# Development/Internal
+.kiro/
+TODO.md
+NOTES.md
+scratch/
+temp/
+tmp/
+
+# Local configuration
+config.local.json
+settings.local.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Generated reports (keep only the ones we want public)
+*_local_report.json
+*_dev_report.json
+test_reports/
+
+# Node modules (if any JS dependencies)
+node_modules/
+
+# Cache
+.cache/
+*.pyc
+
+# Security Assessment (internal use only)
+SECURITY_ASSESSMENT_REPORT.md

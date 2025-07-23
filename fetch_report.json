@@ -1,0 +1,38 @@
+{
+  "fetch_summary": {
+    "start_time": "2025-07-22T15:11:23.822322",
+    "duration_seconds": 102.101633,
+    "successful_networks": 13,
+    "failed_networks": 0,
+    "skipped_networks": 0,
+    "partial_failures": 0
+  },
+  "successful_networks": [
+    "ethereum",
+    "polygon",
+    "arbitrum",
+    "optimism",
+    "avalanche",
+    "metis",
+    "base",
+    "gnosis",
+    "bnb",
+    "scroll",
+    "celo",
+    "zksync",
+    "linea"
+  ],
+  "failed_networks": [],
+  "skipped_networks": [],
+  "partial_failures": {},
+  "health_summary": {
+    "timestamp": "2025-07-22T15:13:05.923973",
+    "networks": {},
+    "overall_stats": {
+      "total_networks": 0,
+      "healthy_networks": 0,
+      "degraded_networks": 0,
+      "unhealthy_networks": 0
+    }
+  }
+}

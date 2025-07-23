@@ -1,0 +1,1837 @@
+{
+  "a17c9e0c48b0c16acbe35f4f23048587": {
+    "data": "WETH",
+    "timestamp": 1753220304.6604886,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b6be970e6bfdb766ddd70a0659f110bc": {
+    "data": "USDC",
+    "timestamp": 1753220304.6605186,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "98085ad9db3afb2d09c46b7a3e0cd5f1": {
+    "data": "wstETH",
+    "timestamp": 1753220304.6605308,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "bc3a0e8d5ec25845d35281feb78c19d9": {
+    "data": "weETH",
+    "timestamp": 1753220304.6605392,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f0d284ebcfa3f3535e453241ab71aeb3": {
+    "data": "SCR",
+    "timestamp": 1753220304.6605475,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7bbd0bcaba5b5b0e62b35d730f373dfb": {
+    "data": "DAI",
+    "timestamp": 1753220309.1958702,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c40732cf2725d649b935c29987f98343": {
+    "data": "LINK",
+    "timestamp": 1753220309.195905,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2062586336816b9f70f37608f545828f": {
+    "data": "USDC",
+    "timestamp": 1753220309.1959176,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "a6b1133c3c9f9dc5498fdc8722b51615": {
+    "data": "WBTC",
+    "timestamp": 1753220309.1959276,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "73218543ffc1745bce7d9051399422de": {
+    "data": "WETH",
+    "timestamp": 1753220309.1959367,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5de6c17a8bdd5e5635c01cc3eb11dc91": {
+    "data": "USDT",
+    "timestamp": 1753220309.1959465,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "58483245da4662225a3b96640eddc554": {
+    "data": "AAVE",
+    "timestamp": 1753220309.195955,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "01129bd3eea2cd1d8e14f232ebc7c853": {
+    "data": "sUSD",
+    "timestamp": 1753220309.195964,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "51e55d787f0fd8862c1ede4b8a297b50": {
+    "data": "OP",
+    "timestamp": 1753220309.1959736,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8aff9c8d090e3e0fa51a15527e941a4a": {
+    "data": "wstETH",
+    "timestamp": 1753220309.1959827,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "acd061e769348335c20e432347b21633": {
+    "data": "LUSD",
+    "timestamp": 1753220309.1959915,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "9a7c02839a557bef7384dd9604f61f1b": {
+    "data": "MAI",
+    "timestamp": 1753220309.1960003,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "203d1406d48e2b919a2771ff1bce1141": {
+    "data": "rETH",
+    "timestamp": 1753220309.1960087,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0123d703dde400b66e79339e3315cc3e": {
+    "data": "USDC",
+    "timestamp": 1753220309.1960177,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "27411b98be1b5039a809e1cded0c8646": {
+    "data": "Cake",
+    "timestamp": 1753220306.426957,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "77ee93a4fa79d605b4285383b2ac4041": {
+    "data": "WBNB",
+    "timestamp": 1753220306.4270053,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "9d033adec787a56f7ee84e2b81b569f4": {
+    "data": "BTCB",
+    "timestamp": 1753220306.427029,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "6dc307f9c228da6b2ae5ae7fbed94a74": {
+    "data": "ETH",
+    "timestamp": 1753220306.4270513,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "27662e8849220ede007a4f9b24b473fe": {
+    "data": "USDC",
+    "timestamp": 1753220306.427072,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b8b6c283e8a27300620f6259daadadbd": {
+    "data": "USDT",
+    "timestamp": 1753220306.4270957,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "646a45421d37b2d2773fd62b6216e740": {
+    "data": "FDUSD",
+    "timestamp": 1753220306.4271135,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "dded885bdea61fd36ad18fefc6d9ceea": {
+    "data": "wstETH",
+    "timestamp": 1753220306.4271257,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f017186e18d2d77dbb4ec0894c3f2087": {
+    "data": "DAI",
+    "timestamp": 1753220310.3826995,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "ef1b608b670ed18e6630ad138ac3da54": {
+    "data": "LINK",
+    "timestamp": 1753220310.3827314,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "18702632ebd36424d11d9a6461bfdf97": {
+    "data": "USDC",
+    "timestamp": 1753220310.3827417,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7e35663ab9431ccf387ad57f430e08f4": {
+    "data": "WBTC",
+    "timestamp": 1753220310.3827503,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "fd3d7ae437f8aeac964b9a5ce3684e9f": {
+    "data": "WETH",
+    "timestamp": 1753220310.3827574,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "37a795199030b3196188e8a3902fcb65": {
+    "data": "USDT",
+    "timestamp": 1753220310.3827646,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b46bb824e13df9a11ff45ecdf122b4a9": {
+    "data": "AAVE",
+    "timestamp": 1753220310.3827715,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b515107f59d0e6d46d2b240eb39bda35": {
+    "data": "WPOL",
+    "timestamp": 1753220310.3827786,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "484c9c3391a16d5398f312d0b12d0b92": {
+    "data": "CRV",
+    "timestamp": 1753220310.3827856,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8620f3e351c0f96a0e43bd51e63d8c61": {
+    "data": "SUSHI",
+    "timestamp": 1753220310.3827925,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8bdff609c956a9cfc48327809029826e": {
+    "data": "GHST",
+    "timestamp": 1753220310.3827996,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2ee2b8fd1636744cc8922263f2261d46": {
+    "data": "BAL",
+    "timestamp": 1753220310.3828068,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7a801e6e4f04ff330e0a4c4298d37782": {
+    "data": "DPI",
+    "timestamp": 1753220310.3828144,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "1d6379af065bc1b55d102f44a6c65ece": {
+    "data": "EURS",
+    "timestamp": 1753220310.3828216,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b81fb4deb334cd0efcc77f43d2d64941": {
+    "data": "jEUR",
+    "timestamp": 1753220310.382829,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8ff9b24246e3b392636110646de4aea7": {
+    "data": "EURA",
+    "timestamp": 1753220310.3828366,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "a1d39b8336f15ebe2377f209d5feba46": {
+    "data": "miMATIC",
+    "timestamp": 1753220310.3828435,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c73f31aa326988121973769a90b811cb": {
+    "data": "stMATIC",
+    "timestamp": 1753220310.382851,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "cade385e9192b92391b8afb7451c8e03": {
+    "data": "MaticX",
+    "timestamp": 1753220310.3828578,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c1a82cfd7df5520a315fe025e2952d56": {
+    "data": "wstETH",
+    "timestamp": 1753220310.3828645,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "ea762e303417384d0ba16372d9073a14": {
+    "data": "USDC",
+    "timestamp": 1753220310.3828716,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c264831cda083588afb45284eee371c5": {
+    "data": "USDC",
+    "timestamp": 1753220307.2649689,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8719e1f9472645a05f791585aa15b824": {
+    "data": "USDT",
+    "timestamp": 1753220307.265027,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b831d9f7241bc791592e9936c96a1215": {
+    "data": "cEUR",
+    "timestamp": 1753220307.2650578,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "334f0599c3a8df07135b444afdadcab1": {
+    "data": "cUSD",
+    "timestamp": 1753220307.2650843,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "dd0c9ca1e587b99c37180d584884cc60": {
+    "data": "CELO",
+    "timestamp": 1753220307.265109,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "454de9cbdb13ac1eb8cf63b94963ee13": {
+    "data": "WETH",
+    "timestamp": 1753220307.265127,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5cd217da68e9d34d30e50874a2791e19": {
+    "data": "m.DAI",
+    "timestamp": 1753220305.6009638,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b3c98ce6ba6fee4660845a849a95c500": {
+    "data": "Metis",
+    "timestamp": 1753220305.6009796,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "58507298783dbd0de6408cdbfe254c3d": {
+    "data": "m.USDC",
+    "timestamp": 1753220305.600985,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5b7b2761a6f3658306c92814fa1b75e5": {
+    "data": "m.USDT",
+    "timestamp": 1753220305.60099,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "76e1fe62efe2836f8ab98dd9edf3325d": {
+    "data": "WETH",
+    "timestamp": 1753220305.600994,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "27fa918a937365a50ada94f8a7c9f9f7": {
+    "data": "WETH",
+    "timestamp": 1753220334.543527,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "effef3d83ef249aebf351b6355de122c": {
+    "data": "wstETH",
+    "timestamp": 1753220334.543568,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c7262e39d0d819e3a52e110a049b65ab": {
+    "data": "WBTC",
+    "timestamp": 1753220334.5435858,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4a5636e32d7104cccd85d6dd734710d1": {
+    "data": "USDC",
+    "timestamp": 1753220334.5435998,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0d4d11f754a7f1f7aa6d65c06dd69250": {
+    "data": "DAI",
+    "timestamp": 1753220334.5436134,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b867f8321a7b3b046fecf78d68f8138d": {
+    "data": "LINK",
+    "timestamp": 1753220334.5436258,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "bfa1f13da88c0d7d590f1e78ba040bab": {
+    "data": "AAVE",
+    "timestamp": 1753220334.5436382,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f90edee51bbf1b389c868728265133e5": {
+    "data": "cbETH",
+    "timestamp": 1753220334.5436509,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7e7f1caa871c07829f4cdf8361499d02": {
+    "data": "USDT",
+    "timestamp": 1753220334.5436635,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "09c1648a65208e672586b8530bc2c0a6": {
+    "data": "rETH",
+    "timestamp": 1753220334.5436788,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4367c397a0fab715d320b32d318bd8e3": {
+    "data": "LUSD",
+    "timestamp": 1753220334.5436935,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7fa42c6c182b952f20f2072305ddeb1f": {
+    "data": "CRV",
+    "timestamp": 1753220334.5437064,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "01680787b46a938928e5878091fc9789": {
+    "data": "MKR",
+    "timestamp": 1753220334.543722,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "73882ceb5b9e38fcd4b4c87496ee04c2": {
+    "data": "SNX",
+    "timestamp": 1753220334.5437355,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8eb92456965a1861157ca57205194ebf": {
+    "data": "BAL",
+    "timestamp": 1753220334.5437486,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "d1c92980e2f83d5fdb408bfcad3b6383": {
+    "data": "UNI",
+    "timestamp": 1753220334.5437617,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "74882a006d822a053f2ce7778ebbd5a1": {
+    "data": "LDO",
+    "timestamp": 1753220334.5437746,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "e021c20682153457382b336b3a786c3d": {
+    "data": "ENS",
+    "timestamp": 1753220334.5437868,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8a1bba25a468b4d1731f52a7e8ca15c6": {
+    "data": "1INCH",
+    "timestamp": 1753220334.5437999,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5b412f5f734abf0f5f066248c1d2f169": {
+    "data": "FRAX",
+    "timestamp": 1753220334.543812,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "fd98ca984fa609dd7bb37321ae5cca47": {
+    "data": "GHO",
+    "timestamp": 1753220334.5438242,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "1adccbd48a47c04bd391b95bc7fa6638": {
+    "data": "RPL",
+    "timestamp": 1753220334.543837,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "aa2cef8bda8e33bc61a36f605a7dbe9c": {
+    "data": "sDAI",
+    "timestamp": 1753220334.543851,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "9a810c55a0ff0a67516b6ce831b71795": {
+    "data": "STG",
+    "timestamp": 1753220334.5438638,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "83166f00871a2f94a6372565393d1033": {
+    "data": "KNC",
+    "timestamp": 1753220334.5438766,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f0b5c253a83a7cd5bf1842129e9fc509": {
+    "data": "FXS",
+    "timestamp": 1753220334.5438905,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "9d54166970e0b801c03dac8705c325a2": {
+    "data": "crvUSD",
+    "timestamp": 1753220334.5439029,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "cfb5639afa36b4ba77e122685d37a5b0": {
+    "data": "PYUSD",
+    "timestamp": 1753220334.543916,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "fd3e26b6fa945a9676a2491be85d2493": {
+    "data": "weETH",
+    "timestamp": 1753220334.5439284,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "def157f1bf346ac4c3a7df21d433dc5e": {
+    "data": "osETH",
+    "timestamp": 1753220334.543941,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2e3254ebc12401d9036c6ab6143df075": {
+    "data": "USDe",
+    "timestamp": 1753220334.5439537,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "a25fd6573f1e408aa6a9fab4c9f78067": {
+    "data": "ETHx",
+    "timestamp": 1753220334.5439653,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "ba08e6c1fd0aec5f4b3eca9bc546649c": {
+    "data": "sUSDe",
+    "timestamp": 1753220334.5439775,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "ad5f5379672159b29ddcab74bd78202b": {
+    "data": "tBTC",
+    "timestamp": 1753220334.5439901,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b100d302ed25da5ef67c67b4db015f2c": {
+    "data": "cbBTC",
+    "timestamp": 1753220334.5440104,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0ee086ef38680d9f305826d3bc574047": {
+    "data": "USDS",
+    "timestamp": 1753220334.54403,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3efcf4b1c14154a324056fe2b97a976c": {
+    "data": "rsETH",
+    "timestamp": 1753220334.5440497,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0e94c716b7a287e661d000c09796949f": {
+    "data": "LBTC",
+    "timestamp": 1753220334.5440712,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "dcb34b639bff568e712405298fb34396": {
+    "data": "eBTC",
+    "timestamp": 1753220334.5440893,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2aa30787161d2d77d445c140dfa65566": {
+    "data": "RLUSD",
+    "timestamp": 1753220334.5441031,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "dfd4d07af4f9efe5c93421e20d1ae7d2": {
+    "data": "PT-eUSDE-29MAY2025",
+    "timestamp": 1753220334.544117,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "836640f2cccd0ff20114606544653449": {
+    "data": "PT-sUSDE-31JUL2025",
+    "timestamp": 1753220334.5441296,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0adf540b29a1eb99d8e19d178aabdeeb": {
+    "data": "USDtb",
+    "timestamp": 1753220334.544142,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7a00f8493e0f129d64b437280165d556": {
+    "data": "PT-USDe-31JUL2025",
+    "timestamp": 1753220334.5441542,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "e74ad203acf26e44026fc6882bc43f14": {
+    "data": "PT-eUSDE-14AUG2025",
+    "timestamp": 1753220334.5441666,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "819596b8a5eeaea83a9fa31c5302364b": {
+    "data": "eUSDe",
+    "timestamp": 1753220334.544179,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "00bacbe2c92f9ef0e5254af56ab014ad": {
+    "data": "FBTC",
+    "timestamp": 1753220334.5441918,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "fa56d56f8ad7919eba36cb5dfa5de94a": {
+    "data": "EURC",
+    "timestamp": 1753220334.5442042,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "a3bf5150763b3ebed65b3678c8444dde": {
+    "data": "PT-sUSDE-25SEP2025",
+    "timestamp": 1753220334.5442164,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "44f291d3aeab31a1c3a038a1b2dc3417": {
+    "data": "WETH",
+    "timestamp": 1753220308.9343174,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "01cac969e185bddf8cfb8cb79ec2c939": {
+    "data": "WBTC",
+    "timestamp": 1753220308.9343488,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7dfa8c392a6cc1662469c22dcf1cc04c": {
+    "data": "USDC",
+    "timestamp": 1753220308.9343622,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "05e9dcef9715b6c022e5a56785ae4b6b": {
+    "data": "USDT",
+    "timestamp": 1753220308.934372,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "e70c95c5cbbd403b2c60335573a4efc8": {
+    "data": "wstETH",
+    "timestamp": 1753220308.9343824,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c7e03cbe2f5cf5f0877d65b8b647e5de": {
+    "data": "ezETH",
+    "timestamp": 1753220308.9343917,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8230a21bc257996fdec5b022f7e80fb7": {
+    "data": "weETH",
+    "timestamp": 1753220308.9344013,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "91fa850c0d33ab8ed5789a75468def60": {
+    "data": "DAI",
+    "timestamp": 1753220309.7624128,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "bcb1d093663d24f04605ceb23827e739": {
+    "data": "LINK",
+    "timestamp": 1753220309.762441,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "874120c1f108c5aa196b262586bebdf7": {
+    "data": "USDC",
+    "timestamp": 1753220309.762454,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b9dd3a5d303c2bbc3a14c3b846396f5f": {
+    "data": "WBTC",
+    "timestamp": 1753220309.7624633,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "6e8b9d1e9ffe77f5895f5b3939f3ba61": {
+    "data": "WETH",
+    "timestamp": 1753220309.7624724,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "15fcddd2335b2fdd2529628cccdceb1c": {
+    "data": "USDT",
+    "timestamp": 1753220309.762485,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "af0adfd5606ef1d63ae8b48fb20926ff": {
+    "data": "AAVE",
+    "timestamp": 1753220309.762499,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "aec1ee6fa65a3b34eb2bf34e88bff3ba": {
+    "data": "EURS",
+    "timestamp": 1753220309.7625103,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "53ef4c00680a000cf6d1aacd1b6dd3f7": {
+    "data": "wstETH",
+    "timestamp": 1753220309.762519,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3312dba468a1da8b292b70cdccf6b41a": {
+    "data": "MAI",
+    "timestamp": 1753220309.762527,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3f28f11c949ee901c71ec0d3de24772b": {
+    "data": "rETH",
+    "timestamp": 1753220309.762535,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "1f1e7ad2d2e390e1e1dc3f4efa5bf5a0": {
+    "data": "LUSD",
+    "timestamp": 1753220309.7625434,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "d6c8cd0fc81bb58bf495fb1c88b67d4b": {
+    "data": "USDC",
+    "timestamp": 1753220309.7625515,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8f07827ffcea8ae7d945d92d1225406a": {
+    "data": "FRAX",
+    "timestamp": 1753220309.76256,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4ee0950beacc639d1ae6240cb35b63c2": {
+    "data": "ARB",
+    "timestamp": 1753220309.7625682,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "d1d0fc21cf336d6324b2b19a67ce9df6": {
+    "data": "weETH",
+    "timestamp": 1753220309.7625768,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4dc499e8c33e3f0769b13d85f3dede21": {
+    "data": "GHO",
+    "timestamp": 1753220309.7625852,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0f9cab60eceb6613b28b42ac744d1a6b": {
+    "data": "ezETH",
+    "timestamp": 1753220309.7625933,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2fe0c930361255ba92d55ca2454d305e": {
+    "data": "rsETH",
+    "timestamp": 1753220309.7626014,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8161accc5adeaf237eb91f3bcee12536": {
+    "data": "WETH",
+    "timestamp": 1753220307.131624,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "91206c3b29d06fefdf38343ee2aaf0df": {
+    "data": "wstETH",
+    "timestamp": 1753220307.1316411,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2b7fdbe1ed18167dc3b5afc120193a92": {
+    "data": "GNO",
+    "timestamp": 1753220307.1316488,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3a63bdbd8bc588400f28944db06956ec": {
+    "data": "USDC",
+    "timestamp": 1753220307.1316545,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "edf29c0e21bf8ee1d48741fff19157e0": {
+    "data": "WXDAI",
+    "timestamp": 1753220307.1316593,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4dfce0188293ae8846e428d2522a608a": {
+    "data": "EURe",
+    "timestamp": 1753220307.1316638,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "04ab0efbee2a040a565e14cc87eaa35b": {
+    "data": "sDAI",
+    "timestamp": 1753220307.1316686,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2d744ff4e400f7882e682bec6cfd78ce": {
+    "data": "USDC.e",
+    "timestamp": 1753220307.1316736,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5cb07e979c55dafc70eed1df377d0e9d": {
+    "data": "USDC.e",
+    "timestamp": 1753220310.5296786,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "129f83a75baecf2aec0f5f0beaea9bdd": {
+    "data": "WETH",
+    "timestamp": 1753220310.5297213,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c64333412616aa724e4834bb12d3f6e4": {
+    "data": "USDT",
+    "timestamp": 1753220310.5297406,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "8647b1826221dd7e93880e6175664cf0": {
+    "data": "ONEZ",
+    "timestamp": 1753220310.5297537,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "814cd43473375697a093bde6ee0dda4b": {
+    "data": "LUSD",
+    "timestamp": 1753220310.5297668,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "22200a0cd341182dd33c0af56b2616f9": {
+    "data": "WBTC",
+    "timestamp": 1753220310.5297804,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "72a2d2382b42077eeab983eb273824eb": {
+    "data": "PEPE",
+    "timestamp": 1753220310.5297928,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2ea73d1bb7842c49490ee01732c8496e": {
+    "data": "BUSD",
+    "timestamp": 1753220310.5298069,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "0a24dd77eefee96df306d192cb905385": {
+    "data": "KS-LP USDC.e-USDT",
+    "timestamp": 1753220310.5298197,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "93908ee888d7326dca62252250f5b3db": {
+    "data": "SWORD",
+    "timestamp": 1753220310.5298324,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "b3c7149f58c36ce4f4bf778c98dbd1dd": {
+    "data": "VC",
+    "timestamp": 1753220310.529846,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "19f1d987ad211e2640ce1e08c4b5fe48": {
+    "data": "MUTE",
+    "timestamp": 1753220310.529859,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "afff348effbf05eed496dc62685ee4c4": {
+    "data": "DAI",
+    "timestamp": 1753220310.5298722,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "d4485e7f36587e8291af232744b42774": {
+    "data": "Cake",
+    "timestamp": 1753220310.5298836,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "31e998b3967d0fbba504cbb43f79fc9d": {
+    "data": "wstETH",
+    "timestamp": 1753220310.5298932,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "364a09f47e3ac553a0a7e98e41452bd2": {
+    "data": "ZK",
+    "timestamp": 1753220310.5299015,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "5eb0256f39b64fb170178a2c7cd2b05a": {
+    "data": "M-BTC",
+    "timestamp": 1753220310.5299103,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "035725aeff1f6ad6514e1cb530590eaa": {
+    "data": "USDC",
+    "timestamp": 1753220310.5299187,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "81113ef1cae0165b01fdd51c28bd54b9": {
+    "data": "wUSDM",
+    "timestamp": 1753220310.5299275,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "85493da3ffba3c2506ec4be27e3f8560": {
+    "data": "weETH",
+    "timestamp": 1753220310.529936,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "1b87b34cd1708ee511f6ab6974c1dfd8": {
+    "data": "USN",
+    "timestamp": 1753220310.5299447,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3e3b06ccbb8b8017289900f3522e3518": {
+    "data": "DAI.e",
+    "timestamp": 1753220309.1173754,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3517de3dbb5f9711a4aa55d8517d4a2b": {
+    "data": "LINK.e",
+    "timestamp": 1753220309.1174037,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "e26c4fe3ceb92ec1fa11b25d175eb560": {
+    "data": "USDC",
+    "timestamp": 1753220309.117416,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "35124a0d21afe11e8ee980dddd14f882": {
+    "data": "WBTC.e",
+    "timestamp": 1753220309.1174254,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3300fe3eb059846f30da2d4bc0329f6b": {
+    "data": "WETH.e",
+    "timestamp": 1753220309.117434,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "46998db098382c780e9f5f1d90382894": {
+    "data": "USDt",
+    "timestamp": 1753220309.1174436,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4ffdb6df4ef6ce7132b313b7cf70e27d": {
+    "data": "AAVE.e",
+    "timestamp": 1753220309.117453,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "34f667c48b73213674185a74ebb7eb7e": {
+    "data": "WAVAX",
+    "timestamp": 1753220309.1174614,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "a54016e874ac1938743d7834083ec32d": {
+    "data": "sAVAX",
+    "timestamp": 1753220309.1174705,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "031dea3200b8b8f6c4f38f9bbaf6ab6b": {
+    "data": "FRAX",
+    "timestamp": 1753220309.1174788,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "67db2df15434bc076f606914249bd47b": {
+    "data": "MAI",
+    "timestamp": 1753220309.1174877,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "606447401aa0394f8f0337f8846676dc": {
+    "data": "BTC.b",
+    "timestamp": 1753220309.1174974,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "694c7f8a59126d09c20a48c2d189307e": {
+    "data": "AUSD",
+    "timestamp": 1753220309.1175058,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3e97a722db684043f3979ca23eb869ea": {
+    "data": "GHO",
+    "timestamp": 1753220309.1175148,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "2c419b9078eb630f1240fbca26c2c252": {
+    "data": "WETH",
+    "timestamp": 1753220308.0302854,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "d7de4125f2af20abafd195b1146a521a": {
+    "data": "cbETH",
+    "timestamp": 1753220308.0302966,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4bade5c9b3d4efed6f664f041f1ab884": {
+    "data": "USDbC",
+    "timestamp": 1753220308.030301,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "7a87adc8b32965455d9cb81b1cb92a4e": {
+    "data": "wstETH",
+    "timestamp": 1753220308.0303044,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f19f21539dbae37b4feceaa2612b73c8": {
+    "data": "USDC",
+    "timestamp": 1753220308.0303073,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "21a73b6368a87991f2b0ba1d4d4063e6": {
+    "data": "weETH",
+    "timestamp": 1753220308.0303106,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "577a82d3342cbb0c639dcfd73e4c1f61": {
+    "data": "cbBTC",
+    "timestamp": 1753220308.0303135,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "58061123a1e82df1d1a692f80dcc0c39": {
+    "data": "ezETH",
+    "timestamp": 1753220308.0303166,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c318b35051bacf63e27056e26c145ecf": {
+    "data": "GHO",
+    "timestamp": 1753220308.0303195,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "894ae1528f63872504d1b3dd7cc568b0": {
+    "data": "wrsETH",
+    "timestamp": 1753220308.0303228,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "c875889821053fd227a4e6f0330704f7": {
+    "data": "LBTC",
+    "timestamp": 1753220308.0303254,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "4da6dde3b77c231e4be5bfe8db0528c1": {
+    "data": "EURC",
+    "timestamp": 1753220308.0303283,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "3d7642317eb5cf6ab0f1fc0199f80468": {
+    "data": "AAVE",
+    "timestamp": 1753220308.0303314,
+    "ttl": 86400,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "f3dc763df5f05a258b214cf4ffed55b7": {
+    "data": "USDC",
+    "timestamp": 1753216180.469758,
+    "ttl": 86400,
+    "access_count": 1,
+    "last_access": 1753216180.4697628,
+    "performance_score": 2.0
+  },
+  "a465e15e37f5e221466c7d055d0eb340": {
+    "data": [
+      "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+      "0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+      "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "0x68f180fcce6836688e9084f035309e29bf0a2095",
+      "0x4200000000000000000000000000000000000006",
+      "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+      "0x76fb31fb4af56892a25e32cfc43de717950c9278",
+      "0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+      "0x4200000000000000000000000000000000000042",
+      "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+      "0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+      "0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+      "0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+      "0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+    ],
+    "timestamp": 1753220301.608016,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "dd0af43fa2b5426aef16173b6b1107f4": {
+    "data": [
+      "0x5300000000000000000000000000000000000004",
+      "0x06efdbff2a14a7c8e15944d1f4a48f9f95f663a4",
+      "0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32",
+      "0x01f0a31698c4d065659b9bdc21b3610292a1c506",
+      "0xd29687c813d741e2f938f4ac377128810e217b1b"
+    ],
+    "timestamp": 1753220301.6112432,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.2
+  },
+  "1008e44f0af78eea6565f0922fb5915f": {
+    "data": [
+      "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+      "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+      "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+      "0xd22a58f79e9481d1a88e00c343885a588b34b68b",
+      "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "0x3f56e0c36d275367b8c502090edf38289b3dea0d",
+      "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+      "0x93b346b6bc2548da6a1e7d98e9a421b42541425b",
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "0x17fc002b466eec40dae837fc4be5c67993ddbd6f",
+      "0x912ce59144191c1204e64559fe8253a0e49e6548",
+      "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
+      "0x7dff72693f6a4149b17e7c6314655f6a9f7c8b33",
+      "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "0x4186bfc76e2e237523cbc30fd220fe055156b41f"
+    ],
+    "timestamp": 1753220301.6189818,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.5
+  },
+  "8e86c1395fefc79fbe4020f30c76e1af": {
+    "data": [
+      "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x172370d5cd63279efa6d502dab29171933a610af",
+      "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+      "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+      "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+      "0x85955046df4668e1dd369d2de9f3aeb98dd2a369",
+      "0xe111178a87a3bff0c8d18decba5798827539ae99",
+      "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+      "0xe0b52e49357fd4daf2c15e02058dce6bc0057db4",
+      "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
+      "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+      "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
+      "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
+      "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+    ],
+    "timestamp": 1753220301.6814501,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.5
+  },
+  "7594691e06a9d0426da76896fc057933": {
+    "data": [
+      "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1",
+      "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6",
+      "0x9c58bacc331c9aa871afd802db6379a98e80cedb",
+      "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83",
+      "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d",
+      "0xcb444e90d8198415266c6a2724b7900fb12fc56e",
+      "0xaf204776c7245bf4147c2612bf6e5972ee483701",
+      "0x2a22f9c3b484c3629090feed35f17ff8f88f76f0"
+    ],
+    "timestamp": 1753220301.6852887,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.3
+  },
+  "8113a87755ed74e1fdc24e369849f65c": {
+    "data": [
+      "0x4200000000000000000000000000000000000006",
+      "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+      "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "0x04c0599ae5a44757c0af6f9ec3b93da8976c150a",
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "0x6bb7a212910682dcfdbd5bcbb3e28fb4e8da10ee",
+      "0xedfa23602d0ec14714057867a78d01e94176bea0",
+      "0xecac9c5f704e954931349da37f60e39f515c11c1",
+      "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+      "0x63706e401c06ac8513145b7687a14804d17f814b"
+    ],
+    "timestamp": 1753220301.6962674,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.8
+  },
+  "9629f18e397988f12efb760f4bbff91c": {
+    "data": [
+      "0x4c078361fc9bbb78df910800a991c7c3dd2f6ce0",
+      "0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000",
+      "0xea32a96608495e54156ae48931a7c20f0dcc1a21",
+      "0xbb06dca3ae6887fabf931640f67cab3e3a16f4dc",
+      "0x420000000000000000000000000000000000000a"
+    ],
+    "timestamp": 1753220301.6988246,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.0
+  },
+  "08d63e28e276d16b84e303bd24d20c03": {
+    "data": [
+      "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+      "0x5947bb275c521040051d82396192181b413227a3",
+      "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+      "0x50b7545627a5162f82a992c33b87adc75187b218",
+      "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+      "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+      "0x63a72806098bd3d9520cc43356dd78afe5d386d9",
+      "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+      "0xd24c2ad096400b6fbcd2ad8b24e7acbc21a1da64",
+      "0x5c49b268c9841aff1cc3b0a418ff5c3442ee3f3b",
+      "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+      "0x00000000efe302beaa2b3e6e1b18d08d69a9012a",
+      "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73"
+    ],
+    "timestamp": 1753220301.6994581,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 2.0
+  },
+  "497232ecdd0a01c5c5f1450d7c0cdfd5": {
+    "data": [
+      "0x3355df6d4c9c3035724fd0e3914de96a5a83aaf4",
+      "0x5aea5775959fbc2557cc8789bc1bf90a239d9a91",
+      "0x493257fd37edb34451f62edf8d2a0c418852ba4c",
+      "0x90059c32eeeb1a2aa1351a58860d98855f3655ad",
+      "0x503234f203fc7eb888eec8513210612a43cf6115",
+      "0xbbeb516fb02a01611cbbe0453fe3c580d7281011",
+      "0xfd282f16a64c6d304ac05d1a58da15bed0467c71",
+      "0x2039bb4116b4efc145ec4f0e2ea75012d6c0f181",
+      "0x4d321cd88c5680ce4f85bb58c578dfe9c2cc1ef6",
+      "0x240f765af2273b0cab6caff2880d6d8f8b285fa4",
+      "0x99bbe51be7cce6c8b84883148fd3d12ace5787f2",
+      "0x0e97c7a0f8b2c9885c8ac9fc6136e829cbc21d42",
+      "0x4b9eb6c0b6ea15176bbf62841c6b2a8a398cb656",
+      "0x3a287a06c66f9e95a56327185ca2bdf5f031cecd",
+      "0x703b52f2b28febcb60e1372858af5b18849fe867",
+      "0x5a7d6b2f92c77fad6ccabd7ee0624e64907eaf3e",
+      "0xe757355edba7ced7b8c0271bba4efda184ad75ab",
+      "0x1d17cbcf0d6d143135ae902365d2e5e2a16538d4",
+      "0xa900cbe7739c96d2b153a273953620a701d5442b",
+      "0xc1fa6e2e8667d9be0ca938a54c7e0285e9df924a",
+      "0x0469d9d1de0ee58fa1153ef00836b9bbcb84c0b6"
+    ],
+    "timestamp": 1753220301.7013884,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 0.8
+  },
+  "1335cde4b8e6d9659ec2e12db0fcd9fc": {
+    "data": [
+      "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+      "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "0x55d398326f99059ff775485246999027b3197955",
+      "0xc5f0f7b66764f6ec8c8dff7ba683102295e16409",
+      "0x26c5e01524d2e6280a48f2c50ff6de7e52e9611c"
+    ],
+    "timestamp": 1753220301.7400808,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.5
+  },
+  "94de34c4e1ca5b650161500ce289caa3": {
+    "data": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+      "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+      "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "0xae78736cd615f374d3085123a210448e74fc6393",
+      "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+      "0xd533a949740bb3306d119cc777fa900ba034cd52",
+      "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+      "0xba100000625a3754423978a60c9317c58a424e3d",
+      "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+      "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+      "0x111111111117dc0aa78b770fa6a738034120c302",
+      "0x853d955acef822db058eb8505911ed77f175b99e",
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+      "0x83f20f44975d03b1b09e64809b757c47f942beea",
+      "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6",
+      "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202",
+      "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+      "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+      "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+      "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38",
+      "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+      "0xa35b1b31ce002fbf2058d22f30f95d405200a15b",
+      "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+      "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+      "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
+      "0x8236a87084f8b84306f72007f36f2618a5634494",
+      "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+      "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+      "0x50d2c7992b802eef16c04feadab310f31866a545",
+      "0x3b3fb9c57858ef816833dc91565efcd85d96f634",
+      "0xc139190f447e929f090edeb554d95abb8b18ac1c",
+      "0x917459337caac939d41d7493b3999f571d20d667",
+      "0x14bdc3a3ae09f5518b923b69489cbcafb238e617",
+      "0x90d2af7d622ca3141efa4d8f1f24d86e5974cc8f",
+      "0xc96de26018a54d51c097160568752c4e3bd6c364",
+      "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+      "0x9f56094c450763769ba0ea9fe2876070c0fd5f77"
+    ],
+    "timestamp": 1753220301.7702754,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 3.0
+  },
+  "f3779b7d4be2550fc8188239bd0002bc": {
+    "data": [
+      "0xceba9300f2b948710d2653dd7b07f33a8b32118c",
+      "0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e",
+      "0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73",
+      "0x765de816845861e75a25fca122bb6898b8b1282a",
+      "0x471ece3750da237f93b8e339c536989b8978a438",
+      "0xd221812de1bd094f35587ee8e174b07b6167d9af"
+    ],
+    "timestamp": 1753220302.897248,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 1.0
+  },
+  "0c551b5b884a850b8a38a0b74d9ecd67": {
+    "data": [
+      "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f",
+      "0x3aab2285ddcddad8edf438c1bab47e1a9d05a9b4",
+      "0x176211869ca2b568f2a7d4ee941e073a821ee1ff",
+      "0xa219439258ca9da29e9cc4ce5596924745e12b93",
+      "0xb5bedd42000b71fdde22d3ee8a79bd49a568fc8f",
+      "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "0x1bf74c010e6320bab11e2e5a532b5ac15e0b8aa6"
+    ],
+    "timestamp": 1753220304.9875941,
+    "ttl": 300,
+    "access_count": 0,
+    "last_access": 0,
+    "performance_score": 0.8
+  }
+}
