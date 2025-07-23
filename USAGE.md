@@ -6,7 +6,7 @@ This guide explains how to access and use the Aave V3 data provided by this GitH
 
 ### 1. HTML Interface (Human-Readable)
 
-**URL Pattern**: `https://[username].github.io/[repository-name]/aave_v3_data.html`
+**URL Pattern**: `https://th3nolo.github.io/aave-v3-data/aave_v3_data.html`
 
 **Features**:
 - Responsive tables grouped by network
@@ -24,7 +24,7 @@ https://defi-team.github.io/protocol-data/aave_v3_data.html
 
 ### 2. JSON API (Machine-Readable)
 
-**URL Pattern**: `https://raw.githubusercontent.com/[username]/[repository-name]/main/aave_v3_data.json`
+**URL Pattern**: `https://raw.githubusercontent.com/th3nolo/aave-v3-data/main/aave_v3_data.json`
 
 **Features**:
 - Structured data format

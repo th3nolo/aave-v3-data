@@ -34,7 +34,7 @@ This guide provides step-by-step instructions for configuring your repository fo
    - Click **Save**
 
 3. **Verify Configuration**
-   - You should see: "Your site is ready to be published at `https://[username].github.io/[repo-name]/`"
+   - You should see: "Your site is ready to be published at `https://th3nolo.github.io/aave-v3-data/`"
    - Initial deployment may take a few minutes
 
 ### Step 3: Configure GitHub Actions Permissions
@@ -74,12 +74,12 @@ This guide provides step-by-step instructions for configuring your repository fo
 
 ### HTML Interface
 ```
-https://[username].github.io/[repository-name]/aave_v3_data.html
+https://th3nolo.github.io/aave-v3-data/aave_v3_data.html
 ```
 
 ### JSON API
 ```
-https://raw.githubusercontent.com/[username]/[repository-name]/main/aave_v3_data.json
+https://raw.githubusercontent.com/th3nolo/aave-v3-data/main/aave_v3_data.json
 ```
 
 ### Example URLs
@@ -148,7 +148,7 @@ The system generates several monitoring files:
 
 ### Custom Domain (Optional)
 1. In Pages settings, add your custom domain
-2. Configure DNS CNAME record pointing to `[username].github.io`
+2. Configure DNS CNAME record pointing to `th3nolo.github.io`
 3. Enable HTTPS enforcement
 
 ### Branch Protection (Recommended)
