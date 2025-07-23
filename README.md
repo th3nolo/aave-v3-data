@@ -9,11 +9,11 @@
 [![Assets](https://img.shields.io/badge/Assets-190+-orange)](https://th3nolo.github.io/aave-v3-data/api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### 📊 Analytics & Traffic
+### 📊 Visitor Analytics
 
-![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fth3nolo%2Faave-v3-data&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false)
-![Profile Views](https://komarev.com/ghpvc/?username=th3nolo-aave-v3-data&label=Profile%20views&color=0e75b6&style=flat)
-[![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clones&query=count&url=https://github.com/th3nolo/aave-v3-data/blob/main/traffic_data/views_badge.json?raw=true&logo=github)](https://github.com/th3nolo/aave-v3-data/tree/main/traffic_data)
+![](https://komarev.com/ghpvc/?username=th3nolo-aave-v3-data&color=brightgreen&style=flat-square&label=Repository+Views)
+![](https://visitor-badge.laobi.icu/badge?page_id=th3nolo.aave-v3-data&title=Visitors&countColor=%23263759&style=flat-square&logo=GitHub)
+![](https://profile-counter.glitch.me/th3nolo-aave-v3-data/count.svg)
 
 [📈 View Traffic Report](traffic_data/TRAFFIC_REPORT.md) • [🌍 Top Referrers](traffic_data/TRAFFIC_REPORT.md#top-referrers)
 
