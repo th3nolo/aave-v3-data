@@ -18,14 +18,14 @@
 # Get USDC rates on all networks (one command!)
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
   jq -r '.networks | to_entries[] | 
-  "\(.key): USDC Supply: \(.value.reserves[] | 
-  select(.symbol=="USDC") | .liquidity_rate)%"' 2>/dev/null
+  "\(.key): USDC Supply: \(.value[] | 
+  select(.symbol=="USDC") | .current_liquidity_rate)%"' 2>/dev/null
 
 # Find best stablecoin yields
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
-  jq '[.networks | to_entries[] | .value.reserves[] | 
+  jq '[.networks | to_entries[] | . as $n | .value[] | 
   select(.symbol | test("USD|DAI")) | 
-  {network: .key, symbol, rate: .liquidity_rate}] | 
+  {network: $n.key, symbol, rate: .current_liquidity_rate}] | 
   sort_by(.rate) | reverse | .[0:5]'
 ```
 
@@ -95,87 +95,85 @@ curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks
 "bnb"
 "celo"
 "ethereum"
-"fantom"
 "gnosis"
-"harmony"
+"linea"
 "metis"
 "optimism"
 "polygon"
-"polygon_zkevm"
 "scroll"
 "zksync"
 
 # Get all Ethereum data
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum'
 
-# Get Polygon network summary
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.polygon | {chain_id, pool_address, total_assets: (.reserves | length)}'
+# Get Polygon network summary - count total assets
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.polygon | length'
 ```
 
 ### 💰 Asset-Specific Queries
 
 ```bash
 # Get USDC data on Ethereum
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum.reserves[] | select(.symbol=="USDC")'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum[] | select(.symbol=="USDC")'
 
 # Example Output:
 {
   "symbol": "USDC",
   "decimals": 6,
-  "loan_to_value": 0.77,
-  "liquidation_threshold": 0.79,
+  "loan_to_value": 0.75,
+  "liquidation_threshold": 0.78,
   "liquidation_bonus": 0.045,
   "reserve_factor": 0.1,
-  "liquidity_rate": 3.52,
-  "variable_borrow_rate": 5.84,
-  "supply_cap": 1500000000,
-  "borrow_cap": 1350000000,
-  "is_active": true,
-  "is_frozen": false,
+  "current_liquidity_rate": 0.038016,
+  "current_variable_borrow_rate": 0.050252,
+  "supply_cap": 381,
+  "borrow_cap": 63488,
+  "active": true,
+  "frozen": false,
   "borrowing_enabled": true
 }
 
 # Get all USDC data across all networks
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, usdc: (.value.reserves[] | select(.symbol=="USDC") | {ltv, liquidation_threshold, supply_rate: .liquidity_rate, borrow_rate: .variable_borrow_rate})}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, usdc: (.value[] | select(.symbol=="USDC") | {ltv: .loan_to_value, liquidation_threshold, supply_rate: .current_liquidity_rate, borrow_rate: .current_variable_borrow_rate})}'
 
 # Find highest yield for USDC across all networks
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | {network: .key, rate: (.value.reserves[] | select(.symbol=="USDC") | .liquidity_rate)}] | max_by(.rate)'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | {network: .key, rate: (.value[] | select(.symbol=="USDC") | .current_liquidity_rate)}] | max_by(.rate)'
 ```
 
 ### 📊 Risk Parameters
 
 ```bash
 # Get all assets with LTV > 70% on Ethereum
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum.reserves[] | select(.loan_to_value > 0.70) | {symbol, ltv: .loan_to_value, liquidation_threshold}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum[] | select(.loan_to_value > 0.70) | {symbol, ltv: .loan_to_value, liquidation_threshold}'
 
 # Find assets with highest liquidation bonus (profitable for liquidators)
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks.ethereum.reserves[] | {symbol, liquidation_bonus}] | sort_by(.liquidation_bonus) | reverse | .[0:5]'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks.ethereum[] | {symbol, liquidation_bonus}] | sort_by(.liquidation_bonus) | reverse | .[0:5]'
 
 # Check frozen or paused assets
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, frozen: [.value.reserves[] | select(.is_frozen==true) | .symbol]}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, frozen: [.value[] | select(.frozen==true) | .symbol]}'
 ```
 
 ### 💸 Interest Rates Analysis
 
 ```bash
 # Get top 5 assets by supply APY on Arbitrum
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks.arbitrum.reserves[] | {symbol, apy: .liquidity_rate}] | sort_by(.apy) | reverse | .[0:5]'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks.arbitrum[] | {symbol, apy: .current_liquidity_rate}] | sort_by(.apy) | reverse | .[0:5]'
 
 # Compare WETH rates across all networks
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, weth: (.value.reserves[] | select(.symbol=="WETH") | {supply_apy: .liquidity_rate, borrow_apy: .variable_borrow_rate})}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, weth: (.value[] | select(.symbol=="WETH") | {supply_apy: .current_liquidity_rate, borrow_apy: .current_variable_borrow_rate})}'
 
 # Find stablecoins with best rates
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | .value.reserves[] | select(.symbol | test("USD|DAI|FRAX")) | {network: .key, symbol, rate: .liquidity_rate}] | sort_by(.rate) | reverse | .[0:10]'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | . as $n | .value[] | select(.symbol | test("USD|DAI|FRAX")) | {network: $n.key, symbol, rate: .current_liquidity_rate}] | sort_by(.rate) | reverse | .[0:10]'
 ```
 
 ### 🎯 Supply & Borrow Caps
 
 ```bash
-# Find assets near their supply cap
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum.reserves[] | select(.supply_cap > 0) | {symbol, utilization: (.total_a_tokens / .supply_cap * 100), supply_cap, total_supplied: .total_a_tokens} | select(.utilization > 80)'
+# Find assets with supply caps on Ethereum
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum[] | select(.supply_cap > 0) | {symbol, supply_cap}'
 
 # Get all borrow caps on Polygon
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.polygon.reserves[] | select(.borrow_cap > 0) | {symbol, borrow_cap, total_borrowed: .total_debt}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.polygon[] | select(.borrow_cap > 0) | {symbol, borrow_cap}'
 ```
 
 ### 🏛️ Governance Monitoring
@@ -191,25 +189,24 @@ curl -s https://th3nolo.github.io/aave-v3-data/governance_history.json | jq '.pa
 ### 🔧 Advanced Queries
 
 ```bash
-# Calculate total TVL across all networks
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | .value.reserves[] | .total_a_tokens_usd // 0] | add'
+# Count total assets across all networks
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '[.networks | to_entries[] | .value | length] | add'
 
 # Find all LST (Liquid Staking Tokens)
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, lst: [.value.reserves[] | select(.symbol | test("stETH|rETH|cbETH|wstETH")) | .symbol]}'
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | to_entries[] | {network: .key, lst: [.value[] | select(.symbol | test("stETH|rETH|cbETH|wstETH")) | .symbol]}'
 
 # Export specific network data to CSV
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq -r '.networks.ethereum.reserves[] | [.symbol, .loan_to_value, .liquidation_threshold, .liquidity_rate, .variable_borrow_rate] | @csv' > ethereum_rates.csv
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq -r '.networks.ethereum[] | [.symbol, .loan_to_value, .liquidation_threshold, .current_liquidity_rate, .current_variable_borrow_rate] | @csv' > ethereum_rates.csv
 
-# Monitor your position (replace with your address)
-ADDRESS="0xYourAddressHere"
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq --arg addr "$ADDRESS" '.networks.ethereum | {pool: .pool_address, data_provider: .pool_data_provider, note: "Use these addresses with web3 to query your position"}'
+# Get Ethereum aToken addresses for monitoring
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum[] | {symbol, a_token_address}'
 ```
 
 ### 🐍 Python One-Liners
 
 ```bash
 # Quick Python analysis
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | python3 -c "import json,sys; data=json.load(sys.stdin); print(f\"Total assets tracked: {sum(len(net['reserves']) for net in data['networks'].values())}\")"
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | python3 -c "import json,sys; data=json.load(sys.stdin); print(f\"Total assets tracked: {sum(len(net) for net in data['networks'].values())}\")"
 
 # Generate markdown table of rates
 curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | python3 -c "
@@ -218,8 +215,8 @@ d=json.load(sys.stdin)
 print('| Network | USDC Supply | USDC Borrow |')
 print('|---------|-------------|-------------|')
 for n,v in d['networks'].items():
-    usdc=[r for r in v['reserves'] if r['symbol']=='USDC']
-    if usdc: print(f\"| {n} | {usdc[0]['liquidity_rate']:.2f}% | {usdc[0]['variable_borrow_rate']:.2f}% |\")
+    usdc=[r for r in v if r['symbol']=='USDC']
+    if usdc: print(f\"| {n} | {usdc[0]['current_liquidity_rate']:.2%} | {usdc[0]['current_variable_borrow_rate']:.2%} |\")
 "
 ```
 
