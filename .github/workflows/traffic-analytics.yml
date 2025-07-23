@@ -1,0 +1,168 @@
+name: Store Traffic Analytics
+
+on:
+  schedule:
+    # Run daily at 1:00 UTC (after data update)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests pandas
+        
+    - name: Fetch and store traffic data
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        python << 'EOF'
+        import requests
+        import json
+        import os
+        from datetime import datetime
+        import pandas as pd
+        
+        # GitHub API headers
+        headers = {
+            'Authorization': f'token {os.environ["GITHUB_TOKEN"]}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+        
+        # Repository info
+        repo = os.environ.get('GITHUB_REPOSITORY', 'th3nolo/aave-v3-data')
+        
+        # Fetch views
+        views_url = f'https://api.github.com/repos/{repo}/traffic/views'
+        views_response = requests.get(views_url, headers=headers)
+        views_data = views_response.json() if views_response.status_code == 200 else {}
+        
+        # Fetch clones
+        clones_url = f'https://api.github.com/repos/{repo}/traffic/clones'
+        clones_response = requests.get(clones_url, headers=headers)
+        clones_data = clones_response.json() if clones_response.status_code == 200 else {}
+        
+        # Fetch referrers
+        referrers_url = f'https://api.github.com/repos/{repo}/traffic/popular/referrers'
+        referrers_response = requests.get(referrers_url, headers=headers)
+        referrers_data = referrers_response.json() if referrers_response.status_code == 200 else []
+        
+        # Fetch popular paths
+        paths_url = f'https://api.github.com/repos/{repo}/traffic/popular/paths'
+        paths_response = requests.get(paths_url, headers=headers)
+        paths_data = paths_response.json() if paths_response.status_code == 200 else []
+        
+        # Load existing data
+        traffic_file = 'traffic_data/traffic_history.json'
+        if os.path.exists(traffic_file):
+            with open(traffic_file, 'r') as f:
+                history = json.load(f)
+        else:
+            history = {'views': [], 'clones': [], 'referrers': [], 'paths': []}
+        
+        # Add timestamp
+        timestamp = datetime.utcnow().isoformat()
+        
+        # Store data
+        if views_data:
+            history['views'].append({
+                'timestamp': timestamp,
+                'count': views_data.get('count', 0),
+                'uniques': views_data.get('uniques', 0),
+                'views': views_data.get('views', [])
+            })
+        
+        if clones_data:
+            history['clones'].append({
+                'timestamp': timestamp,
+                'count': clones_data.get('count', 0),
+                'uniques': clones_data.get('uniques', 0),
+                'clones': clones_data.get('clones', [])
+            })
+        
+        if referrers_data:
+            history['referrers'].append({
+                'timestamp': timestamp,
+                'data': referrers_data
+            })
+        
+        if paths_data:
+            history['paths'].append({
+                'timestamp': timestamp,
+                'data': paths_data
+            })
+        
+        # Create directory if needed
+        os.makedirs('traffic_data', exist_ok=True)
+        
+        # Save updated history
+        with open(traffic_file, 'w') as f:
+            json.dump(history, f, indent=2)
+        
+        # Generate summary badge data
+        total_views = sum(item['count'] for item in history['views'])
+        total_clones = sum(item['count'] for item in history['clones'])
+        
+        badge_data = {
+            'schemaVersion': 1,
+            'label': 'Total Views',
+            'message': str(total_views),
+            'color': 'brightgreen'
+        }
+        
+        with open('traffic_data/views_badge.json', 'w') as f:
+            json.dump(badge_data, f)
+        
+        # Generate traffic report
+        report = f"""# Traffic Analytics Report
+
+Generated: {timestamp}
+
+## Recent Activity (14 days)
+
+- **Views**: {views_data.get('count', 0)} total, {views_data.get('uniques', 0)} unique
+- **Clones**: {clones_data.get('count', 0)} total, {clones_data.get('uniques', 0)} unique
+
+## Top Referrers
+
+| Source | Views | Unique Visitors |
+|--------|-------|-----------------|
+"""
+        
+        for ref in referrers_data[:10]:
+            report += f"| {ref['referrer']} | {ref['count']} | {ref['uniques']} |\n"
+        
+        report += "\n## Popular Content\n\n"
+        report += "| Path | Views | Unique Visitors |\n"
+        report += "|------|-------|------------------|\n"
+        
+        for path in paths_data[:10]:
+            report += f"| {path['path']} | {path['count']} | {path['uniques']} |\n"
+        
+        with open('traffic_data/TRAFFIC_REPORT.md', 'w') as f:
+            f.write(report)
+        
+        print(f"Traffic data updated: {total_views} total views, {total_clones} total clones")
+        EOF
+        
+    - name: Commit traffic data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add traffic_data/
+        git diff --staged --quiet || git commit -m "Update traffic analytics - $(date -u '+%Y-%m-%d')"
+        git push

@@ -2,10 +2,22 @@
 
 > 🚀 **Fresh Aave V3 protocol data** - lending rates, reserve configurations, liquidity metrics across all networks. Updated daily at midnight UTC via GitHub Actions.
 
+<div align="center">
+  
 [![Updated Daily](https://img.shields.io/badge/Updated-Daily-brightgreen)](https://github.com/th3nolo/aave-v3-data/actions)
 [![Networks](https://img.shields.io/badge/Networks-13-blue)](https://th3nolo.github.io/aave-v3-data/)
 [![Assets](https://img.shields.io/badge/Assets-190+-orange)](https://th3nolo.github.io/aave-v3-data/api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+### 📊 Analytics & Traffic
+
+![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fth3nolo%2Faave-v3-data&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false)
+![Profile Views](https://komarev.com/ghpvc/?username=th3nolo-aave-v3-data&label=Profile%20views&color=0e75b6&style=flat)
+[![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clones&query=count&url=https://github.com/th3nolo/aave-v3-data/blob/main/traffic_data/views_badge.json?raw=true&logo=github)](https://github.com/th3nolo/aave-v3-data/tree/main/traffic_data)
+
+[📈 View Traffic Report](traffic_data/TRAFFIC_REPORT.md) • [🌍 Top Referrers](traffic_data/TRAFFIC_REPORT.md#top-referrers)
+
+</div>
 
 ## 🌟 Access Points
 
@@ -1084,6 +1096,73 @@ for network, metrics in report['network_metrics'].items():
 2. Update JSON schema in `src/json_output.py`
 3. Add HTML table columns in `src/html_output.py`
 4. Update validation checks in `src/validation.py`
+
+## 📈 Analytics & Visitor Tracking
+
+### Current Implementation
+
+This repository uses multiple analytics solutions to track visitor engagement:
+
+1. **HITS Badge** - Simple visitor counter showing total views
+2. **GitHub Profile Views** - Tracks profile-specific views
+3. **GitHub Traffic API** - Automated daily collection of detailed analytics
+
+### Available Analytics Options
+
+#### 🥇 For Detailed Analytics (Referrers, Geography)
+
+**GoatCounter** (Privacy-friendly, GDPR compliant)
+```markdown
+![Analytics](https://YOUR-SITE.goatcounter.com/count?p=github-readme)
+```
+- Shows referrer sources
+- Geographic distribution
+- No cookies, no personal data
+- Free tier available
+
+**Plausible Analytics** (For GitHub Pages)
+```html
+<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+```
+- Real-time visitor tracking
+- Referrer and country data
+- Lightweight (<1KB)
+- Paid service
+
+#### 🥈 GitHub-Specific Counters
+
+**Simple Visitor Badge**
+```markdown
+![Visitors](https://visitor-badge.glitch.me/badge?page_id=username.repo)
+```
+
+**Customizable Counter**
+```markdown
+![](https://komarev.com/ghpvc/?username=YOUR-USERNAME&style=flat-square&color=blue)
+```
+
+#### 🥉 Self-Hosted Solution
+
+The included GitHub Action (`traffic-analytics.yml`) automatically:
+- Fetches traffic data daily from GitHub API
+- Stores data beyond GitHub's 14-day limit
+- Generates traffic reports with referrers
+- Creates custom badges
+
+### Traffic Data Storage
+
+Historical traffic data is stored in `/traffic_data/`:
+- `traffic_history.json` - Complete historical data
+- `TRAFFIC_REPORT.md` - Human-readable traffic report
+- `views_badge.json` - Data for dynamic badge
+
+### Privacy Considerations
+
+All implemented solutions are:
+- ✅ GDPR/CCPA compliant
+- ✅ No cookies or personal data storage
+- ✅ Transparent to users
+- ✅ Open source friendly
 
 ## 📄 License
 
