@@ -1,8 +1,8 @@
 # Aave V3 Data API
 
-> 🚀 **Real-time Aave V3 protocol data** - lending rates, reserve configurations, liquidity metrics across all networks. Updated hourly via GitHub Actions.
+> 🚀 **Fresh Aave V3 protocol data** - lending rates, reserve configurations, liquidity metrics across all networks. Updated daily at midnight UTC via GitHub Actions.
 
-[![Updated Hourly](https://img.shields.io/badge/Updated-Hourly-brightgreen)](https://github.com/th3nolo/aave-v3-data/actions)
+[![Updated Daily](https://img.shields.io/badge/Updated-Daily-brightgreen)](https://github.com/th3nolo/aave-v3-data/actions)
 [![Networks](https://img.shields.io/badge/Networks-13-blue)](https://th3nolo.github.io/aave-v3-data/)
 [![Assets](https://img.shields.io/badge/Assets-190+-orange)](https://th3nolo.github.io/aave-v3-data/api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -18,16 +18,17 @@
 
 ## ⚡ Key Features
 
-- **📈 Real-time Data**: Hourly updates via GitHub Actions
+- **📈 Fresh Data**: Daily updates at midnight UTC via GitHub Actions
 - **🌍 13 Networks**: Ethereum, Polygon, Arbitrum, Optimism, Base, zkSync & more
 - **💰 190+ Assets**: Complete reserve parameters for all supported tokens
 - **🔄 100% Uptime**: GitHub Pages CDN with automatic failover
 - **🤖 LLM-Optimized**: Clean JSON structure perfect for AI/ML applications
 - **🛡️ Health Monitoring**: Built-in validation and error reporting
+- **🏛️ Governance Tracking**: Parameter changes and proposals updated daily
 
 ## 🤔 What's This?
 
-This API provides **free, real-time access** to Aave V3 lending protocol data across all supported networks. Perfect for:
+This API provides **free access** to fresh Aave V3 lending protocol data across all supported networks, updated daily. Perfect for:
 
 - **🏦 DeFi Developers**: Build lending aggregators, yield optimizers, or risk dashboards
 - **📊 Data Analysts**: Track lending rates, TVL, and protocol health metrics
@@ -113,6 +114,27 @@ https://th3nolo.github.io/aave-v3-data/health_report.json      # System health
   }
 }
 ```
+
+## 📅 Update Schedule & Reliability
+
+### Update Frequency
+- **Schedule**: Daily at midnight UTC (00:00 UTC)
+- **Method**: GitHub Actions automated workflow
+- **Manual Updates**: Can be triggered via workflow dispatch
+
+### What Gets Updated
+All data files are refreshed in each update cycle:
+- ✅ `aave_v3_data.json` - Protocol parameters, rates, caps
+- ✅ `governance_history.json` - Governance proposals and changes
+- ✅ `governance_monitoring_report.json` - Parameter change tracking
+- ✅ `health_report.json` - System health and validation status
+- ✅ All HTML interfaces - Web views regenerated with fresh data
+
+### Reliability Features
+- **CDN Delivery**: GitHub Pages with global edge caching
+- **Validation**: Schema checks and consistency tests on every update
+- **Error Handling**: Failed updates don't overwrite good data
+- **Monitoring**: Health reports track success rates and issues
 
 ## 🌐 Live Data Access
 
@@ -311,7 +333,7 @@ for n,v in d['networks'].items():
 2. **Add `-s` flag** to curl for silent mode
 3. **Pipe to `jq` with `.` to pretty-print JSON
 4. **Use `jq -r` for raw output** (no JSON quotes)
-5. **Cache responses** - Data updates hourly, so cache for 60 minutes
+5. **Cache responses** - Data updates daily at midnight UTC, so cache for up to 24 hours
 6. **Use `jq` filters** to reduce data transfer and processing
 
 ### 📱 Integration Examples
