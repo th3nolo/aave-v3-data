@@ -5,41 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aave V3 Data API</title>
     <style>
-        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #0f0; }
-        pre { background: #000; padding: 20px; border-radius: 5px; overflow-x: auto; }
-        a { color: #0ff; }
+        body { 
+            font-family: monospace; 
+            padding: 20px; 
+            background: #0a0a0a; 
+            color: #0f0; 
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        h1 { color: #0ff; text-shadow: 0 0 10px #0ff; }
+        h2 { color: #0f0; margin-top: 30px; }
+        pre { 
+            background: #000; 
+            padding: 20px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            border: 1px solid #0f0;
+            box-shadow: 0 0 10px rgba(0,255,0,0.3);
+        }
+        a { color: #0ff; text-decoration: none; }
+        a:hover { text-decoration: underline; text-shadow: 0 0 5px #0ff; }
+        ul { list-style-type: none; }
+        li:before { content: "▸ "; color: #0ff; }
+        .endpoint { color: #ff0; }
+        .description { color: #888; }
     </style>
 </head>
 <body>
     <h1>Aave V3 Data API</h1>
+    <p style="color: #888;">Free, real-time access to Aave V3 lending protocol data. No API keys required.</p>
+    
+    <h2>📡 Available Endpoints</h2>
     <pre>
-Available Endpoints:
+<span class="endpoint">GET /aave_v3_data.json</span>
+<span class="description">    → Full protocol data: 13 networks, 190+ assets, all parameters</span>
 
-GET /aave_v3_data.json
-    → Full Aave V3 protocol data across all networks
+<span class="endpoint">GET /governance_history.json</span>
+<span class="description">    → Governance proposals, parameter changes, risk updates</span>
 
-GET /api/v1/all
-    → Alias for full dataset
+<span class="endpoint">GET /health_report.json</span>
+<span class="description">    → System health, validation status, last update time</span>
+    </pre>
 
-GET /api/v1/networks
-    → List of supported networks
-
-Usage Examples:
+    <h2>🚀 Usage Examples</h2>
+    <pre>
 
 # Get all data
 curl https://th3nolo.github.io/aave-v3-data/aave_v3_data.json
 
-# Get specific network (using jq)
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.ethereum'
+# List all networks
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks | keys[]'
 
-# Get specific asset
-curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.polygon.reserves[] | select(.symbol=="USDC")'
+# Get Ethereum network data
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.ethereum'
+
+# Find USDC on Polygon
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.networks.polygon[] | select(.symbol=="USDC")'
+
+# Get best yields
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq -r '[.networks | to_entries[] | . as $n | .value[] | 
+  select(.symbol | test("USD|DAI")) | 
+  {network: $n.key, symbol, rate: (.current_liquidity_rate * 100)}] | 
+  sort_by(.rate) | reverse | .[0:5] | 
+  .[] | "\(.symbol) on \(.network): \(.rate | tostring[0:4])% APY"'
+
+# Find assets with highest LTV
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq '[.networks.ethereum[] | select(.loan_to_value > 0.7)] | 
+  sort_by(-.loan_to_value) | .[] | 
+  {symbol, ltv: (.loan_to_value * 100), liquidation: (.liquidation_threshold * 100)}'
+
+# Check frozen assets across networks
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | \
+  jq '.networks | to_entries[] | 
+  {network: .key, frozen: [.value[] | select(.frozen==true) | .symbol]}'
+    </pre>
+
+    <h2>📋 Data Structure</h2>
+    <pre>
+{
+  "metadata": {
+    "last_updated": "2025-07-22T21:38:59Z",
+    "network_summary": {
+      "total_active_networks": 13,
+      "total_assets": 190
+    }
+  },
+  "networks": {
+    "<span class="endpoint">ethereum</span>": [
+      {
+        "symbol": "USDC",
+        "loan_to_value": 0.75,              <span class="description">// 75% LTV</span>
+        "liquidation_threshold": 0.78,       <span class="description">// 78% liquidation</span>
+        "current_liquidity_rate": 0.038016,  <span class="description">// 3.80% supply APY</span>
+        "current_variable_borrow_rate": 0.050252, <span class="description">// 5.03% borrow APY</span>
+        "supply_cap": 381,
+        "borrow_cap": 63488,
+        "active": true,
+        "frozen": false
+      }
+    ],
+    "<span class="endpoint">polygon</span>": [...],
+    "<span class="endpoint">arbitrum</span>": [...],
+    <span class="description">// ... 10 more networks</span>
+  }
+}
     </pre>
     
     <h2>Quick Links</h2>
     <ul>
         <li><a href="/aave-v3-data/aave_v3_data.json">Full Dataset (JSON)</a></li>
+        <li><a href="/aave-v3-data/governance_history.json">Governance History (JSON)</a></li>
+        <li><a href="/aave-v3-data/health_report.json">Health Report (JSON)</a></li>
         <li><a href="/aave-v3-data/">Web Interface</a></li>
+        <li><a href="/aave-v3-data/governance_monitoring.html">Governance Monitor</a></li>
         <li><a href="https://github.com/th3nolo/aave-v3-data">GitHub Repository</a></li>
     </ul>
 </body>
