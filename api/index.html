@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aave V3 Data API</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #0f0; }
+        pre { background: #000; padding: 20px; border-radius: 5px; overflow-x: auto; }
+        a { color: #0ff; }
+    </style>
+</head>
+<body>
+    <h1>Aave V3 Data API</h1>
+    <pre>
+Available Endpoints:
+
+GET /aave_v3_data.json
+    → Full Aave V3 protocol data across all networks
+
+GET /api/v1/all
+    → Alias for full dataset
+
+GET /api/v1/networks
+    → List of supported networks
+
+Usage Examples:
+
+# Get all data
+curl https://th3nolo.github.io/aave-v3-data/aave_v3_data.json
+
+# Get specific network (using jq)
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.ethereum'
+
+# Get specific asset
+curl -s https://th3nolo.github.io/aave-v3-data/aave_v3_data.json | jq '.polygon.reserves[] | select(.symbol=="USDC")'
+    </pre>
+    
+    <h2>Quick Links</h2>
+    <ul>
+        <li><a href="/aave-v3-data/aave_v3_data.json">Full Dataset (JSON)</a></li>
+        <li><a href="/aave-v3-data/">Web Interface</a></li>
+        <li><a href="https://github.com/th3nolo/aave-v3-data">GitHub Repository</a></li>
+    </ul>
+</body>
+</html>
