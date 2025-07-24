@@ -29,7 +29,7 @@ on:
   schedule:
     # Run daily at 1:00 UTC (after data update)
     - cron: '0 1 * * *'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -61,19 +61,21 @@ jobs:
         from datetime import datetime
         import pandas as pd
         
-        # GitHub API headers
-        headers = {
-            'Authorization': f'token {os.environ["GITHUB_TOKEN"]}',
-            'Accept': 'application/vnd.github.v3+json'
-        }
+        # Get the token - prefer TRAFFIC_TOKEN, fallback to FALLBACK_TOKEN
+        token = os.environ.get("GITHUB_TOKEN") or os.environ.get("FALLBACK_TOKEN")
         
-        # Check if we have a proper token
-        if not os.environ.get("GITHUB_TOKEN"):
+        if not token:
             print("Error: No GitHub token available")
             exit(1)
         
-        # SECURITY: Never print the token
-        print(f"Using token: {os.environ['GITHUB_TOKEN'][:4]}...{os.environ['GITHUB_TOKEN'][-4:]}")
+        # GitHub API headers
+        headers = {
+            'Authorization': f'token {token}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+        
+        # SECURITY: Never print the full token
+        print(f"Using token: {token[:4]}...{token[-4:]}")
         
         # Repository info
         repo = os.environ.get('GITHUB_REPOSITORY', 'th3nolo/aave-v3-data')
@@ -209,7 +211,8 @@ Generated: {timestamp}
     - name: Run traffic analytics
       env:
         # Use TRAFFIC_TOKEN if available, fallback to GITHUB_TOKEN
-        GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+        FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: python traffic_analytics.py
         
     - name: Commit traffic data
