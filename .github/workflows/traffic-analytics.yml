@@ -52,12 +52,9 @@ jobs:
       run: |
         pip install requests pandas
         
-    - name: Fetch and store traffic data
-      env:
-        # Use TRAFFIC_TOKEN if available, fallback to GITHUB_TOKEN
-        GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
+    - name: Create traffic analytics script
       run: |
-        python << 'EOF'
+        cat > traffic_analytics.py << 'SCRIPT'
         import requests
         import json
         import os
@@ -207,7 +204,13 @@ Generated: {timestamp}
             f.write(report)
         
         print(f"Traffic data updated: {total_views} total views, {total_clones} total clones")
-        EOF
+        SCRIPT
+        
+    - name: Run traffic analytics
+      env:
+        # Use TRAFFIC_TOKEN if available, fallback to GITHUB_TOKEN
+        GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
+      run: python traffic_analytics.py
         
     - name: Commit traffic data
       run: |
