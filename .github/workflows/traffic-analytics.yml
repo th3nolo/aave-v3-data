@@ -173,14 +173,19 @@ jobs:
             json.dump(badge_data, f)
         
         # Generate traffic report
+        views_count = views_data.get('count', 0)
+        views_uniques = views_data.get('uniques', 0)
+        clones_count = clones_data.get('count', 0)
+        clones_uniques = clones_data.get('uniques', 0)
+        
         report = f"""# Traffic Analytics Report
 
 Generated: {timestamp}
 
 ## Recent Activity (14 days)
 
-- **Views**: {views_data.get('count', 0)} total, {views_data.get('uniques', 0)} unique
-- **Clones**: {clones_data.get('count', 0)} total, {clones_data.get('uniques', 0)} unique
+- **Views**: {views_count} total, {views_uniques} unique
+- **Clones**: {clones_count} total, {clones_uniques} unique
 
 ## Top Referrers
 
@@ -189,14 +194,14 @@ Generated: {timestamp}
 """
         
         for ref in referrers_data[:10]:
-            report += f"| {ref['referrer']} | {ref['count']} | {ref['uniques']} |\n"
+            report += f"| {ref.get('referrer', 'N/A')} | {ref.get('count', 0)} | {ref.get('uniques', 0)} |\n"
         
         report += "\n## Popular Content\n\n"
         report += "| Path | Views | Unique Visitors |\n"
         report += "|------|-------|------------------|\n"
         
         for path in paths_data[:10]:
-            report += f"| {path['path']} | {path['count']} | {path['uniques']} |\n"
+            report += f"| {path.get('path', 'N/A')} | {path.get('count', 0)} | {path.get('uniques', 0)} |\n"
         
         with open('traffic_data/TRAFFIC_REPORT.md', 'w') as f:
             f.write(report)
