@@ -178,19 +178,19 @@ jobs:
         clones_uniques = clones_data.get('uniques', 0)
         
         report = f"""# Traffic Analytics Report
-
-Generated: {timestamp}
-
-## Recent Activity (14 days)
-
-- **Views**: {views_count} total, {views_uniques} unique
-- **Clones**: {clones_count} total, {clones_uniques} unique
-
-## Top Referrers
-
-| Source | Views | Unique Visitors |
-|--------|-------|-----------------|
-"""
+        
+        Generated: {timestamp}
+        
+        ## Recent Activity (14 days)
+        
+        - **Views**: {views_count} total, {views_uniques} unique
+        - **Clones**: {clones_count} total, {clones_uniques} unique
+        
+        ## Top Referrers
+        
+        | Source | Views | Unique Visitors |
+        |--------|-------|-----------------|
+        """
         
         for ref in referrers_data[:10]:
             report += f"| {ref.get('referrer', 'N/A')} | {ref.get('count', 0)} | {ref.get('uniques', 0)} |\n"
