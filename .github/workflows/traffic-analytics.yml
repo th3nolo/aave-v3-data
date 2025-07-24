@@ -1,5 +1,30 @@
 name: Store Traffic Analytics
 
+# NOTE: This workflow requires admin permissions on the repository to access traffic data.
+# The GITHUB_TOKEN in Actions does not have access to traffic API for public repositories.
+#
+# To enable this workflow, create a Fine-Grained Personal Access Token:
+#
+# 1. Go to: https://github.com/settings/personal-access-tokens/new
+# 2. Configure the token:
+#    - Token name: "AAVE Traffic Analytics Read-Only"
+#    - Expiration: 90 days (recommended)
+#    - Repository access: Select "th3nolo/aave-v3-data" only
+# 3. Set ONLY these permissions:
+#    - Contents: Read and write (to commit traffic data)
+#    - Administration: Read (to access traffic API)
+#    - Actions: NOT NEEDED (workflow runs automatically)
+# 4. Generate and copy the token
+# 5. Add as repository secret:
+#    - Go to: Settings → Secrets and variables → Actions
+#    - Name: TRAFFIC_TOKEN
+#    - Value: Your fine-grained token
+#
+# Fine-grained tokens are more secure than classic tokens as they provide
+# minimal required permissions and are scoped to a single repository.
+#
+# The workflow will use TRAFFIC_TOKEN if available, otherwise fallback to GITHUB_TOKEN
+
 on:
   schedule:
     # Run daily at 1:00 UTC (after data update)
@@ -8,6 +33,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   traffic:
@@ -28,7 +54,8 @@ jobs:
         
     - name: Fetch and store traffic data
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Use TRAFFIC_TOKEN if available, fallback to GITHUB_TOKEN
+        GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
       run: |
         python << 'EOF'
         import requests
@@ -43,12 +70,30 @@ jobs:
             'Accept': 'application/vnd.github.v3+json'
         }
         
+        # Check if we have a proper token
+        if not os.environ.get("GITHUB_TOKEN"):
+            print("Error: No GitHub token available")
+            exit(1)
+        
+        # SECURITY: Never print the token
+        print(f"Using token: {os.environ['GITHUB_TOKEN'][:4]}...{os.environ['GITHUB_TOKEN'][-4:]}")
+        
         # Repository info
         repo = os.environ.get('GITHUB_REPOSITORY', 'th3nolo/aave-v3-data')
+        
+        # Verify we're in the right repository (security check)
+        if repo != 'th3nolo/aave-v3-data':
+            print(f"Error: Unexpected repository: {repo}")
+            exit(1)
         
         # Fetch views
         views_url = f'https://api.github.com/repos/{repo}/traffic/views'
         views_response = requests.get(views_url, headers=headers)
+        if views_response.status_code == 403:
+            print("Warning: Cannot access traffic data. This requires admin permissions on the repository.")
+            print("Traffic data collection is only available to repository administrators.")
+            print("Skipping traffic data collection.")
+            exit(0)
         views_data = views_response.json() if views_response.status_code == 200 else {}
         
         # Fetch clones
