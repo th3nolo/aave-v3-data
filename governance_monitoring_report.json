@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-07-24T13:05:20.427208",
+  "timestamp": "2025-07-25T00:17:40.865946",
   "governance_posts_found": 40,
-  "parameter_changes_detected": 2,
-  "alerts_generated": 2,
+  "parameter_changes_detected": 0,
+  "alerts_generated": 1,
   "governance_posts": [
     {
       "title": "[ARFC] Launch GHO on Ink & set ACI as Emissions Manager for Rewards",
@@ -95,33 +95,8 @@
       "relevance_score": 7.0
     }
   ],
-  "parameter_changes": [
-    {
-      "asset": "EURS",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.65,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "EURS",
-      "network": "polygon",
-      "parameter": "reserve_factor",
-      "old_value": 0.2,
-      "new_value": 0.5,
-      "change_percentage": 1.4999999999999998,
-      "risk_level": "critical"
-    }
-  ],
+  "parameter_changes": [],
   "alerts": [
-    {
-      "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 2 critical parameter changes detected",
-      "severity": "critical",
-      "parameter_changes_count": 2
-    },
     {
       "alert_type": "high_relevance_governance_activity",
       "message": "INFO: 17 high-relevance governance posts detected",
@@ -130,11 +105,11 @@
     }
   ],
   "summary": {
-    "critical_changes": 2,
+    "critical_changes": 0,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 1,
+    "critical_alerts": 0,
     "high_severity_alerts": 0
   }
 }
