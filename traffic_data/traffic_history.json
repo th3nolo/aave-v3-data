@@ -16,6 +16,23 @@
           "uniques": 1
         }
       ]
+    },
+    {
+      "timestamp": "2025-07-25T01:37:23.370809",
+      "count": 171,
+      "uniques": 3,
+      "views": [
+        {
+          "timestamp": "2025-07-23T00:00:00Z",
+          "count": 72,
+          "uniques": 2
+        },
+        {
+          "timestamp": "2025-07-24T00:00:00Z",
+          "count": 99,
+          "uniques": 2
+        }
+      ]
     }
   ],
   "clones": [
@@ -33,6 +50,28 @@
           "timestamp": "2025-07-24T00:00:00Z",
           "count": 13,
           "uniques": 7
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-07-25T01:37:23.370809",
+      "count": 125,
+      "uniques": 54,
+      "clones": [
+        {
+          "timestamp": "2025-07-23T00:00:00Z",
+          "count": 80,
+          "uniques": 39
+        },
+        {
+          "timestamp": "2025-07-24T00:00:00Z",
+          "count": 39,
+          "uniques": 17
+        },
+        {
+          "timestamp": "2025-07-25T00:00:00Z",
+          "count": 6,
+          "uniques": 5
         }
       ]
     }
@@ -57,11 +96,96 @@
           "uniques": 1
         }
       ]
+    },
+    {
+      "timestamp": "2025-07-25T01:37:23.370809",
+      "data": [
+        {
+          "referrer": "github.com",
+          "count": 39,
+          "uniques": 1
+        },
+        {
+          "referrer": "th3nolo.github.io",
+          "count": 17,
+          "uniques": 1
+        },
+        {
+          "referrer": "gemini.google.com",
+          "count": 2,
+          "uniques": 1
+        }
+      ]
     }
   ],
   "paths": [
     {
       "timestamp": "2025-07-24T15:06:35.335972",
+      "data": [
+        {
+          "path": "/th3nolo/aave-v3-data",
+          "title": "th3nolo/aave-v3-data: Aave V3 Protocol Data API - Real-time DeFi reserves, le...",
+          "count": 32,
+          "uniques": 2
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/commits/main",
+          "title": "Commits \u00b7 th3nolo/aave-v3-data",
+          "count": 8,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/blob/main/traffic_data/TRAFFIC_REPORT.md",
+          "title": "aave-v3-data/traffic_data/TRAFFIC_REPORT.md at main \u00b7 th3nolo/aave-v3-data",
+          "count": 4,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/actions/metrics/performance",
+          "title": "Actions Performance Metrics",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/graphs/traffic",
+          "title": "Traffic \u00b7 th3nolo/aave-v3-data",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/pulse",
+          "title": "Pulse \u00b7 th3nolo/aave-v3-data",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/releases",
+          "title": "Releases \u00b7 th3nolo/aave-v3-data",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/tags",
+          "title": "Tags \u00b7 th3nolo/aave-v3-data",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/actions",
+          "title": "Workflow runs \u00b7 th3nolo/aave-v3-data",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/actions/metrics/usage",
+          "title": "Actions Usage Metrics",
+          "count": 1,
+          "uniques": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-07-25T01:37:23.370809",
       "data": [
         {
           "path": "/th3nolo/aave-v3-data",
