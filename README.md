@@ -1159,7 +1159,6 @@ Historical traffic data is stored in `/traffic_data/`:
 ### Privacy Considerations
 
 All implemented solutions are:
-- ✅ GDPR/CCPA compliant
 - ✅ No cookies or personal data storage
 - ✅ Transparent to users
 - ✅ Open source friendly
