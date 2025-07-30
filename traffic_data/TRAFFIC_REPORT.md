@@ -1,11 +1,11 @@
 # Traffic Analytics Report
 
-Generated: 2025-07-29T01:38:55.033899
+Generated: 2025-07-30T01:37:48.211064
 
 ## Recent Activity (14 days)
 
-- **Views**: 203 total, 4 unique
-- **Clones**: 190 total, 73 unique
+- **Views**: 215 total, 4 unique
+- **Clones**: 202 total, 74 unique
 
 ## Top Referrers
 
@@ -13,13 +13,14 @@ Generated: 2025-07-29T01:38:55.033899
 |--------|-------|-----------------|
 | github.com | 109 | 1 |
 | th3nolo.github.io | 17 | 1 |
+| DuckDuckGo | 3 | 1 |
 | gemini.google.com | 2 | 1 |
 
 ## Popular Content
 
 | Path | Views | Unique Visitors |
 |------|-------|------------------|
-| /th3nolo/aave-v3-data | 61 | 3 |
+| /th3nolo/aave-v3-data | 64 | 4 |
 | /th3nolo/aave-v3-data/commits/main | 22 | 2 |
 | /th3nolo/aave-v3-data/actions/metrics/usage | 8 | 1 |
 | /th3nolo/aave-v3-data/actions/workflows/traffic-analytics.yml | 8 | 1 |
