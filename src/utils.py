@@ -564,6 +564,9 @@ def get_asset_symbol(asset_address: str, rpc_url: str, fallback_urls: Optional[L
             print(f"Warning: Symbol decoding failed for {asset_address}, using fallback")
             return f"TOKEN_{asset_address[-8:].upper()}"
         
+        # Apply symbol corrections for bridged USDC tokens to prevent collisions
+        symbol = _apply_bridged_usdc_corrections(asset_address, symbol, network_key)
+        
         # Record successful request for monitoring
         if network_key:
             try:
@@ -720,6 +723,48 @@ def _decode_string_response(hex_data: str) -> str:
         
     except (ValueError, IndexError) as e:
         return "PARSE_ERROR"
+
+
+def _apply_bridged_usdc_corrections(asset_address: str, symbol: str, network_key: Optional[str] = None) -> str:
+    """
+    Apply symbol corrections for bridged USDC tokens to prevent symbol collisions.
+    
+    Bridged USDC tokens return "USDC" from their smart contracts but should be labeled
+    as "USDC.e" to distinguish them from native USDC tokens in applications.
+    
+    Args:
+        asset_address: The token contract address
+        symbol: The symbol returned by the contract
+        network_key: The network identifier
+        
+    Returns:
+        Corrected symbol string
+    """
+    # Only apply corrections to tokens that return "USDC" symbol
+    if symbol != "USDC":
+        return symbol
+    
+    # Known bridged USDC addresses that should be labeled as "USDC.e"
+    bridged_usdc_addresses = {
+        # Polygon bridged USDC (via PoS bridge)
+        '0x2791bca1f2de4661ed88a30c99a7a9449aa84174': 'USDC.e',
+        
+        # Arbitrum bridged USDC (via Arbitrum bridge)  
+        '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8': 'USDC.e',
+        
+        # Optimism bridged USDC (via Optimism bridge)
+        '0x7f5c764cbc14f9669b88837ca1490cca17c31607': 'USDC.e',
+    }
+    
+    # Check if this address is a known bridged USDC
+    address_lower = asset_address.lower()
+    for bridged_address, corrected_symbol in bridged_usdc_addresses.items():
+        if address_lower == bridged_address.lower():
+            print(f"Symbol correction applied: {asset_address} on {network_key} -> '{corrected_symbol}' (was '{symbol}')")
+            return corrected_symbol
+    
+    # Return original symbol for native USDC tokens
+    return symbol
 
 
 def get_reserve_data(asset_address: str, pool_address: str, rpc_url: str, fallback_urls: Optional[List[str]] = None, network_key: Optional[str] = None) -> dict:
