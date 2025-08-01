@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-07-31T00:17:28.791604",
+  "timestamp": "2025-08-01T00:19:56.820632",
   "governance_posts_found": 38,
-  "parameter_changes_detected": 0,
-  "alerts_generated": 1,
+  "parameter_changes_detected": 1,
+  "alerts_generated": 2,
   "governance_posts": [
     {
       "title": "[ARFC] Launch GHO on Ink & set ACI as Emissions Manager for Rewards",
@@ -95,8 +95,24 @@
       "relevance_score": 7.0
     }
   ],
-  "parameter_changes": [],
+  "parameter_changes": [
+    {
+      "asset": "BTC.b",
+      "network": "avalanche",
+      "parameter": "reserve_factor",
+      "old_value": 0.2,
+      "new_value": 0.5,
+      "change_percentage": 1.4999999999999998,
+      "risk_level": "critical"
+    }
+  ],
   "alerts": [
+    {
+      "alert_type": "critical_parameter_change",
+      "message": "CRITICAL: 1 critical parameter changes detected",
+      "severity": "critical",
+      "parameter_changes_count": 1
+    },
     {
       "alert_type": "high_relevance_governance_activity",
       "message": "INFO: 16 high-relevance governance posts detected",
@@ -105,11 +121,11 @@
     }
   ],
   "summary": {
-    "critical_changes": 0,
+    "critical_changes": 1,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 0,
+    "critical_alerts": 1,
     "high_severity_alerts": 0
   }
 }
