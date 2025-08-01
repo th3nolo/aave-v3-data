@@ -237,6 +237,26 @@ class Multicall3Client:
         
         return None
     
+    def _apply_symbol_corrections(self, symbol: Optional[str], asset_address: str, network_key: Optional[str] = None) -> Optional[str]:
+        """Apply symbol corrections for bridged USDC tokens (same as utils.py)."""
+        if not symbol or symbol != "USDC":
+            return symbol
+        
+        # Known bridged USDC addresses that should be labeled as "USDC.e"
+        bridged_usdc_addresses = {
+            '0x2791bca1f2de4661ed88a30c99a7a9449aa84174': 'USDC.e',  # Polygon
+            '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8': 'USDC.e',  # Arbitrum  
+            '0x7f5c764cbc14f9669b88837ca1490cca17c31607': 'USDC.e',  # Optimism
+        }
+        
+        address_lower = asset_address.lower()
+        for bridged_address, corrected_symbol in bridged_usdc_addresses.items():
+            if address_lower == bridged_address.lower():
+                print(f"Multicall3 symbol correction: {asset_address} on {network_key} -> '{corrected_symbol}' (was '{symbol}')")
+                return corrected_symbol
+        
+        return symbol
+    
     def _parse_reserve_data(self, data: bytes) -> Optional[Dict[str, Any]]:
         """Parse reserve data from AaveProtocolDataProvider.getReserveData return."""
         if not data or len(data) < 384:  # Minimum expected data
@@ -355,7 +375,9 @@ class Multicall3Client:
             if call_type == 'symbol':
                 symbol = self._parse_symbol(return_data)
                 if symbol:
-                    asset_data_map[asset_address]['symbol'] = symbol
+                    # Apply symbol corrections for bridged USDC tokens
+                    corrected_symbol = self._apply_symbol_corrections(symbol, asset_address, network_key)
+                    asset_data_map[asset_address]['symbol'] = corrected_symbol
             elif call_type == 'reserve_data':
                 reserve_data = self._parse_reserve_data(return_data)
                 if reserve_data:
