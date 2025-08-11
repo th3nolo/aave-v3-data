@@ -1,11 +1,11 @@
 # Traffic Analytics Report
 
-Generated: 2025-08-10T01:37:23.086330
+Generated: 2025-08-11T01:38:14.270153
 
 ## Recent Activity (14 days)
 
-- **Views**: 117 total, 5 unique
-- **Clones**: 478 total, 64 unique
+- **Views**: 101 total, 5 unique
+- **Clones**: 523 total, 65 unique
 
 ## Top Referrers
 
@@ -13,13 +13,12 @@ Generated: 2025-08-10T01:37:23.086330
 |--------|-------|-----------------|
 | github.com | 72 | 1 |
 | Bing | 12 | 2 |
-| DuckDuckGo | 3 | 1 |
 
 ## Popular Content
 
 | Path | Views | Unique Visitors |
 |------|-------|------------------|
-| /th3nolo/aave-v3-data | 36 | 5 |
+| /th3nolo/aave-v3-data | 33 | 4 |
 | /th3nolo/aave-v3-data/blob/main/traffic_data/TRAFFIC_REPORT.md | 9 | 1 |
 | /th3nolo/aave-v3-data/commits/main | 7 | 1 |
 | /th3nolo/aave-v3-data/blob/main/aave_v3_data.html | 4 | 1 |
