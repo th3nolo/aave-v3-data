@@ -2,7 +2,7 @@
 
 This guide explains how to access and use the Aave V3 data provided by this GitHub Pages deployment.
 
-## 🌐 Data Access Methods
+## Data Access Methods
 
 ### 1. HTML Interface (Human-Readable)
 
@@ -40,7 +40,7 @@ https://raw.githubusercontent.com/alice/aave-v3-fetcher/main/aave_v3_data.json
 https://raw.githubusercontent.com/defi-team/protocol-data/main/aave_v3_data.json
 ```
 
-## 📊 Data Structure
+## Data Structure
 
 ### JSON Schema
 
@@ -97,17 +97,17 @@ The HTML interface displays data in organized tables with the following columns:
 | LT               | Liquidation Threshold   | 78%              |
 | LTV              | Loan-to-Value ratio     | 75%              |
 | LB               | Liquidation Bonus       | 5%               |
-| Active           | Reserve is active       | ✅ / ❌            |
-| Frozen           | Reserve is frozen       | ✅ / ❌            |
-| Borrowing        | Borrowing enabled       | ✅ / ❌            |
-| Stable Borrowing | Stable rate borrowing   | ✅ / ❌            |
-| Paused           | Reserve is paused       | ✅ / ❌            |
-| Isolation        | Borrowable in isolation | ✅ / ❌            |
+| Active           | Reserve is active       | Yes / No            |
+| Frozen           | Reserve is frozen       | Yes / No            |
+| Borrowing        | Borrowing enabled       | Yes / No            |
+| Stable Borrowing | Stable rate borrowing   | Yes / No            |
+| Paused           | Reserve is paused       | Yes / No            |
+| Isolation        | Borrowable in isolation | Yes / No            |
 | Reserve Factor   | Protocol fee            | 10%              |
 | Debt Ceiling     | Maximum debt            | 1000000          |
 | eMode Category   | Efficiency mode         | 1                |
 
-## 🔧 Programmatic Usage
+## Programmatic Usage
 
 ### JavaScript/TypeScript
 
@@ -167,7 +167,7 @@ curl -s https://raw.githubusercontent.com/username/repo/main/aave_v3_data.json |
 curl -s https://raw.githubusercontent.com/username/repo/main/aave_v3_data.json | jq '.networks[] | map(select(.symbol == "USDC"))'
 ```
 
-## 🤖 LLM Integration
+## LLM Integration
 
 ### ChatGPT/Claude Usage
 
@@ -203,7 +203,7 @@ lt = get_liquidation_threshold('USDC', 'polygon')
 print(f"USDC Polygon LT: {lt * 100}%")
 ```
 
-## 📈 Data Freshness and Updates
+## Data Freshness and Updates
 
 ### Update Schedule
 - **Automatic**: Daily at midnight UTC
@@ -241,7 +241,7 @@ function isDataFresh(lastUpdated) {
 }
 ```
 
-## 🔍 Data Validation and Quality
+## Data Validation and Quality
 
 ### Validation Reports
 
@@ -264,7 +264,7 @@ https://raw.githubusercontent.com/username/repo/main/health_report.json
 - **Validation Errors**: Known value mismatches
 - **RPC Health**: Endpoint availability status
 
-## 🌍 Network Coverage
+## Network Coverage
 
 ### Supported Networks
 
@@ -290,7 +290,7 @@ const polygonData = data.networks.polygon;
 const arbitrumData = data.networks.arbitrum;
 ```
 
-## 🔗 Integration Examples
+## Integration Examples
 
 ### DeFi Dashboard Integration
 
@@ -343,7 +343,7 @@ def check_liquidation_risk(user_positions, aave_data):
     return at_risk
 ```
 
-## 📱 Mobile and Web App Usage
+## Mobile and Web App Usage
 
 ### Responsive Design
 The HTML interface is optimized for:
@@ -377,7 +377,7 @@ const aaveService = new AaveDataService('username/repo');
 const data = await aaveService.getData();
 ```
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -413,6 +413,5 @@ async function debugDataFreshness() {
 }
 ```
 
----
 
 **Questions?** Check the main README.md or open an issue in the repository.
