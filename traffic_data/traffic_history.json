@@ -1460,6 +1460,33 @@
           "uniques": 1
         }
       ]
+    },
+    {
+      "timestamp": "2025-08-26T01:36:08.800256",
+      "count": 31,
+      "uniques": 5,
+      "views": [
+        {
+          "timestamp": "2025-08-12T00:00:00Z",
+          "count": 11,
+          "uniques": 2
+        },
+        {
+          "timestamp": "2025-08-13T00:00:00Z",
+          "count": 10,
+          "uniques": 2
+        },
+        {
+          "timestamp": "2025-08-21T00:00:00Z",
+          "count": 8,
+          "uniques": 3
+        },
+        {
+          "timestamp": "2025-08-22T00:00:00Z",
+          "count": 2,
+          "uniques": 1
+        }
+      ]
     }
   ],
   "clones": [
@@ -3558,6 +3585,88 @@
           "uniques": 6
         }
       ]
+    },
+    {
+      "timestamp": "2025-08-26T01:36:08.800256",
+      "count": 607,
+      "uniques": 60,
+      "clones": [
+        {
+          "timestamp": "2025-08-12T00:00:00Z",
+          "count": 58,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-13T00:00:00Z",
+          "count": 49,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-14T00:00:00Z",
+          "count": 49,
+          "uniques": 7
+        },
+        {
+          "timestamp": "2025-08-15T00:00:00Z",
+          "count": 66,
+          "uniques": 10
+        },
+        {
+          "timestamp": "2025-08-16T00:00:00Z",
+          "count": 55,
+          "uniques": 10
+        },
+        {
+          "timestamp": "2025-08-17T00:00:00Z",
+          "count": 57,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-18T00:00:00Z",
+          "count": 52,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-19T00:00:00Z",
+          "count": 52,
+          "uniques": 7
+        },
+        {
+          "timestamp": "2025-08-20T00:00:00Z",
+          "count": 39,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-21T00:00:00Z",
+          "count": 63,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-22T00:00:00Z",
+          "count": 14,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-23T00:00:00Z",
+          "count": 16,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-24T00:00:00Z",
+          "count": 15,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-25T00:00:00Z",
+          "count": 16,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-26T00:00:00Z",
+          "count": 6,
+          "uniques": 5
+        }
+      ]
     }
   ],
   "referrers": [
@@ -4162,6 +4271,16 @@
         {
           "referrer": "github.com",
           "count": 18,
+          "uniques": 2
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-08-26T01:36:08.800256",
+      "data": [
+        {
+          "referrer": "github.com",
+          "count": 10,
           "uniques": 2
         }
       ]
@@ -6273,6 +6392,53 @@
           "path": "/th3nolo/aave-v3-data/blob/main/USAGE.md",
           "title": "aave-v3-data/USAGE.md at main \u00b7 th3nolo/aave-v3-data",
           "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/commit/246a49ddbaf84fdd21ce65e1e07b3491f8f8b2e1",
+          "title": "Update traffic analytics - 2025-08-13 \u00b7 th3nolo/aave-v3-data@246a49d",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/commits",
+          "title": "Commits \u00b7 th3nolo/aave-v3-data \u00b7 GitHub",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/graphs/code-frequency",
+          "title": "Code frequency \u00b7 th3nolo/aave-v3-data",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/graphs/traffic",
+          "title": "Traffic \u00b7 th3nolo/aave-v3-data",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/network",
+          "title": "Network Graph \u00b7 th3nolo/aave-v3-data",
+          "count": 1,
+          "uniques": 1
+        },
+        {
+          "path": "/th3nolo/aave-v3-data/pulse",
+          "title": "Pulse \u00b7 th3nolo/aave-v3-data",
+          "count": 1,
+          "uniques": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-08-26T01:36:08.800256",
+      "data": [
+        {
+          "path": "/th3nolo/aave-v3-data",
+          "title": "th3nolo/aave-v3-data: Aave V3 Protocol Data API - Real-time DeFi reserves, le...",
+          "count": 4,
           "uniques": 1
         },
         {
