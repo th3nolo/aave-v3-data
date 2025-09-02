@@ -1609,6 +1609,33 @@
           "uniques": 1
         }
       ]
+    },
+    {
+      "timestamp": "2025-09-02T01:36:15.701944",
+      "count": 14,
+      "uniques": 4,
+      "views": [
+        {
+          "timestamp": "2025-08-20T00:00:00Z",
+          "count": 3,
+          "uniques": 1
+        },
+        {
+          "timestamp": "2025-08-21T00:00:00Z",
+          "count": 8,
+          "uniques": 3
+        },
+        {
+          "timestamp": "2025-08-22T00:00:00Z",
+          "count": 2,
+          "uniques": 1
+        },
+        {
+          "timestamp": "2025-09-01T00:00:00Z",
+          "count": 1,
+          "uniques": 1
+        }
+      ]
     }
   ],
   "clones": [
@@ -4274,6 +4301,83 @@
           "timestamp": "2025-09-01T00:00:00Z",
           "count": 10,
           "uniques": 8
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-09-02T01:36:15.701944",
+      "count": 537,
+      "uniques": 60,
+      "clones": [
+        {
+          "timestamp": "2025-08-20T00:00:00Z",
+          "count": 39,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-21T00:00:00Z",
+          "count": 63,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-08-22T00:00:00Z",
+          "count": 14,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-23T00:00:00Z",
+          "count": 16,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-24T00:00:00Z",
+          "count": 15,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-25T00:00:00Z",
+          "count": 16,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-08-26T00:00:00Z",
+          "count": 13,
+          "uniques": 7
+        },
+        {
+          "timestamp": "2025-08-27T00:00:00Z",
+          "count": 53,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-28T00:00:00Z",
+          "count": 57,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-29T00:00:00Z",
+          "count": 54,
+          "uniques": 10
+        },
+        {
+          "timestamp": "2025-08-30T00:00:00Z",
+          "count": 65,
+          "uniques": 8
+        },
+        {
+          "timestamp": "2025-08-31T00:00:00Z",
+          "count": 68,
+          "uniques": 9
+        },
+        {
+          "timestamp": "2025-09-01T00:00:00Z",
+          "count": 32,
+          "uniques": 11
+        },
+        {
+          "timestamp": "2025-09-02T00:00:00Z",
+          "count": 32,
+          "uniques": 7
         }
       ]
     }
