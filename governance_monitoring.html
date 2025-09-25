@@ -333,15 +333,15 @@
         <header>
             <h1>🏛️ Aave V3 Governance Monitoring</h1>
             <p class="subtitle">Real-time parameter tracking and governance activity monitoring</p>
-            <div class="timestamp">Last updated: September 24, 2025 at 12:15 AM UTC</div>
+            <div class="timestamp">Last updated: September 25, 2025 at 12:15 AM UTC</div>
         </header>
 
         
     <div class="section">
         <h2>📊 Summary</h2>
         <div class="summary-grid">
-            <div class="summary-card success">
-                <div class="summary-number">0</div>
+            <div class="summary-card critical">
+                <div class="summary-number">13</div>
                 <div class="summary-label">Critical Changes</div>
             </div>
             <div class="summary-card success">
@@ -349,11 +349,11 @@
                 <div class="summary-label">High Risk Changes</div>
             </div>
             <div class="summary-card">
-                <div class="summary-number">0</div>
+                <div class="summary-number">13</div>
                 <div class="summary-label">Total Parameter Changes</div>
             </div>
-            <div class="summary-card success">
-                <div class="summary-number">0</div>
+            <div class="summary-card critical">
+                <div class="summary-number">1</div>
                 <div class="summary-label">Active Alerts</div>
             </div>
         </div>
@@ -363,6 +363,12 @@
         
     <div class="section">
         <h2>🚨 Alerts</h2>
+        
+        <div class="alert critical">
+            <div class="alert-header">🔴 Critical Parameter Change</div>
+            <div class="alert-message">CRITICAL: 13 critical parameter changes detected</div>
+            <div style="margin-top: 8px; font-size: 0.9em;">Affects 13 parameter changes</div>
+        </div>
         
         <div class="alert low">
             <div class="alert-header">🟢 High Relevance Governance Activity</div>
@@ -374,30 +380,162 @@
     
         
         
-        <div class="section">
-            <h2>📈 Parameter Changes</h2>
-            <div class="no-data">No parameter changes detected</div>
-        </div>
+    <div class="section">
+        <h2>📈 Parameter Changes</h2>
+        <table class="changes-table">
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>Network</th>
+                    <th>Parameter</th>
+                    <th>Old Value</th>
+                    <th>New Value</th>
+                    <th>Change %</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td>WETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0500</td>
+            <td class="change-value change-positive">↗️ 1.0500</td>
+            <td>2000.0%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
         
+        <tr>
+            <td>USDbC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0500</td>
+            <td class="change-value change-positive">↗️ 1.0500</td>
+            <td>2000.0%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>USDC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0500</td>
+            <td class="change-value change-positive">↗️ 1.0500</td>
+            <td>2000.0%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>EURC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0500</td>
+            <td class="change-value change-positive">↗️ 1.0500</td>
+            <td>2000.0%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>wstETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0600</td>
+            <td class="change-value change-positive">↗️ 1.0600</td>
+            <td>1666.7%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>cbETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>weETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>cbBTC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>ezETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>wrsETH</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>tBTC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0750</td>
+            <td class="change-value change-positive">↗️ 1.0750</td>
+            <td>1333.3%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>LBTC</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.0850</td>
+            <td class="change-value change-positive">↗️ 1.0850</td>
+            <td>1176.5%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+        <tr>
+            <td>AAVE</td>
+            <td>Base</td>
+            <td>Liquidation Bonus</td>
+            <td class="change-value">0.1000</td>
+            <td class="change-value change-positive">↗️ 1.1000</td>
+            <td>1000.0%</td>
+            <td><span class="risk-badge risk-critical">critical</span></td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
         
         
     <div class="section">
         <h2>🏛️ Recent Governance Activity</h2>
         <div class="posts-grid">
             
-        <div class="post-card">
-            <div class="post-title">
-                <a href="https://governance.aave.com/t/direct-to-aip-onboard-susde-and-usde-to-aave-v3-avalanche-instance/23081" target="_blank">[Direct to AIP] Onboard sUSDe and USDe to Aave V3 Avalanche Instance</a>
-            </div>
-            <div class="post-meta">
-                Source: Aave Governance | 
-                Relevance: <span class="relevance-score">24.0</span>
-                 | Sat, 06 Sep 2025 07:45:08 +0000
-            </div>
-            <div class="post-description">
-            <h2><a name="p-58759-direct-to-aip-onboard-susde-and-usde-to-aave-v3-avalanche-instance-1" class="anchor" href="https://governance.aave.com#p-58759-direct-to-aip-onboard-susde-and-usde-to...</div>
-        </div>
-        
         <div class="post-card">
             <div class="post-title">
                 <a href="https://governance.aave.com/t/arfc-add-metamask-usd-musd-to-aave-v3-core-instance-on-ethereum-and-linea/23097" target="_blank">[ARFC] Add MetaMask USD (mUSD) to Aave v3 Core Instance on Ethereum and Linea</a>
@@ -538,6 +676,22 @@ author: <a class="mention" href="https://governance.aave.com/u/tokenlogic">@Toke
 <p>A proposal to:</p>
 <ul>
 <li>Increase the borrow caps of wstETH on t...</div>
+        </div>
+        
+        <div class="post-card">
+            <div class="post-title">
+                <a href="https://governance.aave.com/t/chaos-labs-risk-stewards-increase-supply-and-borrow-caps-on-aave-v3-instance-09-08-25/23092" target="_blank">Chaos Labs Risk Stewards - Increase Supply and Borrow Caps on Aave V3 Instance- 09.08.25</a>
+            </div>
+            <div class="post-meta">
+                Source: Aave Governance | 
+                Relevance: <span class="relevance-score">8.0</span>
+                 | Mon, 08 Sep 2025 20:18:08 +0000
+            </div>
+            <div class="post-description">
+            <h3><a name="p-58791-summary-1" class="anchor" href="https://governance.aave.com#p-58791-summary-1"></a>Summary</h3>
+<p>A proposal to:</p>
+<ul>
+<li>Increase supply cap for PT-sUSDE-27NOV2...</div>
         </div>
         
         </div>
