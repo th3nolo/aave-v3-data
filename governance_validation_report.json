@@ -1,7 +1,8 @@
 {
-  "timestamp": "2025-11-14T00:16:28.245771",
+  "timestamp": "2025-11-15T00:16:10.645928",
   "validation_passed": false,
   "validation_errors": [
+    "Governance mismatch: PYUSD on ethereum loan_to_value is 0.75, expected 0.0 from governance change",
     "Governance mismatch: WETH on base liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: cbETH on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
     "Governance mismatch: USDbC on base liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
@@ -14,8 +15,7 @@
     "Governance mismatch: LBTC on base liquidation_bonus is 0.08499999999999996, expected 1.085 from governance change",
     "Governance mismatch: EURC on base liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: AAVE on base liquidation_bonus is 0.10000000000000009, expected 1.1 from governance change",
-    "Governance mismatch: tBTC on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
-    "Governance mismatch: PYUSD on ethereum loan_to_value is 0.75, expected 0.0 from governance change"
+    "Governance mismatch: tBTC on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change"
   ],
   "validation_warnings": [],
   "governance_consistency_score": 0.0,
