@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-15T00:16:10.645928",
+  "timestamp": "2025-11-16T00:17:56.106736",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: PYUSD on ethereum loan_to_value is 0.75, expected 0.0 from governance change",
