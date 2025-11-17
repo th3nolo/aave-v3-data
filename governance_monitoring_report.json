@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-16T00:17:56.105237",
+  "timestamp": "2025-11-17T00:17:01.636463",
   "governance_posts_found": 39,
-  "parameter_changes_detected": 8,
-  "alerts_generated": 2,
+  "parameter_changes_detected": 0,
+  "alerts_generated": 1,
   "governance_posts": [
     {
       "title": "[Direct to AIP] Onboard rsETH to Aave V3 Avalanche Instance",
@@ -95,87 +95,8 @@
       "relevance_score": 8.0
     }
   ],
-  "parameter_changes": [
-    {
-      "asset": "CRV",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.35,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "BAL",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.57,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "UNI",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.65,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "LDO",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.4,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "ENS",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.39,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "1INCH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.57,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "Cake",
-      "network": "bnb",
-      "parameter": "loan_to_value",
-      "old_value": 0.55,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "Metis",
-      "network": "metis",
-      "parameter": "loan_to_value",
-      "old_value": 0.3,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    }
-  ],
+  "parameter_changes": [],
   "alerts": [
-    {
-      "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 8 critical parameter changes detected",
-      "severity": "critical",
-      "parameter_changes_count": 8
-    },
     {
       "alert_type": "high_relevance_governance_activity",
       "message": "INFO: 19 high-relevance governance posts detected",
@@ -184,11 +105,11 @@
     }
   ],
   "summary": {
-    "critical_changes": 8,
+    "critical_changes": 0,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 1,
+    "critical_alerts": 0,
     "high_severity_alerts": 0
   }
 }
