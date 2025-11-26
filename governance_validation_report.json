@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-25T00:15:14.235897",
+  "timestamp": "2025-11-26T00:16:26.743580",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WETH on base liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
@@ -19,6 +19,6 @@
   ],
   "validation_warnings": [],
   "governance_consistency_score": 0.0,
-  "networks_validated": 13,
-  "assets_validated": 205
+  "networks_validated": 12,
+  "assets_validated": 196
 }
