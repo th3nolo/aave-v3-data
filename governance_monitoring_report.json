@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-12-10T00:17:20.982624",
-  "governance_posts_found": 38,
-  "parameter_changes_detected": 0,
-  "alerts_generated": 1,
+  "timestamp": "2025-12-11T00:17:22.802284",
+  "governance_posts_found": 39,
+  "parameter_changes_detected": 7,
+  "alerts_generated": 2,
   "governance_posts": [
     {
       "title": "Aave v4: New Features and Risk Parameter Analysis",
@@ -95,8 +95,78 @@
       "relevance_score": 7.0
     }
   ],
-  "parameter_changes": [],
+  "parameter_changes": [
+    {
+      "asset": "wstETH",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.06000000000000005,
+      "new_value": 1.06,
+      "change_percentage": 16.666666666666654,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "GNO",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.10000000000000009,
+      "new_value": 1.1,
+      "change_percentage": 9.999999999999991,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDC",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.050000000000000044,
+      "new_value": 1.05,
+      "change_percentage": 19.999999999999982,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WETH",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.06000000000000005,
+      "new_value": 1.06,
+      "change_percentage": 16.666666666666654,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WXDAI",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.050000000000000044,
+      "new_value": 1.05,
+      "change_percentage": 19.999999999999982,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "sDAI",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.050000000000000044,
+      "new_value": 1.05,
+      "change_percentage": 19.999999999999982,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDC.e",
+      "network": "gnosis",
+      "parameter": "liquidation_bonus",
+      "old_value": 0.050000000000000044,
+      "new_value": 1.05,
+      "change_percentage": 19.999999999999982,
+      "risk_level": "critical"
+    }
+  ],
   "alerts": [
+    {
+      "alert_type": "critical_parameter_change",
+      "message": "CRITICAL: 7 critical parameter changes detected",
+      "severity": "critical",
+      "parameter_changes_count": 7
+    },
     {
       "alert_type": "high_relevance_governance_activity",
       "message": "INFO: 18 high-relevance governance posts detected",
@@ -105,11 +175,11 @@
     }
   ],
   "summary": {
-    "critical_changes": 0,
+    "critical_changes": 7,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 0,
+    "critical_alerts": 1,
     "high_severity_alerts": 0
   }
 }
