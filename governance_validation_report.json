@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-23T00:17:31.544594",
+  "timestamp": "2025-12-24T00:17:09.522365",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WETH on gnosis liquidation_bonus is 0.06000000000000005, expected 1.06 from governance change",
@@ -9,13 +9,6 @@
     "Governance mismatch: WXDAI on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: sDAI on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: USDC.e on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
-    "Governance mismatch: wstETH on base liquidation_bonus is 0.06000000000000005, expected 1.06 from governance change",
-    "Governance mismatch: weETH on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
-    "Governance mismatch: cbBTC on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
-    "Governance mismatch: ezETH on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
-    "Governance mismatch: wrsETH on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
-    "Governance mismatch: LBTC on base liquidation_bonus is 0.08499999999999996, expected 1.085 from governance change",
-    "Governance mismatch: EURC on base liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: AAVE on base liquidation_bonus is 0.10000000000000009, expected 1.1 from governance change",
     "Governance mismatch: tBTC on base liquidation_bonus is 0.07499999999999996, expected 1.075 from governance change",
     "Governance mismatch: PYUSD on ethereum loan_to_value is 0.75, expected 0.0 from governance change"
