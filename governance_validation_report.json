@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-12T00:18:59.741431",
+  "timestamp": "2026-01-13T00:15:04.521149",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: AAVE on base liquidation_bonus is 0.10000000000000009, expected 1.1 from governance change",
