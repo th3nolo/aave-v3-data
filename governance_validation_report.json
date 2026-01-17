@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-16T00:18:07.348251",
+  "timestamp": "2026-01-17T00:17:15.491694",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WETH on gnosis liquidation_bonus is 0.06000000000000005, expected 1.06 from governance change",
