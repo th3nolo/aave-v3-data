@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-06T00:20:33.034850",
+  "timestamp": "2026-02-07T00:21:35.893965",
   "governance_posts_found": 43,
-  "parameter_changes_detected": 8,
-  "alerts_generated": 2,
+  "parameter_changes_detected": 0,
+  "alerts_generated": 1,
   "governance_posts": [
     {
       "title": "[ARFC] Introduction of Segregated Bluechip Collateral E-Modes on Aave v3",
@@ -95,100 +95,21 @@
       "relevance_score": 9.0
     }
   ],
-  "parameter_changes": [
-    {
-      "asset": "LINK",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.66,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC.e",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "AAVE",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.63,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "OP",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.58,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "rETH",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.69,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "m.USDC",
-      "network": "metis",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "m.USDT",
-      "network": "metis",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "sDAI",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    }
-  ],
+  "parameter_changes": [],
   "alerts": [
     {
-      "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 8 critical parameter changes detected",
-      "severity": "critical",
-      "parameter_changes_count": 8
-    },
-    {
       "alert_type": "high_relevance_governance_activity",
-      "message": "INFO: 21 high-relevance governance posts detected",
+      "message": "INFO: 19 high-relevance governance posts detected",
       "severity": "low",
       "parameter_changes_count": 0
     }
   ],
   "summary": {
-    "critical_changes": 8,
+    "critical_changes": 0,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 1,
+    "critical_alerts": 0,
     "high_severity_alerts": 0
   }
 }
