@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-09T00:23:11.543993",
+  "timestamp": "2026-02-10T00:27:28.578462",
   "governance_posts_found": 43,
-  "parameter_changes_detected": 1,
-  "alerts_generated": 2,
+  "parameter_changes_detected": 0,
+  "alerts_generated": 1,
   "governance_posts": [
     {
       "title": "[ARFC] Introduction of Segregated Bluechip Collateral E-Modes on Aave v3",
@@ -95,37 +95,21 @@
       "relevance_score": 9.0
     }
   ],
-  "parameter_changes": [
-    {
-      "asset": "WBTC",
-      "network": "polygon",
-      "parameter": "liquidation_bonus",
-      "old_value": 0.06499999999999995,
-      "new_value": 0.07000000000000006,
-      "change_percentage": 0.07692307692307876,
-      "risk_level": "critical"
-    }
-  ],
+  "parameter_changes": [],
   "alerts": [
     {
-      "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 1 critical parameter changes detected",
-      "severity": "critical",
-      "parameter_changes_count": 1
-    },
-    {
       "alert_type": "high_relevance_governance_activity",
-      "message": "INFO: 20 high-relevance governance posts detected",
+      "message": "INFO: 21 high-relevance governance posts detected",
       "severity": "low",
       "parameter_changes_count": 0
     }
   ],
   "summary": {
-    "critical_changes": 1,
+    "critical_changes": 0,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 1,
+    "critical_alerts": 0,
     "high_severity_alerts": 0
   }
 }
