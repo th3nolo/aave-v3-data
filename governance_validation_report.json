@@ -1,20 +1,12 @@
 {
-  "timestamp": "2026-03-10T00:19:24.397212",
+  "timestamp": "2026-03-11T00:19:12.356191",
   "validation_passed": false,
   "validation_errors": [
-    "Governance mismatch: WETH on gnosis liquidation_bonus is 0.06000000000000005, expected 1.06 from governance change",
-    "Governance mismatch: wstETH on gnosis liquidation_bonus is 0.06000000000000005, expected 1.06 from governance change",
-    "Governance mismatch: GNO on gnosis liquidation_bonus is 0.10000000000000009, expected 1.1 from governance change",
-    "Governance mismatch: USDC on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
-    "Governance mismatch: WXDAI on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
-    "Governance mismatch: sDAI on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
-    "Governance mismatch: USDC.e on gnosis liquidation_bonus is 0.050000000000000044, expected 1.05 from governance change",
     "Governance mismatch: WBTC on polygon liquidation_bonus is 0.08499999999999996, expected 0.07000000000000006 from governance change",
-    "Governance mismatch: WBTC on polygon liquidation_bonus is 0.08499999999999996, expected 0.07499999999999996 from governance change",
-    "Governance mismatch: PYUSD on ethereum loan_to_value is 0.75, expected 0.0 from governance change"
+    "Governance mismatch: WBTC on polygon liquidation_bonus is 0.08499999999999996, expected 0.07499999999999996 from governance change"
   ],
   "validation_warnings": [],
-  "governance_consistency_score": 0.0,
+  "governance_consistency_score": 0.8,
   "networks_validated": 13,
   "assets_validated": 214
 }

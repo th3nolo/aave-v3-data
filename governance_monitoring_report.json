@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-03-10T00:19:24.395657",
+  "timestamp": "2026-03-11T00:19:12.353853",
   "governance_posts_found": 44,
-  "parameter_changes_detected": 0,
-  "alerts_generated": 1,
+  "parameter_changes_detected": 44,
+  "alerts_generated": 2,
   "governance_posts": [
     {
       "title": "[TEMP CHECK] The AAVE Utility Renaissance: Aligning Protocol Success with Token Holder Value",
@@ -50,15 +50,6 @@
       "relevance_score": 10.0
     },
     {
-      "title": "Chaos Labs Risk Stewards - Increase Supply Caps, Borrow Caps, Debt Ceiling on Aave V3- 20.02.26",
-      "link": "https://governance.aave.com/t/chaos-labs-risk-stewards-increase-supply-caps-borrow-caps-debt-ceiling-on-aave-v3-20-02-26/24127",
-      "description": "\n            <h3><a name=\"p-61892-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-summary-1\" aria-label=\"Heading link\"></a>Summary</h3>\n<p>A proposal to:</p>\n<ul>\n<li>Increase the supply and borrow caps of USDT0 on the Mantle Instance</li>\n<li>Increase the supply and borrow caps of USDC on the Mantle Instance</li>\n<li>Increase the supply cap of wrsETH on the Mantle Instance</li>\n<li>Increase the debt ceiling of XAUt on the Ethereum Core Instance</li>\n</ul>\n<p>All cap increases are backed by <a href=\"https://cdn.sanity.io/files/zmh9mnff/production/130e1060165f7ab0766bb4c70cc2ec41c1d1e458.pdf\" rel=\"noopener nofollow ugc\">Chaos Labs\u2019 risk simulations</a>, which consider user behavior, on-chain liquidity, and price impact, ensuring that higher caps do not introduce additional risk to the platform.</p>\n<h3><a name=\"p-61892-usdt0-mantle-2\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-usdt0-mantle-2\" aria-label=\"Heading link\"></a>USDT0 (Mantle)</h3>\n<p>USDT has reached its supply cap of 200 million tokens on the Mantle instance following an inflow of approximately 100 million in the past 72 hours.</p>\n<h3><a name=\"p-61892-supply-distribution-3\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-3\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>The supply distribution of USDT0 is highly concentrated, as the top user accounts for 60% of the market. While such concentration levels are typically considered risky, USDT0 is configured as a borrow-only asset, implying a lack of collateral utility. Hence, concentration risk is primarily manifested in potential interest rate volatility if the top supplier were to decrease its position.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png\" data-download-href=\"/uploads/short-url/23GKjG1hPFSPujfk0fvjBYGtd8J.png?dl=1\" title=\"image (18)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749_2_2000x995.png\" alt=\"image (18)\" data-base62-sha1=\"23GKjG1hPFSPujfk0fvjBYGtd8J\" width=\"2000\" height=\"995\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749_2_2000x995.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png 2x\" data-dominant-color=\"161721\"></a></div><p></p>\n<h3><a name=\"p-61892-borrow-distribution-4\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-borrow-distribution-4\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>USDT0 borrowing exhibits a substantially lower level of concentration as compared to the supply, specifically, the top 3 users account for less than 50% of total debt. The majority of the borrowing originated from leveraged looping strategies where people are either participating in Ethena\u2019s \u201cLiquid Leverage\u201d or looping syrupUSDT.  As the collateral is tightly correlated to the debt and the positions\u2019 health factors are fairly conservative, the market presents minimal liquidity risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png\" data-download-href=\"/uploads/short-url/Aj0PLYrR6EnJodnR95gviU9yS79.png?dl=1\" title=\"image (19)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/f/fe747aeb01fb989379649b780729b357d1409a13_2_1999x993.png\" alt=\"image (19)\" data-base62-sha1=\"Aj0PLYrR6EnJodnR95gviU9yS79\" width=\"1999\" height=\"993\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/f/fe747aeb01fb989379649b780729b357d1409a13_2_1999x993.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png 2x\" data-dominant-color=\"1D2631\"></a></div><p></p>\n<h3><a name=\"p-61892-recommendation-5\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-5\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the elevated demand to lend and borrow USDT0 on the Mantle instance, along with low-risk borrowing behavior, we recommend increasing the asset\u2019s supply and borrowing caps.</p>\n<h3><a name=\"p-61892-usdc-mantle-6\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-usdc-mantle-6\" aria-label=\"Heading link\"></a>USDC (Mantle)</h3>\n<p>USDC has reached its supply cap on the Mantle instance; the flow of deposits is primarily attributable to the substantial incentives present in the market, which manifest in a supply rate that currently exceeds 10%.</p>\n<h3><a name=\"p-61892-supply-distribution-7\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-7\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>USDC supply exhibits moderate concentration as the top position represents approximately 35% of the market. As USDC is configured as a non-collateral borrowable asset, no liquidation risk can be attributed to the supply side of the market.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png\" data-download-href=\"/uploads/short-url/wf6h0NyiQUTSQdgabFIBggy1QCf.png?dl=1\" title=\"image (20)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab_2_2000x1039.png\" alt=\"image (20)\" data-base62-sha1=\"wf6h0NyiQUTSQdgabFIBggy1QCf\" width=\"2000\" height=\"1039\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab_2_2000x1039.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png 2x\" data-dominant-color=\"1D1A26\"></a></div><p></p>\n<h3><a name=\"p-61892-borrow-distribution-8\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-borrow-distribution-8\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>USDC borrowing is currently at 30% utilization, with three wallets driving 90% of the debt accumulation. As can be observed, USDC debt is primarily collateralized by syrupUSDT collateral, which, given the high correlation of the assets, presents minimal liquidation risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png\" data-download-href=\"/uploads/short-url/mYBrkzchxptEMBP9ermccS6UaYB.png?dl=1\" title=\"image (21)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5_2_2000x1035.png\" alt=\"image (21)\" data-base62-sha1=\"mYBrkzchxptEMBP9ermccS6UaYB\" width=\"2000\" height=\"1035\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5_2_2000x1035.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png 2x\" data-dominant-color=\"141B26\"></a></div><p></p>\n<h3><a name=\"p-61892-recommendation-9\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-9\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Considering the increased demand associated with the supply side of the USDC market, along with increasing borrowing dynamics and minimal associated risk, we recommend increasing the supply and borrow caps of the asset on the Mantle instance.</p>\n<h3><a name=\"p-61892-wrseth-mantle-10\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-wrseth-mantle-10\" aria-label=\"Heading link\"></a>wrsETH (Mantle)</h3>\n<p>wrsETH has reached its supply cap of 12,000 tokens on the Mantle instance. Demand is primarily driven by relatively low WETH borrowing rates, currently at 1.13%.</p>\n<h3><a name=\"p-61892-supply-distribution-11\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-11\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>The supply of wrsETH is highly concentrated as the market is effectively represented by three users. The suppliers collateralize WETH debt with wrsETH, increasing the notional exposure to capture a larger net spread between wrsETH\u2019s appreciation rate and WETH\u2019s borrowing costs.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png\" data-download-href=\"/uploads/short-url/j0mrmHlLvmsvbCuL4e2lHaID7KB.png?dl=1\" title=\"image (22)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed_2_2000x1029.png\" alt=\"image (22)\" data-base62-sha1=\"j0mrmHlLvmsvbCuL4e2lHaID7KB\" width=\"2000\" height=\"1029\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed_2_2000x1029.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png 2x\" data-dominant-color=\"1E1E32\"></a></div><p></p>\n<h3><a name=\"p-61892-liquidity-12\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-liquidity-12\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>wrsETH liquidity is currently concentrated in a wrsETH-WETH Merchant Moe <a href=\"https://www.notion.so/Aave-Caps-Mantle-18-02-26-30b57ab37ebf80609965e170546b2de0?pvs=21\" rel=\"noopener nofollow ugc\">pool</a> with a TVL of approximately $2.3 million, supporting meaningful unwinds if the market conditions deviate.</p>\n<h3><a name=\"p-61892-recommendation-13\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-13\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the persistent demand to utilize wrsETH in leveraged restaking strategies, limited liquidation risk, and ample liquidity, we recommend increasing the supply cap of wrsETH.</p>\n<h3><a name=\"p-61892-xaut-ethereum-core-14\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-xaut-ethereum-core-14\" aria-label=\"Heading link\"></a>XAUt (Ethereum Core)</h3>\n<p>XAUt has reached 84% of its debt ceiling on the Ethereum Core instance of Aave, indicating substantial demand to utilize the asset as collateral. Specifically, over 8,000 tokens have been deposited in the protocol in the past 30 days, amounting to approximately $40 million.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/b/b83d99c3c51a4c194c172ae008fd87cd3df769e7.png\" data-download-href=\"/uploads/short-url/qhRPFktXBLDG4YzZSfokaKSfubt.png?dl=1\" title=\"image (23)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/b/b83d99c3c51a4c194c172ae008fd87cd3df769e7.png\" alt=\"image (23)\" data-base62-sha1=\"qhRPFktXBLDG4YzZSfokaKSfubt\" width=\"2000\" height=\"210\"></a></div><br>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/6/617cee885c892f46989fbcfd76dab928778fac4a.png\" data-download-href=\"/uploads/short-url/dUpYK0UXHgQd3w05eOhIextHzJ0.png?dl=1\" title=\"image (24)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/6/617cee885c892f46989fbcfd76dab928778fac4a.png\" alt=\"image (24)\" data-base62-sha1=\"dUpYK0UXHgQd3w05eOhIextHzJ0\" width=\"1996\" height=\"692\"></a></div><p></p>\n<h3><a name=\"p-61892-supply-distribution-15\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-15\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>XAUt is used primarily to collateralize stablecoin debt. The suppliers are fairly conservative, with health factors ranging from 1.54 to 1.95, presenting limited liquidation risk. The asset is configured as collateral strictly in the isolation mode, limiting the accumulation of high volatility debt.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/504d9ca2c2adef6cc2133c9528b6326ad6f14168.png\" data-download-href=\"/uploads/short-url/bsotMbcy3yIt8AM6FToOvx1ay24.png?dl=1\" title=\"image (25)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/504d9ca2c2adef6cc2133c9528b6326ad6f14168.png\" alt=\"image (25)\" data-base62-sha1=\"bsotMbcy3yIt8AM6FToOvx1ay24\" width=\"1998\" height=\"836\"></a></div><p></p>\n<h3><a name=\"p-61892-liquidity-16\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-liquidity-16\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>At the time of writing, a sell order of 1,000 XAUt for USDe is subject to conservative 3.6% slippage, supporting a meaningful increase in the debt ceiling.</p>\n<h3><a name=\"p-61892-recommendation-17\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-17\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Considering the growing demand to utilize the asset as collateral to borrow stablecoins, along with minimal risk associated with both the asset and current positions, we recommend increasing the debt ceiling to 70 million. As the Risk Steward allows for a maximum increase of 20%, we recommend conducting two subsequent increases to reach the desired target debt ceiling.</p>\n<h3><a name=\"p-61892-specification-18\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-specification-18\" aria-label=\"Heading link\"></a>Specification</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Instance</strong></th>\n<th><strong>Asset</strong></th>\n<th><strong>Current Supply Cap</strong></th>\n<th><strong>Recommended Supply Cap</strong></th>\n<th><strong>Current Borrow Cap</strong></th>\n<th><strong>Recommended Borrow Cap</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Mantle</td>\n<td>USDT0</td>\n<td>200,000,000</td>\n<td>400,000,000</td>\n<td>190,000,000</td>\n<td>380,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>USDC</td>\n<td>20,000,000</td>\n<td>40,000,000</td>\n<td>19,000,000</td>\n<td>38,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>wrsETH</td>\n<td>12,000</td>\n<td>24,000</td>\n<td>-</td>\n<td>-</td>\n</tr>\n</tbody>\n</table>\n</div><div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Instance</strong></th>\n<th><strong>Asset</strong></th>\n<th><strong>Current Debt Ceiling</strong></th>\n<th><strong>Recommended Debt Ceiling</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>XAUt</td>\n<td>50,000,000</td>\n<td>70,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h2><a name=\"p-61892-next-steps-19\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-next-steps-19\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<p>We will move forward and implement these updates via the Risk Steward process.</p>\n<h2><a name=\"p-61892-disclosure-20\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-disclosure-20\" aria-label=\"Heading link\"></a>Disclosure</h2>\n<p>Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.</p>\n<h2><a name=\"p-61892-copyright-21\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-copyright-21\" aria-label=\"Heading link\"></a>Copyright</h2>\n<p>Copyright and related rights waived via <a href=\"https://creativecommons.org/publicdomain\" rel=\"noopener nofollow ugc\">CC0</a>.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/chaos-labs-risk-stewards-increase-supply-caps-borrow-caps-debt-ceiling-on-aave-v3-20-02-26/24127\">Read full topic</a></p>\n          ",
-      "pub_date": "Fri, 20 Feb 2026 22:28:57 +0000",
-      "content": "\n            <h3><a name=\"p-61892-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-summary-1\" aria-label=\"Heading link\"></a>Summary</h3>\n<p>A proposal to:</p>\n<ul>\n<li>Increase the supply and borrow caps of USDT0 on the Mantle Instance</li>\n<li>Increase the supply and borrow caps of USDC on the Mantle Instance</li>\n<li>Increase the supply cap of wrsETH on the Mantle Instance</li>\n<li>Increase the debt ceiling of XAUt on the Ethereum Core Instance</li>\n</ul>\n<p>All cap increases are backed by <a href=\"https://cdn.sanity.io/files/zmh9mnff/production/130e1060165f7ab0766bb4c70cc2ec41c1d1e458.pdf\" rel=\"noopener nofollow ugc\">Chaos Labs\u2019 risk simulations</a>, which consider user behavior, on-chain liquidity, and price impact, ensuring that higher caps do not introduce additional risk to the platform.</p>\n<h3><a name=\"p-61892-usdt0-mantle-2\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-usdt0-mantle-2\" aria-label=\"Heading link\"></a>USDT0 (Mantle)</h3>\n<p>USDT has reached its supply cap of 200 million tokens on the Mantle instance following an inflow of approximately 100 million in the past 72 hours.</p>\n<h3><a name=\"p-61892-supply-distribution-3\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-3\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>The supply distribution of USDT0 is highly concentrated, as the top user accounts for 60% of the market. While such concentration levels are typically considered risky, USDT0 is configured as a borrow-only asset, implying a lack of collateral utility. Hence, concentration risk is primarily manifested in potential interest rate volatility if the top supplier were to decrease its position.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png\" data-download-href=\"/uploads/short-url/23GKjG1hPFSPujfk0fvjBYGtd8J.png?dl=1\" title=\"image (18)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749_2_2000x995.png\" alt=\"image (18)\" data-base62-sha1=\"23GKjG1hPFSPujfk0fvjBYGtd8J\" width=\"2000\" height=\"995\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749_2_2000x995.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0e6f1d66cff0e0ec17245fab66ed58aee525a749.png 2x\" data-dominant-color=\"161721\"></a></div><p></p>\n<h3><a name=\"p-61892-borrow-distribution-4\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-borrow-distribution-4\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>USDT0 borrowing exhibits a substantially lower level of concentration as compared to the supply, specifically, the top 3 users account for less than 50% of total debt. The majority of the borrowing originated from leveraged looping strategies where people are either participating in Ethena\u2019s \u201cLiquid Leverage\u201d or looping syrupUSDT.  As the collateral is tightly correlated to the debt and the positions\u2019 health factors are fairly conservative, the market presents minimal liquidity risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png\" data-download-href=\"/uploads/short-url/Aj0PLYrR6EnJodnR95gviU9yS79.png?dl=1\" title=\"image (19)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/f/fe747aeb01fb989379649b780729b357d1409a13_2_1999x993.png\" alt=\"image (19)\" data-base62-sha1=\"Aj0PLYrR6EnJodnR95gviU9yS79\" width=\"1999\" height=\"993\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/f/fe747aeb01fb989379649b780729b357d1409a13_2_1999x993.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/f/fe747aeb01fb989379649b780729b357d1409a13.png 2x\" data-dominant-color=\"1D2631\"></a></div><p></p>\n<h3><a name=\"p-61892-recommendation-5\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-5\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the elevated demand to lend and borrow USDT0 on the Mantle instance, along with low-risk borrowing behavior, we recommend increasing the asset\u2019s supply and borrowing caps.</p>\n<h3><a name=\"p-61892-usdc-mantle-6\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-usdc-mantle-6\" aria-label=\"Heading link\"></a>USDC (Mantle)</h3>\n<p>USDC has reached its supply cap on the Mantle instance; the flow of deposits is primarily attributable to the substantial incentives present in the market, which manifest in a supply rate that currently exceeds 10%.</p>\n<h3><a name=\"p-61892-supply-distribution-7\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-7\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>USDC supply exhibits moderate concentration as the top position represents approximately 35% of the market. As USDC is configured as a non-collateral borrowable asset, no liquidation risk can be attributed to the supply side of the market.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png\" data-download-href=\"/uploads/short-url/wf6h0NyiQUTSQdgabFIBggy1QCf.png?dl=1\" title=\"image (20)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab_2_2000x1039.png\" alt=\"image (20)\" data-base62-sha1=\"wf6h0NyiQUTSQdgabFIBggy1QCf\" width=\"2000\" height=\"1039\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab_2_2000x1039.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e1fa91e57162575173dd681b6feafa3a2d8860ab.png 2x\" data-dominant-color=\"1D1A26\"></a></div><p></p>\n<h3><a name=\"p-61892-borrow-distribution-8\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-borrow-distribution-8\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>USDC borrowing is currently at 30% utilization, with three wallets driving 90% of the debt accumulation. As can be observed, USDC debt is primarily collateralized by syrupUSDT collateral, which, given the high correlation of the assets, presents minimal liquidation risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png\" data-download-href=\"/uploads/short-url/mYBrkzchxptEMBP9ermccS6UaYB.png?dl=1\" title=\"image (21)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5_2_2000x1035.png\" alt=\"image (21)\" data-base62-sha1=\"mYBrkzchxptEMBP9ermccS6UaYB\" width=\"2000\" height=\"1035\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5_2_2000x1035.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a109999f5233501526fe1cb7af5294e6da4769b5.png 2x\" data-dominant-color=\"141B26\"></a></div><p></p>\n<h3><a name=\"p-61892-recommendation-9\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-9\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Considering the increased demand associated with the supply side of the USDC market, along with increasing borrowing dynamics and minimal associated risk, we recommend increasing the supply and borrow caps of the asset on the Mantle instance.</p>\n<h3><a name=\"p-61892-wrseth-mantle-10\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-wrseth-mantle-10\" aria-label=\"Heading link\"></a>wrsETH (Mantle)</h3>\n<p>wrsETH has reached its supply cap of 12,000 tokens on the Mantle instance. Demand is primarily driven by relatively low WETH borrowing rates, currently at 1.13%.</p>\n<h3><a name=\"p-61892-supply-distribution-11\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-11\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>The supply of wrsETH is highly concentrated as the market is effectively represented by three users. The suppliers collateralize WETH debt with wrsETH, increasing the notional exposure to capture a larger net spread between wrsETH\u2019s appreciation rate and WETH\u2019s borrowing costs.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png\" data-download-href=\"/uploads/short-url/j0mrmHlLvmsvbCuL4e2lHaID7KB.png?dl=1\" title=\"image (22)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed_2_2000x1029.png\" alt=\"image (22)\" data-base62-sha1=\"j0mrmHlLvmsvbCuL4e2lHaID7KB\" width=\"2000\" height=\"1029\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed_2_2000x1029.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/8/8533c7a4519ef864372c07b76b4d0a56a97b2fed.png 2x\" data-dominant-color=\"1E1E32\"></a></div><p></p>\n<h3><a name=\"p-61892-liquidity-12\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-liquidity-12\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>wrsETH liquidity is currently concentrated in a wrsETH-WETH Merchant Moe <a href=\"https://www.notion.so/Aave-Caps-Mantle-18-02-26-30b57ab37ebf80609965e170546b2de0?pvs=21\" rel=\"noopener nofollow ugc\">pool</a> with a TVL of approximately $2.3 million, supporting meaningful unwinds if the market conditions deviate.</p>\n<h3><a name=\"p-61892-recommendation-13\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-13\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the persistent demand to utilize wrsETH in leveraged restaking strategies, limited liquidation risk, and ample liquidity, we recommend increasing the supply cap of wrsETH.</p>\n<h3><a name=\"p-61892-xaut-ethereum-core-14\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-xaut-ethereum-core-14\" aria-label=\"Heading link\"></a>XAUt (Ethereum Core)</h3>\n<p>XAUt has reached 84% of its debt ceiling on the Ethereum Core instance of Aave, indicating substantial demand to utilize the asset as collateral. Specifically, over 8,000 tokens have been deposited in the protocol in the past 30 days, amounting to approximately $40 million.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/b/b83d99c3c51a4c194c172ae008fd87cd3df769e7.png\" data-download-href=\"/uploads/short-url/qhRPFktXBLDG4YzZSfokaKSfubt.png?dl=1\" title=\"image (23)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/b/b83d99c3c51a4c194c172ae008fd87cd3df769e7.png\" alt=\"image (23)\" data-base62-sha1=\"qhRPFktXBLDG4YzZSfokaKSfubt\" width=\"2000\" height=\"210\"></a></div><br>\n<div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/6/617cee885c892f46989fbcfd76dab928778fac4a.png\" data-download-href=\"/uploads/short-url/dUpYK0UXHgQd3w05eOhIextHzJ0.png?dl=1\" title=\"image (24)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/6/617cee885c892f46989fbcfd76dab928778fac4a.png\" alt=\"image (24)\" data-base62-sha1=\"dUpYK0UXHgQd3w05eOhIextHzJ0\" width=\"1996\" height=\"692\"></a></div><p></p>\n<h3><a name=\"p-61892-supply-distribution-15\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-supply-distribution-15\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>XAUt is used primarily to collateralize stablecoin debt. The suppliers are fairly conservative, with health factors ranging from 1.54 to 1.95, presenting limited liquidation risk. The asset is configured as collateral strictly in the isolation mode, limiting the accumulation of high volatility debt.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/504d9ca2c2adef6cc2133c9528b6326ad6f14168.png\" data-download-href=\"/uploads/short-url/bsotMbcy3yIt8AM6FToOvx1ay24.png?dl=1\" title=\"image (25)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/504d9ca2c2adef6cc2133c9528b6326ad6f14168.png\" alt=\"image (25)\" data-base62-sha1=\"bsotMbcy3yIt8AM6FToOvx1ay24\" width=\"1998\" height=\"836\"></a></div><p></p>\n<h3><a name=\"p-61892-liquidity-16\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-liquidity-16\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>At the time of writing, a sell order of 1,000 XAUt for USDe is subject to conservative 3.6% slippage, supporting a meaningful increase in the debt ceiling.</p>\n<h3><a name=\"p-61892-recommendation-17\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-recommendation-17\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Considering the growing demand to utilize the asset as collateral to borrow stablecoins, along with minimal risk associated with both the asset and current positions, we recommend increasing the debt ceiling to 70 million. As the Risk Steward allows for a maximum increase of 20%, we recommend conducting two subsequent increases to reach the desired target debt ceiling.</p>\n<h3><a name=\"p-61892-specification-18\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-specification-18\" aria-label=\"Heading link\"></a>Specification</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Instance</strong></th>\n<th><strong>Asset</strong></th>\n<th><strong>Current Supply Cap</strong></th>\n<th><strong>Recommended Supply Cap</strong></th>\n<th><strong>Current Borrow Cap</strong></th>\n<th><strong>Recommended Borrow Cap</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Mantle</td>\n<td>USDT0</td>\n<td>200,000,000</td>\n<td>400,000,000</td>\n<td>190,000,000</td>\n<td>380,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>USDC</td>\n<td>20,000,000</td>\n<td>40,000,000</td>\n<td>19,000,000</td>\n<td>38,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>wrsETH</td>\n<td>12,000</td>\n<td>24,000</td>\n<td>-</td>\n<td>-</td>\n</tr>\n</tbody>\n</table>\n</div><div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Instance</strong></th>\n<th><strong>Asset</strong></th>\n<th><strong>Current Debt Ceiling</strong></th>\n<th><strong>Recommended Debt Ceiling</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>XAUt</td>\n<td>50,000,000</td>\n<td>70,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h2><a name=\"p-61892-next-steps-19\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-next-steps-19\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<p>We will move forward and implement these updates via the Risk Steward process.</p>\n<h2><a name=\"p-61892-disclosure-20\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-disclosure-20\" aria-label=\"Heading link\"></a>Disclosure</h2>\n<p>Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.</p>\n<h2><a name=\"p-61892-copyright-21\" class=\"anchor\" href=\"https://governance.aave.com#p-61892-copyright-21\" aria-label=\"Heading link\"></a>Copyright</h2>\n<p>Copyright and related rights waived via <a href=\"https://creativecommons.org/publicdomain\" rel=\"noopener nofollow ugc\">CC0</a>.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/chaos-labs-risk-stewards-increase-supply-caps-borrow-caps-debt-ceiling-on-aave-v3-20-02-26/24127\">Read full topic</a></p>\n          ",
-      "feed_source": "aave_governance",
-      "relevance_score": 9.0
-    },
-    {
       "title": "Chaos Labs Risk Stewards - Change of Supply and Borrow Caps on Aave V3 Mantle - 24.02.26",
       "link": "https://governance.aave.com/t/chaos-labs-risk-stewards-change-of-supply-and-borrow-caps-on-aave-v3-mantle-24-02-26/24158",
       "description": "\n            <h3><a name=\"p-61964-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-summary-1\" aria-label=\"Heading link\"></a>Summary</h3>\n<p>A proposal to:</p>\n<ul>\n<li>Increase the supply and borrow caps of USDC on the Mantle Instance</li>\n<li>Increase the supply and borrow caps of USDe on the Mantle Instance</li>\n<li>Increase the supply cap of wrsETH on the Mantle Instance</li>\n<li>Increase the borrow cap of WETH on the Mantle Instance</li>\n<li>Increase the supply cap of syrupUSDT on the Mantle Instance</li>\n</ul>\n<p>All cap increases are backed by <a href=\"https://cdn.sanity.io/files/zmh9mnff/production/130e1060165f7ab0766bb4c70cc2ec41c1d1e458.pdf\" rel=\"noopener nofollow ugc\">Chaos Labs\u2019 risk simulations</a>, which consider user behavior, on-chain liquidity, and price impact, ensuring that higher caps do not introduce additional risk to the platform.</p>\n<h3><a name=\"p-61964-usdc-mantle-2\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-usdc-mantle-2\" aria-label=\"Heading link\"></a>USDC (Mantle)</h3>\n<p>USDC has reached its supply cap of 40 million on the Mantle instance; the flow of deposits is primarily attributable to the ongoing incentives, which push the net supply rate to approximately 5.42%.</p>\n<h3><a name=\"p-61964-supply-distribution-3\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-supply-distribution-3\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>USDC supply exhibits mild concentration, as the top position represents approximately 18% of the market. As USDC is configured as a borrow-only asset, no liquidation risk is present on the supply side of the USDC market.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/04c1aa5a5869104a4760cd745e5cb109e4207852.png\" data-download-href=\"/uploads/short-url/G4PQg4lyeS34bUuRt2QdAgEx1g.png?dl=1\" title=\"image (13)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/04c1aa5a5869104a4760cd745e5cb109e4207852_2_2000x994.png\" alt=\"image (13)\" data-base62-sha1=\"G4PQg4lyeS34bUuRt2QdAgEx1g\" width=\"2000\" height=\"994\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/04c1aa5a5869104a4760cd745e5cb109e4207852_2_2000x994.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/04c1aa5a5869104a4760cd745e5cb109e4207852.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/04c1aa5a5869104a4760cd745e5cb109e4207852.png 2x\" data-dominant-color=\"17242A\"></a></div><p></p>\n<h3><a name=\"p-61964-borrow-distribution-4\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-borrow-distribution-4\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>USDC borrow distribution is relatively more concentrated, with the top borrower accounting for approximately 40% of all debt. The majority of users collateralize USDC debt using syrupUSDT or WETH. Health factors align with expected behavior. Positions with correlated collateral and debt cluster near a 1.03 health factor, while WETH-collateralized positions are generally in the 1.3-1.5 range.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a4be5ea54f8d0892b21c09f1e92129eac8c3d7e3.png\" data-download-href=\"/uploads/short-url/nvoayVp6kKZ11MuAFq7syVPwLU7.png?dl=1\" title=\"image (27)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a4be5ea54f8d0892b21c09f1e92129eac8c3d7e3_2_2000x1005.png\" alt=\"image (27)\" data-base62-sha1=\"nvoayVp6kKZ11MuAFq7syVPwLU7\" width=\"2000\" height=\"1005\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/a/a4be5ea54f8d0892b21c09f1e92129eac8c3d7e3_2_2000x1005.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a4be5ea54f8d0892b21c09f1e92129eac8c3d7e3.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/a/a4be5ea54f8d0892b21c09f1e92129eac8c3d7e3.png 2x\" data-dominant-color=\"161C28\"></a></div><p></p>\n<h3><a name=\"p-61964-recommendation-5\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-recommendation-5\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Considering the persistent demand to both supply and borrow USDC and observed user behavior, we recommend expanding the supply and borrow caps of the asset on the Mantle instance.</p>\n<h3><a name=\"p-61964-usde-6\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-usde-6\" aria-label=\"Heading link\"></a>USDe</h3>\n<p>USDe has reached its supply cap of 40 million, while exhibiting extremely low borrow utilization, specifically, utilization is currently 0.37%, resulting in a borrow rate of 0.02%.</p>\n<h3><a name=\"p-61964-supply-distribution-7\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-supply-distribution-7\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>The USDe supply market is highly concentrated, with four users representing the overwhelming majority of supply. These users appear to be participating in Ethena\u2019s Liquid Leverage incentive campaign. The observed strategy can be classified as leveraged looping, as users repeatedly borrow and re-deposit via yield-bearing assets to increase notional exposure to the spread differential between underlying yield and borrowing costs.<br>\n</p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/c/ce8484a8c255edf40d8980a9e99b4f055a3ce7cc.png\" data-download-href=\"/uploads/short-url/tsWhe2Eo7JSfzzFSJ7ORh1Avxi4.png?dl=1\" title=\"image (19)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/c/ce8484a8c255edf40d8980a9e99b4f055a3ce7cc_2_2000x996.png\" alt=\"image (19)\" data-base62-sha1=\"tsWhe2Eo7JSfzzFSJ7ORh1Avxi4\" width=\"2000\" height=\"996\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/c/ce8484a8c255edf40d8980a9e99b4f055a3ce7cc_2_2000x996.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/c/ce8484a8c255edf40d8980a9e99b4f055a3ce7cc.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/c/ce8484a8c255edf40d8980a9e99b4f055a3ce7cc.png 2x\" data-dominant-color=\"181E2C\"></a></div><p></p>\n<h3><a name=\"p-61964-borrow-distribution-8\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-borrow-distribution-8\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>As mentioned previously, USDe debt accumulation has been minimal since the listing on Mantle. At the time of writing, total borrowing is less than 100,000 tokens. Given the minimal absolute size of the debt market, liquidation risk is negligible.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/3/317965230bb903234d686b3d1d7a3e51aac87e7d.png\" data-download-href=\"/uploads/short-url/73FtZEEFCEdPCVmOvZmo72SKqrr.png?dl=1\" title=\"image (15)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/3/317965230bb903234d686b3d1d7a3e51aac87e7d_2_2000x996.png\" alt=\"image (15)\" data-base62-sha1=\"73FtZEEFCEdPCVmOvZmo72SKqrr\" width=\"2000\" height=\"996\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/3/317965230bb903234d686b3d1d7a3e51aac87e7d_2_2000x996.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/3/317965230bb903234d686b3d1d7a3e51aac87e7d.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/3/317965230bb903234d686b3d1d7a3e51aac87e7d.png 2x\" data-dominant-color=\"171A29\"></a></div><p></p>\n<h3><a name=\"p-61964-liquidity-9\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-liquidity-9\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>The majority of USDe liquidity is currently deployed across Agni Finance and Merchant Moe in USDT and USDC pools, which then route via USDT/USDT0 in order to finalize the swap. At the time of writing, a sell order of 3 million USDe would result in a 2.75% price impact, supporting a moderate increase of the supply cap.</p>\n<h3><a name=\"p-61964-recommendation-10\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-recommendation-10\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given that USDe is used primarily in Liquid Leverage, which generates substantial stablecoin borrowing demand and exhibits minimal risk due to the high correlation between the debt and collateral assets, along with ample on-chain liquidity, we recommend increasing the asset\u2019s supply cap.</p>\n<h3><a name=\"p-61964-wrseth-mantle-11\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-wrseth-mantle-11\" aria-label=\"Heading link\"></a>wrsETH (Mantle)</h3>\n<p>wrsETH has reached 99.5% of its supply cap of 24,000 tokens on the Mantle instance. The demand to supply the asset is driven primarily by relatively low WETH borrow rates and supply incentives for wrsETH.</p>\n<h3><a name=\"p-61964-supply-distribution-12\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-supply-distribution-12\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>wrsETH supply is highly concentrated, with four users representing over 99% of the market. These users borrow WETH against wrsETH collateral, increasing exposure to the spread between wrsETH\u2019s underlying yield and WETH borrowing costs. Health factors cluster around 1.03, which, given the high correlation between collateral and debt, presents highly limited liquidation risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e14a3f9af28513b4d61bd72efcb5e2e4188eba2a.png\" data-download-href=\"/uploads/short-url/w90vsARPCiYdq8VSg4TZNbdHsoi.png?dl=1\" title=\"image (28)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e14a3f9af28513b4d61bd72efcb5e2e4188eba2a_2_2000x996.png\" alt=\"image (28)\" data-base62-sha1=\"w90vsARPCiYdq8VSg4TZNbdHsoi\" width=\"2000\" height=\"996\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/e/e14a3f9af28513b4d61bd72efcb5e2e4188eba2a_2_2000x996.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e14a3f9af28513b4d61bd72efcb5e2e4188eba2a.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/e/e14a3f9af28513b4d61bd72efcb5e2e4188eba2a.png 2x\" data-dominant-color=\"1B1C2E\"></a></div><p></p>\n<h3><a name=\"p-61964-liquidity-13\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-liquidity-13\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>wrsETH liquidity is currently concentrated in a wrsETH-WETH Merchant Moe <a href=\"https://mantlescan.xyz/address/0x15837c0ad73bba6a6f23729bbc4f06a9b6e0c1ca#code\" rel=\"noopener nofollow ugc\">pool</a> with a TVL of approximately $1.2 million, supporting meaningful unwinds if the market conditions deviate.</p>\n<h3><a name=\"p-61964-recommendation-14\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-recommendation-14\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the persistent demand to utilize wrsETH in leveraged restaking strategies, limited liquidation risk, and ample liquidity, we recommend increasing the supply cap of wrsETH.</p>\n<h3><a name=\"p-61964-weth-15\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-weth-15\" aria-label=\"Heading link\"></a>WETH</h3>\n<p>WETH reserve utilization is currently at 85% of the 28,000 borrow cap. While the supply cap is at 35,000 out of 60,000 tokens, the borrow cap is not aligned to be above UOptimal\u2014resulting in subpar supply rates even at full utilization of borrowing capacity. To grow the market sustainably, we recommend aligning the borrowing capacity with the supply cap.</p>\n<h3><a name=\"p-61964-borrow-distribution-16\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-borrow-distribution-16\" aria-label=\"Heading link\"></a>Borrow Distribution</h3>\n<p>As mentioned previously, WETH borrowing is fueled primarily by wrsETH, with four users accounting for over 99% of borrowing demand. The borrowing demand in this case is derived from the differential between the underlying appreciation rate of wrsETH and borrowing costs of WETH, as the users are participating in leveraged restaking strategies. Given the correlation between the debt and collateral assets, the borrowing side of the WETH market presents minimal risk.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/55f173c3844c06a708bacc7d968f82f35bd0deed.png\" data-download-href=\"/uploads/short-url/cghTqkd44K575cv68zwNRT5RUPH.png?dl=1\" title=\"image (17)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/5/55f173c3844c06a708bacc7d968f82f35bd0deed_2_2000x992.png\" alt=\"image (17)\" data-base62-sha1=\"cghTqkd44K575cv68zwNRT5RUPH\" width=\"2000\" height=\"992\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/5/55f173c3844c06a708bacc7d968f82f35bd0deed_2_2000x992.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/55f173c3844c06a708bacc7d968f82f35bd0deed.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/5/55f173c3844c06a708bacc7d968f82f35bd0deed.png 2x\" data-dominant-color=\"262032\"></a></div><p></p>\n<h3><a name=\"p-61964-recommendation-17\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-recommendation-17\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given the increasing WETH debt volume and minimal risk associated with the positions, we recommend expanding the borrow cap of the asset to align it better with current supply capacity.</p>\n<h3><a name=\"p-61964-syrupusdt-18\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-syrupusdt-18\" aria-label=\"Heading link\"></a>syrupUSDT</h3>\n<p>In our previous review, we recommended reducing the syrupUSDT supply cap to 57 million tokens due to limited on-chain liquidity. Since then, liquidity conditions have improved and a dedicated pool has been established. We therefore revisit our prior recommendation and propose an updated supply cap.</p>\n<h3><a name=\"p-61964-supply-distribution-19\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-supply-distribution-19\" aria-label=\"Heading link\"></a>Supply Distribution</h3>\n<p>syrupUSDT supply exhibits moderate concentration, with the top four users accounting for 70% of the market. As shown below, users are recursively borrowing USDT0 and USDC against syrupUSDT collateral to increase notional exposure to the spread between syrupUSDT\u2019s underlying yield and stablecoin borrowing costs. Health factors cluster around 1.02; given the high correlation between collateral and debt, liquidation risk appears limited.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/2b99dfc1a7e885d2401dc66f481388c2371392c5.png\" data-download-href=\"/uploads/short-url/6dIcHtrTf9Yu9UM6X2dsAgJjjhz.png?dl=1\" title=\"image (26)\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/2b99dfc1a7e885d2401dc66f481388c2371392c5_2_2000x994.png\" alt=\"image (26)\" data-base62-sha1=\"6dIcHtrTf9Yu9UM6X2dsAgJjjhz\" width=\"2000\" height=\"994\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/2b99dfc1a7e885d2401dc66f481388c2371392c5_2_2000x994.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/2b99dfc1a7e885d2401dc66f481388c2371392c5.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/2b99dfc1a7e885d2401dc66f481388c2371392c5.png 2x\" data-dominant-color=\"202730\"></a></div><p></p>\n<h3><a name=\"p-61964-liquidity-20\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-liquidity-20\" aria-label=\"Heading link\"></a>Liquidity</h3>\n<p>syrupUSDT on-chain liquidity is available primarily in a USDT0/syrupUSDT <a href=\"https://mantlescan.xyz/address/0xeffc59a114c637e2f63d1a890e3c7321fe929b6f#writeContract\" rel=\"noopener nofollow ugc\">pool</a>. At the time of writing, the pool has approximately $4.8 million in TVL, supporting a moderate increase in the supply cap.</p>\n<h3><a name=\"p-61964-recommendation-21\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-recommendation-21\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>Given syrupUSDT\u2019s role in incentivizing stablecoin borrowing demand, the limited risk implied by observed user behavior, and improved on-chain liquidity, we recommend increasing the supply cap of syrupUSDT.</p>\n<h3><a name=\"p-61964-specification-22\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-specification-22\" aria-label=\"Heading link\"></a>Specification</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Instance</strong></th>\n<th><strong>Asset</strong></th>\n<th><strong>Current Supply Cap</strong></th>\n<th><strong>Recommended Supply Cap</strong></th>\n<th><strong>Current Borrow Cap</strong></th>\n<th><strong>Recommended Borrow Cap</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Mantle</td>\n<td>USDC</td>\n<td>40,000,000</td>\n<td>60,000,000</td>\n<td>38,000,000</td>\n<td>57,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>USDe</td>\n<td>40,000,000</td>\n<td>80,000,000</td>\n<td>36,000,000</td>\n<td>72,000,000</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>syrupUSDT</td>\n<td>57,000,000</td>\n<td>80,000,000</td>\n<td>-</td>\n<td>-</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>wrsETH</td>\n<td>24,000</td>\n<td>36,000</td>\n<td>-</td>\n<td>-</td>\n</tr>\n<tr>\n<td>Mantle</td>\n<td>WETH</td>\n<td>60,000</td>\n<td>-</td>\n<td>28,000</td>\n<td>56,000</td>\n</tr>\n</tbody>\n</table>\n</div><h2><a name=\"p-61964-next-steps-23\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-next-steps-23\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<p>We will move forward and implement these updates via the Risk Steward process.</p>\n<h2><a name=\"p-61964-disclosure-24\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-disclosure-24\" aria-label=\"Heading link\"></a>Disclosure</h2>\n<p>Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.</p>\n<h2><a name=\"p-61964-copyright-25\" class=\"anchor\" href=\"https://governance.aave.com#p-61964-copyright-25\" aria-label=\"Heading link\"></a>Copyright</h2>\n<p>Copyright and related rights waived via <a href=\"https://creativecommons.org/publicdomain\" rel=\"noopener nofollow ugc\">CC0</a>.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/chaos-labs-risk-stewards-change-of-supply-and-borrow-caps-on-aave-v3-mantle-24-02-26/24158\">Read full topic</a></p>\n          ",
@@ -86,6 +77,15 @@
       "relevance_score": 8.0
     },
     {
+      "title": "Post-Mortem: Exchange Rate Misallignment on wstETH Core and Prime Instances",
+      "link": "https://governance.aave.com/t/post-mortem-exchange-rate-misallignment-on-wsteth-core-and-prime-instances/24269",
+      "description": "\n            <h2><a name=\"p-62314-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>A technical incident affecting the CAPO risk oracle caused the reported wstETH/stETH exchange rate cap to fall below the currently valid market exchange rate on Ethereum Core and Prime instances.</p>\n<p>This resulted in an approximately 2.85% decrease in the effective exchange rate used by the protocol, triggering roughly 10938 wstETH in E-Mode liquidations.</p>\n<p>During this, protocol incurred no bad debt. However, liquidators captured approximately 499 ETH in liquidation bonuses and value realized through the exchange rate deviation. Since then, Aave has been able to recapture 141 ETH of liquidation bonus revenue through BuilderNet refunds, in addition to roughly 13 ETH in liquidation fees. These recovered funds will be used to compensate impacted users who were liquidated as a result of the incident, with DAO treasury funds to cover any excess. Active work is ongoing to contact relevant ecosystem players to further recoup possible liquidation-linked revenue.</p>\n<p>The root cause was differing update constraints at the smart contract level, which ultimately resulted in a misalignment between the snapshot ratio and snapshot timestamp onchain.</p>\n<p>Due to onchain constraints, the snapshot ratio could not be increased as quickly as intended, while the snapshot timestamp was not validated against that constrained update path and still reflected a 7-day-old reference point. This created an inconsistent configuration that caused CAPO to compute a maximum allowed exchange rate below the live rate.</p>\n<h2><a name=\"p-62314-background-2\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-background-2\" aria-label=\"Heading link\"></a>Background</h2>\n<p>As described in the original CAPO framework, the system is designed to protect lending protocols from oracle-driven inflation attacks and donation-style exploits.</p>\n<p>CAPO does this by placing a deterministic, time-weighted upper bound on the exchange rate between a yield-bearing asset, such as wstETH, and its base asset, such as stETH.</p>\n<p>The purpose of this bound is to capture the upper envelope of organic yield accrual, while rejecting abrupt or malicious upward deviations that could otherwise be used to create unbacked borrowing power.</p>\n<p>This protection is especially important in adversarial scenarios, including:</p>\n<ul>\n<li>compromised EOAs controlling an oracle input,</li>\n<li>centralized oracle dependencies,</li>\n<li>contract upgrade vulnerabilities,</li>\n<li>donation attacks or exchange-rate manipulation.</li>\n</ul>\n<p>The upper bound is governed by three parameters:</p>\n<ul>\n<li><strong><code>snapshotRatio</code></strong>: the reference exchange rate,</li>\n<li><strong><code>snapshotTimestamp</code></strong>: the timestamp associated with that reference,</li>\n<li><strong><code>maxYearlyRatioGrowthPercent</code></strong>: the maximum annualized rate at which the ratio is allowed to grow.</li>\n</ul>\n<p>The maximum permitted ratio is computed from the snapshot ratio plus a time-based growth allowance based on the difference between the snapshot timestamp and the current block time.</p>\n<p>Conceptually, CAPO logic requires that the snapshot ratio and snapshot timestamp remain aligned. The snapshot ratio serves as the anchor, and the timestamp determines how much growth to apply to it. If those two values become inconsistent, the derived cap can drift away from the real exchange rate.</p>\n<h2><a name=\"p-62314-what-happened-3\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-what-happened-3\" aria-label=\"Heading link\"></a>What happened</h2>\n<p>The incident was caused by an inconsistency between the configured snapshot ratio and the snapshot delay/timestamp used for CAPO.</p>\n<p>Operationally, our offchain process determined that the snapshot ratio should be updated to approximately ~1.2282, the appropriate value corresponding to the exchange rate 7 days earlier, as derived in our framework.</p>\n<p>However, the snapshot ratio parameter is subject to an onchain constraint: it can only be increased by 3% every 3 days.</p>\n<p>Because the previously configured snapshot ratio, on the contract was ~1.1572, it was not possible to set it to ~1.2282 in a single update. Instead, the ratio could only be increased to ~1.1919.</p>\n<p>At the same time, the snapshot timestamp was still set to the value corresponding to 7 days earlier (<code>1772535647</code>), as intended by the offchain algorithm.</p>\n<p>This created a mismatch:</p>\n<ul>\n<li>the timestamp assumed a 7-day-old anchor,</li>\n<li>but the ratio was not actually updated to the 7-day-old exchange rate,</li>\n<li>so the CAPO formula extrapolated growth from a reference point that was too low.</li>\n</ul>\n<p>As a result, the calculated maximum exchange rate was roughly 1.1939, which was below the already configured/prevalent exchange rate. That lower CAPO-derived value then overrode the existing exchange rate used by the protocol, producing an effective downward move of around 2.855%.</p>\n<p>That artificial decrease in the oracle rate triggered liquidations, particularly in E-Mode, affecting the positions with a health factor lower than 1.0288, resulting in roughly 10938 wstETH of liquidation volume.</p>\n<p>In practical terms, for the configuration to work correctly at the smart contract level, the snapshot timestamp would have needed to be aligned with the constrained onchain snapshot ratio update, and likely adjusted again over subsequent updates until the onchain value converged with the offchain-calculated level. Because that alignment did not occur, the timestamp and ratio reflected different effective reference points.</p>\n<h2><a name=\"p-62314-root-cause-4\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-root-cause-4\" aria-label=\"Heading link\"></a>Root cause</h2>\n<p>The root cause was a configuration issue arising from differing operational constraints at the smart contract level.</p>\n<ul>\n<li><strong><code>snapshotRatio</code></strong> was subject to an onchain rate-limited update constraint</li>\n<li><strong><code>snapshotTimestamp</code></strong> was not subject to the same effective constraint</li>\n<li>our offchain logic correctly targeted the intended configuration, but under the constrained onchain update path, the snapshot ratio and snapshot timestamp did not remain aligned throughout execution</li>\n<li>in practice, only the timestamp fully reflected the 7-day update target</li>\n</ul>\n<p>In other words, the system combined:</p>\n<ul>\n<li>a partially updated ratio</li>\n<li>with a fully advanced timestamp</li>\n</ul>\n<p>That combination caused the CAPO cap to be computed from an anchor that was too low for the elapsed time basis being used.</p>\n<p>More broadly, in order for this configuration to function correctly under the existing ratio constraint, the snapshot timestamp would have needed to remain aligned with the constrained onchain ratio update path, potentially across multiple successive updates, until the onchain snapshot ratio reached the offchain-calculated target level.</p>\n<h2><a name=\"p-62314-impact-5\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-impact-5\" aria-label=\"Heading link\"></a>Impact</h2>\n<p>The incident had the following impact:</p>\n<ul>\n<li>approximately 2.85% downward deviation in the effective exchange rate used by the protocol,</li>\n<li>roughly 10938 wstETH in E-Mode liquidation volume across 34 accounts.</li>\n<li>approximately 116 ETH in liquidation bonuses captured by third-party liquidators and Aave Liquidation Protocol fees.</li>\n<li>approximately 382 ETH in profit captured by third-party liquidators stemming from the underpricing of the oracle.</li>\n<li>no bad debt accrued by the protocol.</li>\n</ul>\n<h2><a name=\"p-62314-immediate-steps-taken-6\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-immediate-steps-taken-6\" aria-label=\"Heading link\"></a>Immediate steps taken</h2>\n<p>Following the incident, we took immediate steps to contain further risk and restore alignment on the impacted instances:</p>\n<ul>\n<li>\n<p>Temporarily reduced the wstETH borrow cap to 1 on Aave Core and Aave Prime, the two impacted instances by this oracle configuration, in order to minimize additional exposure while remediation was underway.</p>\n</li>\n<li>\n<p>Aligned the snapshot ratio parameter with the current snapshot timestamp reference window through manual Risk Steward intervention, so that the configured onchain parameters move back into a consistent state and uncap the oracle, reverting to its true value.</p>\n</li>\n<li>\n<p>Following the reversion of the oracle price, we are proposing the reinstating of the wstETH borrow caps back to its original levels.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Asset</strong></th>\n<th><strong>Instance</strong></th>\n<th><strong>Current Value</strong></th>\n<th><strong>Recommended Value</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>wstETH</td>\n<td>Ethereum Core</td>\n<td>1</td>\n<td>180K</td>\n</tr>\n<tr>\n<td>wstETH</td>\n<td>Ethereum Prime</td>\n<td>1</td>\n<td>70K</td>\n</tr>\n</tbody>\n</table>\n</div></li>\n</ul>\n<h2><a name=\"p-62314-recovery-and-compensation-7\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-recovery-and-compensation-7\" aria-label=\"Heading link\"></a>Recovery and compensation</h2>\n<p>During the incident, Aave was able to recapture a substantial amount of lost liquidation bonus revenue (141.5 ETH) through BuilderNet refunds leveraged for reading the associated risk oracle update. We recommend that these recovered funds will be used to partially compensate users who were liquidated as a result of the incident. The rest of the user funds impacted shall be covered through the Aave treasury through a defined compensation plan, to be communicated shortly. Different parties are actively working on recovering more funds extracted outside of the system, and we can confirm that no more than 345 ETH will need to be compensated ad-hoc from the DAO.</p>\n<h2><a name=\"p-62314-closing-8\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-closing-8\" aria-label=\"Heading link\"></a>Closing</h2>\n<p>To summarize, this was a configuration incident based on smart contract level constraints which caused incorrect price updates for wstETH, resulting in $26M in liquidation volume.</p>\n<p>Ultimately, this incident did not reflect a flaw in the underlying CAPO or offchain risk oracle design, but rather an onchain configuration misalignment under differing onchain update constraints that led the snapshot ratio and snapshot timestamp to become misaligned.</p>\n<p>The protocol has since been reverted to its prior price oracle configuration, no bad debt was incurred, and the liquidation bonus value extracted during the incident has been substantially recaptured and will be returned to affected users through the compensation process described above.</p>\n<p>We will continue to share additional details as compensation is finalized and further remediation steps are completed.</p>\n            <p><small>2 posts - 2 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/post-mortem-exchange-rate-misallignment-on-wsteth-core-and-prime-instances/24269\">Read full topic</a></p>\n          ",
+      "pub_date": "Tue, 10 Mar 2026 19:50:36 +0000",
+      "content": "\n            <h2><a name=\"p-62314-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>A technical incident affecting the CAPO risk oracle caused the reported wstETH/stETH exchange rate cap to fall below the currently valid market exchange rate on Ethereum Core and Prime instances.</p>\n<p>This resulted in an approximately 2.85% decrease in the effective exchange rate used by the protocol, triggering roughly 10938 wstETH in E-Mode liquidations.</p>\n<p>During this, protocol incurred no bad debt. However, liquidators captured approximately 499 ETH in liquidation bonuses and value realized through the exchange rate deviation. Since then, Aave has been able to recapture 141 ETH of liquidation bonus revenue through BuilderNet refunds, in addition to roughly 13 ETH in liquidation fees. These recovered funds will be used to compensate impacted users who were liquidated as a result of the incident, with DAO treasury funds to cover any excess. Active work is ongoing to contact relevant ecosystem players to further recoup possible liquidation-linked revenue.</p>\n<p>The root cause was differing update constraints at the smart contract level, which ultimately resulted in a misalignment between the snapshot ratio and snapshot timestamp onchain.</p>\n<p>Due to onchain constraints, the snapshot ratio could not be increased as quickly as intended, while the snapshot timestamp was not validated against that constrained update path and still reflected a 7-day-old reference point. This created an inconsistent configuration that caused CAPO to compute a maximum allowed exchange rate below the live rate.</p>\n<h2><a name=\"p-62314-background-2\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-background-2\" aria-label=\"Heading link\"></a>Background</h2>\n<p>As described in the original CAPO framework, the system is designed to protect lending protocols from oracle-driven inflation attacks and donation-style exploits.</p>\n<p>CAPO does this by placing a deterministic, time-weighted upper bound on the exchange rate between a yield-bearing asset, such as wstETH, and its base asset, such as stETH.</p>\n<p>The purpose of this bound is to capture the upper envelope of organic yield accrual, while rejecting abrupt or malicious upward deviations that could otherwise be used to create unbacked borrowing power.</p>\n<p>This protection is especially important in adversarial scenarios, including:</p>\n<ul>\n<li>compromised EOAs controlling an oracle input,</li>\n<li>centralized oracle dependencies,</li>\n<li>contract upgrade vulnerabilities,</li>\n<li>donation attacks or exchange-rate manipulation.</li>\n</ul>\n<p>The upper bound is governed by three parameters:</p>\n<ul>\n<li><strong><code>snapshotRatio</code></strong>: the reference exchange rate,</li>\n<li><strong><code>snapshotTimestamp</code></strong>: the timestamp associated with that reference,</li>\n<li><strong><code>maxYearlyRatioGrowthPercent</code></strong>: the maximum annualized rate at which the ratio is allowed to grow.</li>\n</ul>\n<p>The maximum permitted ratio is computed from the snapshot ratio plus a time-based growth allowance based on the difference between the snapshot timestamp and the current block time.</p>\n<p>Conceptually, CAPO logic requires that the snapshot ratio and snapshot timestamp remain aligned. The snapshot ratio serves as the anchor, and the timestamp determines how much growth to apply to it. If those two values become inconsistent, the derived cap can drift away from the real exchange rate.</p>\n<h2><a name=\"p-62314-what-happened-3\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-what-happened-3\" aria-label=\"Heading link\"></a>What happened</h2>\n<p>The incident was caused by an inconsistency between the configured snapshot ratio and the snapshot delay/timestamp used for CAPO.</p>\n<p>Operationally, our offchain process determined that the snapshot ratio should be updated to approximately ~1.2282, the appropriate value corresponding to the exchange rate 7 days earlier, as derived in our framework.</p>\n<p>However, the snapshot ratio parameter is subject to an onchain constraint: it can only be increased by 3% every 3 days.</p>\n<p>Because the previously configured snapshot ratio, on the contract was ~1.1572, it was not possible to set it to ~1.2282 in a single update. Instead, the ratio could only be increased to ~1.1919.</p>\n<p>At the same time, the snapshot timestamp was still set to the value corresponding to 7 days earlier (<code>1772535647</code>), as intended by the offchain algorithm.</p>\n<p>This created a mismatch:</p>\n<ul>\n<li>the timestamp assumed a 7-day-old anchor,</li>\n<li>but the ratio was not actually updated to the 7-day-old exchange rate,</li>\n<li>so the CAPO formula extrapolated growth from a reference point that was too low.</li>\n</ul>\n<p>As a result, the calculated maximum exchange rate was roughly 1.1939, which was below the already configured/prevalent exchange rate. That lower CAPO-derived value then overrode the existing exchange rate used by the protocol, producing an effective downward move of around 2.855%.</p>\n<p>That artificial decrease in the oracle rate triggered liquidations, particularly in E-Mode, affecting the positions with a health factor lower than 1.0288, resulting in roughly 10938 wstETH of liquidation volume.</p>\n<p>In practical terms, for the configuration to work correctly at the smart contract level, the snapshot timestamp would have needed to be aligned with the constrained onchain snapshot ratio update, and likely adjusted again over subsequent updates until the onchain value converged with the offchain-calculated level. Because that alignment did not occur, the timestamp and ratio reflected different effective reference points.</p>\n<h2><a name=\"p-62314-root-cause-4\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-root-cause-4\" aria-label=\"Heading link\"></a>Root cause</h2>\n<p>The root cause was a configuration issue arising from differing operational constraints at the smart contract level.</p>\n<ul>\n<li><strong><code>snapshotRatio</code></strong> was subject to an onchain rate-limited update constraint</li>\n<li><strong><code>snapshotTimestamp</code></strong> was not subject to the same effective constraint</li>\n<li>our offchain logic correctly targeted the intended configuration, but under the constrained onchain update path, the snapshot ratio and snapshot timestamp did not remain aligned throughout execution</li>\n<li>in practice, only the timestamp fully reflected the 7-day update target</li>\n</ul>\n<p>In other words, the system combined:</p>\n<ul>\n<li>a partially updated ratio</li>\n<li>with a fully advanced timestamp</li>\n</ul>\n<p>That combination caused the CAPO cap to be computed from an anchor that was too low for the elapsed time basis being used.</p>\n<p>More broadly, in order for this configuration to function correctly under the existing ratio constraint, the snapshot timestamp would have needed to remain aligned with the constrained onchain ratio update path, potentially across multiple successive updates, until the onchain snapshot ratio reached the offchain-calculated target level.</p>\n<h2><a name=\"p-62314-impact-5\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-impact-5\" aria-label=\"Heading link\"></a>Impact</h2>\n<p>The incident had the following impact:</p>\n<ul>\n<li>approximately 2.85% downward deviation in the effective exchange rate used by the protocol,</li>\n<li>roughly 10938 wstETH in E-Mode liquidation volume across 34 accounts.</li>\n<li>approximately 116 ETH in liquidation bonuses captured by third-party liquidators and Aave Liquidation Protocol fees.</li>\n<li>approximately 382 ETH in profit captured by third-party liquidators stemming from the underpricing of the oracle.</li>\n<li>no bad debt accrued by the protocol.</li>\n</ul>\n<h2><a name=\"p-62314-immediate-steps-taken-6\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-immediate-steps-taken-6\" aria-label=\"Heading link\"></a>Immediate steps taken</h2>\n<p>Following the incident, we took immediate steps to contain further risk and restore alignment on the impacted instances:</p>\n<ul>\n<li>\n<p>Temporarily reduced the wstETH borrow cap to 1 on Aave Core and Aave Prime, the two impacted instances by this oracle configuration, in order to minimize additional exposure while remediation was underway.</p>\n</li>\n<li>\n<p>Aligned the snapshot ratio parameter with the current snapshot timestamp reference window through manual Risk Steward intervention, so that the configured onchain parameters move back into a consistent state and uncap the oracle, reverting to its true value.</p>\n</li>\n<li>\n<p>Following the reversion of the oracle price, we are proposing the reinstating of the wstETH borrow caps back to its original levels.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th><strong>Asset</strong></th>\n<th><strong>Instance</strong></th>\n<th><strong>Current Value</strong></th>\n<th><strong>Recommended Value</strong></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>wstETH</td>\n<td>Ethereum Core</td>\n<td>1</td>\n<td>180K</td>\n</tr>\n<tr>\n<td>wstETH</td>\n<td>Ethereum Prime</td>\n<td>1</td>\n<td>70K</td>\n</tr>\n</tbody>\n</table>\n</div></li>\n</ul>\n<h2><a name=\"p-62314-recovery-and-compensation-7\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-recovery-and-compensation-7\" aria-label=\"Heading link\"></a>Recovery and compensation</h2>\n<p>During the incident, Aave was able to recapture a substantial amount of lost liquidation bonus revenue (141.5 ETH) through BuilderNet refunds leveraged for reading the associated risk oracle update. We recommend that these recovered funds will be used to partially compensate users who were liquidated as a result of the incident. The rest of the user funds impacted shall be covered through the Aave treasury through a defined compensation plan, to be communicated shortly. Different parties are actively working on recovering more funds extracted outside of the system, and we can confirm that no more than 345 ETH will need to be compensated ad-hoc from the DAO.</p>\n<h2><a name=\"p-62314-closing-8\" class=\"anchor\" href=\"https://governance.aave.com#p-62314-closing-8\" aria-label=\"Heading link\"></a>Closing</h2>\n<p>To summarize, this was a configuration incident based on smart contract level constraints which caused incorrect price updates for wstETH, resulting in $26M in liquidation volume.</p>\n<p>Ultimately, this incident did not reflect a flaw in the underlying CAPO or offchain risk oracle design, but rather an onchain configuration misalignment under differing onchain update constraints that led the snapshot ratio and snapshot timestamp to become misaligned.</p>\n<p>The protocol has since been reverted to its prior price oracle configuration, no bad debt was incurred, and the liquidation bonus value extracted during the incident has been substantially recaptured and will be returned to affected users through the compensation process described above.</p>\n<p>We will continue to share additional details as compensation is finalized and further remediation steps are completed.</p>\n            <p><small>2 posts - 2 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/post-mortem-exchange-rate-misallignment-on-wsteth-core-and-prime-instances/24269\">Read full topic</a></p>\n          ",
+      "feed_source": "aave_governance",
+      "relevance_score": 7.0
+    },
+    {
       "title": "Raise sUSDe, USDC, and USDT Caps on Aave V3 Aptos",
       "link": "https://governance.aave.com/t/raise-susde-usdc-and-usdt-caps-on-aave-v3-aptos/24202",
       "description": "\n            <h1><a name=\"p-62125-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-summary-1\" aria-label=\"Heading link\"></a>Summary</h1>\n<p>This proposal increases the supply and borrow caps for USDT and USDC, and increases the supply cap for sUSDe, on Aave V3 Aptos.</p>\n<h1><a name=\"p-62125-motivation-2\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-motivation-2\" aria-label=\"Heading link\"></a>Motivation</h1>\n<p>sUSDe supply on Aave V3 Aptos is currently dominated by a <a href=\"https://aptos.lightscan.one/portfolio/0x2866e737083a58ec8c2a203a9dba86344339153a40308de3cb30dee6fb168872\">single account</a>. That account represents more than 95% of the supplied sUSDe and is operating with an observed health factor around 1.034. Liquidating this account depends on whether the seized sUSDe can be sold into stablecoin liquidity on Aptos at scale without excessive slippage.</p>\n<p>The sUSDe\u2013USDC pool TVL is now above $13.5M, and the liquidity has been built in concentrated formats that provide more usable depth near the current price. That pool is the primary onchain exit path that a liquidator would rely on to convert seized sUSDe into a stable asset to close debt. Given the current liquidity, the proposed sUSDe supply cap is set to 28M.</p>\n<h1><a name=\"p-62125-specifications-3\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-specifications-3\" aria-label=\"Heading link\"></a>Specifications</h1>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Token</th>\n<th>Supply Cap (Current)</th>\n<th>Supply Cap (Proposed)</th>\n<th>Borrow Cap (Current)</th>\n<th>Borrow Cap (Proposed)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>USDT</td>\n<td>40,000,000</td>\n<td>60,000,000</td>\n<td>27,750,000</td>\n<td>45,000,000</td>\n</tr>\n<tr>\n<td>USDC</td>\n<td>25,000,000</td>\n<td>37,500,000</td>\n<td>18,400,000</td>\n<td>28,000,000</td>\n</tr>\n<tr>\n<td>sUSDe</td>\n<td>14,000,000</td>\n<td>28,000,000</td>\n<td>-</td>\n<td>-</td>\n</tr>\n</tbody>\n</table>\n</div><h1><a name=\"p-62125-next-steps-4\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-next-steps-4\" aria-label=\"Heading link\"></a>Next Steps</h1>\n<ol>\n<li>\n<p>Gather community and Risk SP feedback.</p>\n</li>\n<li>\n<p>Implement cap increases via Risk Admin controls.</p>\n</li>\n</ol>\n<h1><a name=\"p-62125-disclaimer-5\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-disclaimer-5\" aria-label=\"Heading link\"></a>Disclaimer</h1>\n<p>Aave Labs is not receiving compensation from Aptos Labs, the Aave DAO, or any service provider for submitting this proposal.</p>\n<h1><a name=\"p-62125-copyright-6\" class=\"anchor\" href=\"https://governance.aave.com#p-62125-copyright-6\" aria-label=\"Heading link\"></a>Copyright</h1>\n<p>Copyright and related rights waived under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CCO</a></p>\n            <p><small>2 posts - 2 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/raise-susde-usdc-and-usdt-caps-on-aave-v3-aptos/24202\">Read full topic</a></p>\n          ",
@@ -95,8 +95,411 @@
       "relevance_score": 7.0
     }
   ],
-  "parameter_changes": [],
+  "parameter_changes": [
+    {
+      "asset": "FDUSD",
+      "network": "bnb",
+      "parameter": "loan_to_value",
+      "old_value": 0.7,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "LINK.e",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.66,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "AAVE.e",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.63,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "EURC",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "wrsETH",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "LINK",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.66,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "AAVE",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.63,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "MaticX",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.5,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDbC",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ezETH",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "wrsETH",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "LBTC",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.68,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "EURC",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "AAVE",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.6,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "tBTC",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.73,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "LINK",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.66,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDC.e",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "AAVE",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.66,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ARB",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.58,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ezETH",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "rsETH",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "tBTC",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.73,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "LINK",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.66,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "sDAI",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "osETH",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.725,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDe",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.72,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ETHx",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.745,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "sUSDe",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.72,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "rsETH",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.72,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-eUSDE-29MAY2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-sUSDE-31JUL2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-USDe-31JUL2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-eUSDE-14AUG2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "eUSDe",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "EURC",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.75,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-sUSDE-25SEP2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-USDe-25SEP2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "tETH",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ezETH",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "XAUt",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.7,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-sUSDE-27NOV2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "PT-USDe-27NOV2025",
+      "network": "ethereum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0005,
+      "new_value": 0.0,
+      "change_percentage": 0.5,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "ezETH",
+      "network": "linea",
+      "parameter": "loan_to_value",
+      "old_value": 0.725,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "wrsETH",
+      "network": "linea",
+      "parameter": "loan_to_value",
+      "old_value": 0.7,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
+      "risk_level": "critical"
+    }
+  ],
   "alerts": [
+    {
+      "alert_type": "critical_parameter_change",
+      "message": "CRITICAL: 44 critical parameter changes detected",
+      "severity": "critical",
+      "parameter_changes_count": 44
+    },
     {
       "alert_type": "high_relevance_governance_activity",
       "message": "INFO: 16 high-relevance governance posts detected",
@@ -105,11 +508,11 @@
     }
   ],
   "summary": {
-    "critical_changes": 0,
+    "critical_changes": 44,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
-    "critical_alerts": 0,
+    "critical_alerts": 1,
     "high_severity_alerts": 0
   }
 }
