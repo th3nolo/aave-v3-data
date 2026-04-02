@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-01T00:28:56.298938",
+  "timestamp": "2026-04-02T00:24:01.462288",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WBTC on polygon liquidation_bonus is 0.08499999999999996, expected 0.07000000000000006 from governance change",
