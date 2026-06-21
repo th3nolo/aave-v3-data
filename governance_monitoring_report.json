@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-20T00:44:41.703200",
-  "governance_posts_found": 45,
+  "timestamp": "2026-06-21T00:49:17.919753",
+  "governance_posts_found": 44,
   "parameter_changes_detected": 0,
   "alerts_generated": 1,
   "governance_posts": [
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "alert_type": "high_relevance_governance_activity",
-      "message": "INFO: 25 high-relevance governance posts detected",
+      "message": "INFO: 24 high-relevance governance posts detected",
       "severity": "low",
       "parameter_changes_count": 0
     }
