@@ -1,31 +1,26 @@
-# Aave V3 Data API – Free, Real-Time DeFi Lending Protocol Data
+# Aave V3 Data
 
-**Meta Title:** Aave V3 Data API – Free Daily Updated Lending Rates & Reserve Data for DeFi Developers  
-**Meta Description:** Access free, real-time Aave V3 lending rates, reserve parameters, and liquidity data across 13+ blockchains. Updated daily via API & JSON. No API key required.
-
----
+Public Aave V3 lending-protocol data, updated daily and served as static JSON and HTML. No servers, no API keys, no rate limits.
 
 ## Overview
 
-The **Aave V3 Data API** provides **public, real-time decentralized finance (DeFi) data** from the Aave V3 lending protocol. It includes:
+The dataset covers, per network:
 
 - Lending and borrowing rates
 - Reserve configurations
 - Liquidity metrics
 - Governance change tracking
 
-Data is refreshed **daily at midnight UTC** using GitHub Actions and hosted for free via GitHub Pages with a global **CDN** for speed and availability.
-
----
+A GitHub Actions workflow refreshes the data daily at midnight UTC and publishes it to GitHub Pages. Extended usage instructions are in [`USAGE.md`](USAGE.md).
 
 ## Features
 
-- **Daily Data Updates** – Automatic updates every 24 hours for consistency.
-- **Multi-Network Coverage** – Ethereum, Polygon, Arbitrum, Optimism, Base, zkSync, Avalanche, and more.
-- **190+ Assets Tracked** – Detailed reserve parameters for all assets.
-- **No Keys or Rate Limits** – Fetch freely without authentication.
-- **Multiple Output Formats** – HTML for visual analysis, JSON for programmatic use.
-- **Governance Tracking** – Live updates on protocol parameter changes.
+- Updates daily at midnight UTC via GitHub Actions.
+- 13 networks: Ethereum, Polygon, Arbitrum, Optimism, Base, zkSync, Avalanche, and more.
+- 190+ assets with full reserve parameters.
+- No authentication and no rate limits — the data is static files on GitHub Pages.
+- HTML tables for reading, JSON for scripts.
+- Tracks protocol parameter changes between refreshes.
 
 ---
 
@@ -130,13 +125,10 @@ Stay informed about governance changes with:
 
 ---
 
-## SEO & Linking Strategy
+## References
 
-- **Primary Keywords:** Aave V3 API, DeFi lending rates, Aave data JSON, blockchain reserve parameters, risk monitoring tools  
-- **Internal Links:** Link to [`USAGE.md`](USAGE.md) for extended usage instructions.  
-- **External Links:**  
-  - [Aave V3 Documentation](https://docs.aave.com/developers/core-contracts/pool)  
-  - [Aave Address Book](https://github.com/bgd-labs/aave-address-book)  
+- [Aave V3 Documentation](https://docs.aave.com/developers/core-contracts/pool)
+- [Aave Address Book](https://github.com/bgd-labs/aave-address-book)
 
 ---
 
@@ -144,6 +136,4 @@ Stay informed about governance changes with:
 
 MIT License – see [LICENSE](LICENSE) for details.
 
----
-
-📅 **Last Updated:** Automatically refreshed daily via GitHub Actions. See JSON metadata for timestamp.
+The `last_updated` field in the JSON metadata carries the exact refresh timestamp.
