@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-08T02:20:51.887779",
+  "timestamp": "2026-07-09T02:34:08.623802",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WETH on arbitrum loan_to_value is 0.8, expected 0.0 from governance change",
