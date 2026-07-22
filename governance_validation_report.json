@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-07-21T02:13:27.029707",
+  "timestamp": "2026-07-22T02:11:16.830593",
   "validation_passed": false,
   "validation_errors": [
-    "Governance mismatch: WETH on arbitrum loan_to_value is 0.8, expected 0.0 from governance change",
     "Governance mismatch: WETH on ethereum loan_to_value is 0.805, expected 0.0 from governance change",
+    "Governance mismatch: WETH on arbitrum loan_to_value is 0.8, expected 0.0 from governance change",
     "Governance mismatch: WETH on linea loan_to_value is 0.8, expected 0.0 from governance change"
   ],
   "validation_warnings": [],
