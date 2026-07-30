@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-29T02:10:04.475639",
+  "timestamp": "2026-07-30T01:59:08.400393",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: WETH on ethereum loan_to_value is 0.805, expected 0.0 from governance change",
