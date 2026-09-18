@@ -17,7 +17,7 @@ from networks import AAVE_V3_NETWORKS
 class TestIntegration(unittest.TestCase):
     """Integration tests for complete reserve data fetching workflow."""
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_complete_reserve_workflow(self, mock_rpc_call):
         """Test complete workflow: get reserves -> get symbols -> get reserve data."""
         
@@ -31,11 +31,11 @@ class TestIntegration(unittest.TestCase):
         weth_address = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
         
         # Setup mock responses for different calls
-        def mock_rpc_side_effect(url, method, params):
+        def mock_rpc_side_effect(url, method, params, **kwargs):
             call_data = params[0]['data']
             
             # getReservesList() call
-            if call_data.startswith('0x226210f0'):
+            if call_data.startswith('0xd1946dbc'):
                 return {
                     'result': (
                         '0x'
@@ -47,7 +47,7 @@ class TestIntegration(unittest.TestCase):
                 }
             
             # symbol() call for USDC
-            elif params[0]['to'] == usdc_address and call_data.startswith('0x231782d8'):
+            elif params[0]['to'] == usdc_address and call_data.startswith('0x95d89b41'):
                 return {
                     'result': (
                         '0x'
@@ -58,7 +58,7 @@ class TestIntegration(unittest.TestCase):
                 }
             
             # symbol() call for WETH
-            elif params[0]['to'] == weth_address and call_data.startswith('0x231782d8'):
+            elif params[0]['to'] == weth_address and call_data.startswith('0x95d89b41'):
                 return {
                     'result': (
                         '0x'
@@ -69,11 +69,11 @@ class TestIntegration(unittest.TestCase):
                 }
             
             # getReserveData() call for USDC
-            elif params[0]['to'] == pool_address and call_data.startswith('0xb78c2913') and usdc_address[2:].lower() in call_data.lower():
+            elif params[0]['to'] == pool_address and call_data.startswith('0x35ea6a75') and usdc_address[2:].lower() in call_data.lower():
                 config = (
                     7500 |          # LTV=75%
                     (7800 << 16) |   # LT=78%
-                    (500 << 32) |    # LB=5%
+                    (10500 << 32) |    # LB=5%
                     (6 << 48) |      # decimals=6
                     (1 << 56) |      # active
                     (1 << 58) |      # borrowing enabled
@@ -104,11 +104,11 @@ class TestIntegration(unittest.TestCase):
                 }
             
             # getReserveData() call for WETH
-            elif params[0]['to'] == pool_address and call_data.startswith('0xb78c2913') and weth_address[2:].lower() in call_data.lower():
+            elif params[0]['to'] == pool_address and call_data.startswith('0x35ea6a75') and weth_address[2:].lower() in call_data.lower():
                 config = (
                     8000 |          # LTV=80%
                     (8250 << 16) |   # LT=82.5%
-                    (500 << 32) |    # LB=5%
+                    (10500 << 32) |    # LB=5%
                     (18 << 48) |     # decimals=18
                     (1 << 56) |      # active
                     (1 << 58) |      # borrowing enabled

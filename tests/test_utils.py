@@ -111,7 +111,7 @@ class TestUtils(unittest.TestCase):
     def test_rpc_call_success(self, mock_urlopen):
         """Test successful RPC call."""
         # Mock successful response
-        mock_response = Mock()
+        mock_response = Mock(status=200)
         mock_response.read.return_value = json.dumps({
             "jsonrpc": "2.0",
             "id": 1,
@@ -129,11 +129,12 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(result["result"], "0x123456")
         self.assertEqual(result["jsonrpc"], "2.0")
     
+    @patch('time.sleep')
     @patch('urllib.request.urlopen')
-    def test_rpc_call_error(self, mock_urlopen):
+    def test_rpc_call_error(self, mock_urlopen, mock_sleep):
         """Test RPC call with error response."""
         # Mock error response
-        mock_response = Mock()
+        mock_response = Mock(status=200)
         mock_response.read.return_value = json.dumps({
             "jsonrpc": "2.0",
             "id": 1,

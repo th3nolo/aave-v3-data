@@ -280,6 +280,9 @@ def _make_single_rpc_call(url: str, method: str, params: list, request_id: int =
         else:
             raise NetworkError(f"Network error connecting to {url}: {e}")
             
+    except RPCError:
+        raise
+
     except json.JSONDecodeError as e:
         raise RPCError(f"Invalid JSON response from {url}: {e}", error_type="invalid_response")
     
@@ -720,8 +723,6 @@ def _decode_string_response(hex_data: str) -> str:
                     symbol = 'USDT'  # Fix for Arbitrum USDT (USD₮0)
                 elif symbol == 'USDt':
                     symbol = 'USDT'  # Fix for Celo USDT (USDt₮)
-                elif symbol == 'USD':
-                    symbol = 'USDT'  # Fix for Celo USDT (USD₮)
                 
                 # Validate symbol (should be alphanumeric with dots, underscores, dashes, spaces)
                 if symbol and len(symbol) <= 30:  # Increased limit for LP tokens
@@ -1018,7 +1019,7 @@ def _decode_configuration_bitmap(config: int) -> dict:
     return {
         'loan_to_value': ltv / 10000.0,  # Convert from basis points to decimal
         'liquidation_threshold': liquidation_threshold / 10000.0,
-        'liquidation_bonus': (liquidation_bonus / 10000.0) - 1.0 if liquidation_bonus > 0 else 0.0,
+        'liquidation_bonus': (liquidation_bonus - 10000) / 10000.0 if liquidation_bonus > 0 else 0.0,
         'decimals': decimals,
         'active': active,
         'frozen': frozen,

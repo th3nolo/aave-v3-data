@@ -3,6 +3,7 @@ Tests for network configuration and validation functionality.
 """
 
 import unittest
+import base64
 from unittest.mock import patch, MagicMock
 import sys
 import os
@@ -218,7 +219,7 @@ class TestNetworkUtilities(unittest.TestCase):
 class TestRpcConnectivity(unittest.TestCase):
     """Test RPC connectivity testing functions."""
     
-    @patch('networks.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_rpc_connectivity_success(self, mock_rpc_call):
         """Test successful RPC connectivity test."""
         # Mock successful RPC response
@@ -233,7 +234,7 @@ class TestRpcConnectivity(unittest.TestCase):
         self.assertTrue(is_accessible)
         self.assertEqual(message, "RPC endpoint accessible")
     
-    @patch('networks.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_rpc_connectivity_chain_id_mismatch(self, mock_rpc_call):
         """Test RPC connectivity with chain ID mismatch."""
         # Mock RPC response with wrong chain ID
@@ -248,7 +249,7 @@ class TestRpcConnectivity(unittest.TestCase):
         self.assertFalse(is_accessible)
         self.assertIn("Chain ID mismatch", message)
     
-    @patch('networks.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_rpc_connectivity_failure(self, mock_rpc_call):
         """Test RPC connectivity failure."""
         # Mock RPC call exception
@@ -272,7 +273,7 @@ class TestAutoUpdateFunctionality(unittest.TestCase):
         """Test successful fetch from address book."""
         # Mock successful HTTP response
         mock_response = MagicMock()
-        mock_response.read.return_value = b'contract content here'
+        mock_response.read.return_value = b'address internal constant POOL = 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2; address internal constant AAVE_PROTOCOL_DATA_PROVIDER = 0x7B4EB56E7CD4b454BA8ff71E4518426369a138a3;'
         mock_response.__enter__.return_value = mock_response
         mock_urlopen.return_value = mock_response
         
@@ -309,7 +310,7 @@ class TestAutoUpdateFunctionality(unittest.TestCase):
         # Mock GitHub API response
         mock_response = MagicMock()
         api_response = {
-            'content': 'Y29udHJhY3QgY29udGVudA=='  # base64 encoded "contract content"
+            'content': base64.b64encode(b'address internal constant POOL = 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2; address internal constant AAVE_PROTOCOL_DATA_PROVIDER = 0x7B4EB56E7CD4b454BA8ff71E4518426369a138a3;').decode()
         }
         mock_response.read.return_value = json.dumps(api_response).encode()
         mock_response.__enter__.return_value = mock_response
@@ -319,9 +320,11 @@ class TestAutoUpdateFunctionality(unittest.TestCase):
         result = fetch_network_from_github_api('ethereum')
         
         # Should handle the request without error
-        self.assertTrue(True)  # Test passes if no exception
+        self.assertEqual(result['pool'], '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2')
+        mock_urlopen.assert_called_once()
     
-    def test_update_networks_from_address_book(self):
+    @patch('networks.fetch_address_book_networks', return_value=None)
+    def test_update_networks_from_address_book(self, mock_fetch):
         """Test updating networks from address book."""
         from networks import update_networks_from_address_book
         
@@ -334,7 +337,8 @@ class TestAutoUpdateFunctionality(unittest.TestCase):
         # Should contain at least the original networks
         self.assertGreaterEqual(len(updated_networks), len(AAVE_V3_NETWORKS))
     
-    def test_get_networks_with_fallback(self):
+    @patch('networks.update_networks_from_address_book', return_value=(AAVE_V3_NETWORKS, ['fixture unavailable']))
+    def test_get_networks_with_fallback(self, mock_update):
         """Test getting networks with fallback mechanism."""
         from networks import get_networks_with_fallback
         
@@ -344,7 +348,8 @@ class TestAutoUpdateFunctionality(unittest.TestCase):
         self.assertIsInstance(result, dict)
         self.assertGreater(len(result), 0)
     
-    def test_discover_new_networks(self):
+    @patch('networks.urllib.request.urlopen', side_effect=urllib.error.URLError('offline fixture'))
+    def test_discover_new_networks(self, mock_urlopen):
         """Test discovering new networks."""
         from networks import discover_new_networks
         

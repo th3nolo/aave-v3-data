@@ -70,7 +70,7 @@ class TestReserves(unittest.TestCase):
         with self.assertRaises(Exception):
             _decode_address_array('0xGGGG')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserves_success(self, mock_rpc_call):
         """Test successful reserve list retrieval."""
         # Mock successful RPC response
@@ -103,7 +103,7 @@ class TestReserves(unittest.TestCase):
         self.assertEqual(call_args[0][2][0]['to'], pool_address)  # to address
         self.assertTrue(call_args[0][2][0]['data'].startswith('0x'))  # method data
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserves_no_result(self, mock_rpc_call):
         """Test reserve list retrieval with no result."""
         # Mock RPC response without result
@@ -117,7 +117,7 @@ class TestReserves(unittest.TestCase):
         
         self.assertIn('No result in RPC response', str(context.exception))
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserves_empty_result(self, mock_rpc_call):
         """Test reserve list retrieval with empty result."""
         # Mock RPC response with empty array
@@ -136,7 +136,7 @@ class TestReserves(unittest.TestCase):
         result = get_reserves(pool_address, rpc_url)
         self.assertEqual(result, [])
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserves_rpc_exception(self, mock_rpc_call):
         """Test reserve list retrieval with RPC exception."""
         # Mock RPC call raising exception
@@ -331,7 +331,7 @@ class TestAssetSymbol(unittest.TestCase):
         result = _decode_string_response(bad_length)
         self.assertEqual(result, 'PARSE_ERROR')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_success(self, mock_rpc_call):
         """Test successful asset symbol retrieval."""
         from utils import get_asset_symbol
@@ -360,7 +360,7 @@ class TestAssetSymbol(unittest.TestCase):
         self.assertEqual(call_args[0][2][0]['to'], asset_address)  # to address
         self.assertTrue(call_args[0][2][0]['data'].startswith('0x'))  # method data
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_fallback(self, mock_rpc_call):
         """Test asset symbol retrieval with fallback."""
         from utils import get_asset_symbol
@@ -375,7 +375,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should return fallback format
         self.assertEqual(result, 'TOKEN_7BF77FB0')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_no_result(self, mock_rpc_call):
         """Test asset symbol retrieval with no result."""
         from utils import get_asset_symbol
@@ -390,7 +390,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should return fallback format
         self.assertEqual(result, 'TOKEN_7BF77FB0')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_various_token_types(self, mock_rpc_call):
         """Test asset symbol retrieval for various token types."""
         from utils import get_asset_symbol
@@ -424,7 +424,7 @@ class TestAssetSymbol(unittest.TestCase):
                 result = get_asset_symbol(asset_address, rpc_url)
                 self.assertEqual(result, expected)
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_empty_response(self, mock_rpc_call):
         """Test asset symbol retrieval with empty response."""
         from utils import get_asset_symbol
@@ -440,7 +440,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should return fallback format
         self.assertEqual(result, 'TOKEN_7BF77FB0')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_invalid_symbol(self, mock_rpc_call):
         """Test asset symbol retrieval with invalid symbol data."""
         from utils import get_asset_symbol
@@ -463,7 +463,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should return fallback format when symbol is invalid
         self.assertEqual(result, 'TOKEN_7BF77FB0')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_non_utf8_handling(self, mock_rpc_call):
         """Test asset symbol retrieval with non-UTF8 characters."""
         from utils import get_asset_symbol
@@ -486,7 +486,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should handle non-UTF8 gracefully and return processed symbol
         self.assertEqual(result, 'USD')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_rpc_timeout(self, mock_rpc_call):
         """Test asset symbol retrieval with RPC timeout."""
         from utils import get_asset_symbol
@@ -502,7 +502,7 @@ class TestAssetSymbol(unittest.TestCase):
         # Should return fallback format on timeout
         self.assertEqual(result, 'TOKEN_7BF77FB0')
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_asset_symbol_contract_not_found(self, mock_rpc_call):
         """Test asset symbol retrieval when contract doesn't exist."""
         from utils import get_asset_symbol
@@ -531,7 +531,7 @@ class TestReserveData(unittest.TestCase):
         config = (
             7500 |          # LTV (bits 0-15)
             (7800 << 16) |   # LT (bits 16-31)
-            (500 << 32) |    # LB (bits 32-47)
+            (10500 << 32) |    # LB (bits 32-47)
             (6 << 48) |      # Decimals (bits 48-55)
             (1 << 56) |      # Active (bit 56)
             (0 << 57) |      # Frozen (bit 57)
@@ -603,7 +603,7 @@ class TestReserveData(unittest.TestCase):
         config = (
             7500 |          # LTV=75%
             (7800 << 16) |   # LT=78%
-            (500 << 32) |    # LB=5%
+            (10500 << 32) |    # LB=5%
             (6 << 48) |      # decimals=6
             (1 << 56) |      # active
             (1 << 58) |      # borrowing enabled
@@ -680,7 +680,7 @@ class TestReserveData(unittest.TestCase):
         
         self.assertIn('Response data too short', str(context.exception))
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserve_data_success(self, mock_rpc_call):
         """Test successful reserve data retrieval."""
         from utils import get_reserve_data
@@ -689,7 +689,7 @@ class TestReserveData(unittest.TestCase):
         config = (
             7500 |          # LTV=75%
             (7800 << 16) |   # LT=78%
-            (500 << 32) |    # LB=5%
+            (10500 << 32) |    # LB=5%
             (6 << 48) |      # decimals=6
             (1 << 56) |      # active
             (1 << 58)        # borrowing enabled
@@ -741,7 +741,7 @@ class TestReserveData(unittest.TestCase):
         self.assertTrue(call_data.startswith('0x'))
         self.assertIn(asset_address[2:].lower(), call_data.lower())
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserve_data_no_result(self, mock_rpc_call):
         """Test reserve data retrieval with no result."""
         from utils import get_reserve_data
@@ -758,7 +758,7 @@ class TestReserveData(unittest.TestCase):
         
         self.assertIn('No result in RPC response', str(context.exception))
     
-    @patch('utils.rpc_call')
+    @patch('utils.rpc_call_with_retry')
     def test_get_reserve_data_rpc_exception(self, mock_rpc_call):
         """Test reserve data retrieval with RPC exception."""
         from utils import get_reserve_data
