@@ -7,6 +7,7 @@ import re
 import json
 import urllib.request
 import urllib.error
+from copy import deepcopy
 from typing import Dict, List, Optional, Tuple
 import sys
 import os
@@ -1038,7 +1039,7 @@ def update_networks_from_address_book() -> Tuple[Dict[str, Dict], List[str]]:
         Tuple of (updated_networks_dict, list_of_errors)
     """
     errors = []
-    updated_networks = AAVE_V3_NETWORKS.copy()
+    updated_networks = deepcopy(AAVE_V3_NETWORKS)
     
     try:
         print("Fetching network configurations from aave-address-book...")
@@ -1130,59 +1131,63 @@ def get_networks_with_fallback() -> Dict[str, Dict]:
 
 
 def periodic_network_discovery() -> Tuple[Dict[str, Dict], bool]:
-    """
-    Perform periodic network discovery to automatically include new Aave V3 deployments.
-    This function should be called periodically to check for new networks.
-    
-    Returns:
-        Tuple of (networks_dict, discovery_successful)
+    """Discover networks, retaining only approved existing and new entries.
+
+    Existing networks keep their validated address-book updates without a new
+    RPC requirement. New entries require valid configuration and reachable RPC.
+    Candidate failures retain other accepted entries but return False. Upstream
+    errors discard the entire update batch and return the originals with False.
+    The return shape remains (networks_dict, discovery_successful).
     """
     try:
         print("Starting periodic network discovery...")
-        
-        # Get current networks
-        current_networks = AAVE_V3_NETWORKS.copy()
-        
-        # Attempt to discover new networks
+        current_networks = deepcopy(AAVE_V3_NETWORKS)
         discovered_networks, errors = update_networks_from_address_book()
-        
-        # Check for new networks
-        current_keys = set(current_networks.keys())
-        discovered_keys = set(discovered_networks.keys())
-        new_networks = discovered_keys - current_keys
-        
+
+        if errors:
+            print("Discovery completed with errors - using fallback configuration")
+            for error in errors:
+                print(f"  - {error}")
+            return current_networks, False
+
+        # The updater validates existing-network changes. Keep those updates
+        # without imposing a new RPC requirement on already supported networks.
+        accepted_networks = current_networks.copy()
+        accepted_networks.update({
+            key: config for key, config in discovered_networks.items()
+            if key in current_networks
+        })
+        new_networks = sorted(set(discovered_networks) - set(current_networks))
+        discovery_successful = True
+
         if new_networks:
             print(f"Discovered {len(new_networks)} new networks: {', '.join(new_networks)}")
-            
-            # Validate new networks before adding
-            validated_new_networks = {}
-            for network_key in new_networks:
-                config = discovered_networks[network_key]
+
+        for network_key in new_networks:
+            config = discovered_networks[network_key]
+            try:
                 is_valid, validation_errors = validate_network_config(network_key, config)
-                
-                if is_valid:
-                    # Test RPC connectivity before adding
-                    is_accessible, rpc_message = test_rpc_connectivity(network_key, config)
-                    if is_accessible:
-                        validated_new_networks[network_key] = config
-                        print(f"  ✓ {network_key}: Validated and accessible")
-                    else:
-                        print(f"  ✗ {network_key}: RPC not accessible - {rpc_message}")
-                else:
-                    print(f"  ✗ {network_key}: Invalid configuration - {validation_errors}")
-            
-            # Merge validated new networks
-            discovered_networks.update(validated_new_networks)
-            
-        discovery_successful = len(errors) == 0
-        
-        if not discovery_successful:
-            print("Discovery completed with errors - using fallback configuration")
-            return current_networks, False
-        
-        print(f"Periodic discovery completed successfully - {len(discovered_networks)} total networks")
-        return discovered_networks, True
-        
+                if not is_valid:
+                    discovery_successful = False
+                    print(f"  ? {network_key}: Invalid configuration - {validation_errors}")
+                    continue
+
+                is_accessible, rpc_message = test_rpc_connectivity(network_key, config)
+                if not is_accessible:
+                    discovery_successful = False
+                    print(f"  ? {network_key}: RPC not accessible - {rpc_message}")
+                    continue
+
+                accepted_networks[network_key] = config
+                print(f"  {network_key}: Validated and accessible")
+            except Exception as e:
+                discovery_successful = False
+                print(f"  ? {network_key}: Validation failed - {e}")
+
+        status = "successfully" if discovery_successful else "with rejected candidates"
+        print(f"Periodic discovery completed {status} - {len(accepted_networks)} total networks")
+        return accepted_networks, discovery_successful
+
     except Exception as e:
         print(f"Periodic network discovery failed: {e}")
         return AAVE_V3_NETWORKS, False
