@@ -10,6 +10,9 @@ import urllib.parse
 import time
 import random
 from typing import Dict, Any, Optional, List, Tuple
+from network_deadline import (
+    NetworkDeadlineExceeded, check_deadline, current_deadline, retry_sleep,
+)
 
 
 def get_method_id(signature: str) -> str:
@@ -90,8 +93,10 @@ def rpc_call_with_retry(
     
     for url_index, current_url in enumerate(all_urls):
         for attempt in range(max_retries):
+            check_deadline()
             try:
                 result = _make_single_rpc_call(current_url, method, params, request_id)
+                check_deadline()
                 
                 # Log successful call if it wasn't the first attempt
                 if attempt > 0 or url_index > 0:
@@ -99,6 +104,8 @@ def rpc_call_with_retry(
                 
                 return result
                 
+            except NetworkDeadlineExceeded:
+                raise
             except RPCError as e:
                 last_exception = e
                 
@@ -113,7 +120,7 @@ def rpc_call_with_retry(
                     print(f"Rate limited on {current_url}, waiting {wait_time:.1f}s before retry {attempt + 1}/{max_retries}")
                     
                     if attempt < max_retries - 1:  # Don't wait on last attempt
-                        time.sleep(wait_time)
+                        retry_sleep(wait_time)
                     continue
                     
                 elif e.error_type == "server_error":
@@ -121,7 +128,7 @@ def rpc_call_with_retry(
                     if attempt < max_retries - 1:
                         wait_time = min(2 ** attempt + random.uniform(0, 1), 10)
                         print(f"Server error on {current_url}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries})")
-                        time.sleep(wait_time)
+                        retry_sleep(wait_time)
                     continue
                     
                 elif e.error_type == "invalid_request":
@@ -134,7 +141,7 @@ def rpc_call_with_retry(
                     if attempt < max_retries - 1:
                         wait_time = min(2 ** attempt + random.uniform(0, 1), 5)
                         print(f"RPC error on {current_url}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries}): {e}")
-                        time.sleep(wait_time)
+                        retry_sleep(wait_time)
                     continue
                     
             except NetworkError as e:
@@ -144,7 +151,7 @@ def rpc_call_with_retry(
                 if attempt < max_retries - 1:
                     wait_time = min(2 ** attempt + random.uniform(0, 1), 10)
                     print(f"Network error on {current_url}, retrying in {wait_time:.1f}s (attempt {attempt + 1}/{max_retries}): {e}")
-                    time.sleep(wait_time)
+                    retry_sleep(wait_time)
                 continue
                 
             except Exception as e:
@@ -153,7 +160,7 @@ def rpc_call_with_retry(
                 
                 if attempt < max_retries - 1:
                     wait_time = min(2 ** attempt + random.uniform(0, 1), 5)
-                    time.sleep(wait_time)
+                    retry_sleep(wait_time)
                 continue
         
         # If we get here, all retries for this URL failed
@@ -167,7 +174,8 @@ def rpc_call_with_retry(
         raise RPCError(f"All RPC endpoints failed after {max_retries} retries each. Last error: {last_exception}")
 
 
-def _make_single_rpc_call(url: str, method: str, params: list, request_id: int = 1) -> Dict[str, Any]:
+def _make_single_rpc_call(url: str, method: str, params: list, request_id: int = 1,
+                          timeout: float = 30) -> Dict[str, Any]:
     """
     Make a single JSON-RPC call without retry logic.
     
@@ -184,6 +192,11 @@ def _make_single_rpc_call(url: str, method: str, params: list, request_id: int =
         RPCError: For RPC-specific errors
         NetworkError: For network connectivity issues
     """
+    deadline = current_deadline()
+    if deadline is not None:
+        return deadline.call(_make_single_rpc_call, url, method, params, request_id,
+                             timeout=timeout)
+
     payload = {
         "jsonrpc": "2.0",
         "method": method,
@@ -203,7 +216,7 @@ def _make_single_rpc_call(url: str, method: str, params: list, request_id: int =
     )
     
     try:
-        with urllib.request.urlopen(req, timeout=30) as response:
+        with urllib.request.urlopen(req, timeout=timeout) as response:
             if response.status == 429:
                 # Rate limiting
                 retry_after = response.headers.get('Retry-After')

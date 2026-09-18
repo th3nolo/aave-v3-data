@@ -12,6 +12,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(__file__))
 
 from utils import get_reserves, get_asset_symbol, get_reserve_data
+from network_deadline import check_deadline
 from networks import get_active_networks, get_fallback_urls
 from monitoring import (
     get_healthy_rpc_urls, 
@@ -169,6 +170,7 @@ class GracefulDataFetcher:
             max_asset_failures = max(len(reserves) // 4, 5)  # Allow 25% failures or min 5
             
             for asset_address in reserves:
+                check_deadline()
                 try:
                     asset_data = self.fetch_asset_data(
                         asset_address, 

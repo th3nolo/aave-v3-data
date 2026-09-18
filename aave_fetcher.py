@@ -9,7 +9,9 @@ import os
 import time
 import json
 import argparse
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import math
+import threading
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from typing import Dict, List, Any, Optional, Tuple
 
 # Add src directory to path
@@ -26,6 +28,7 @@ from monitoring import (
 )
 from validation import validate_aave_data, save_validation_report, create_validation_summary_for_github
 from utils import get_reserves, get_asset_symbol, get_reserve_data
+from network_deadline import NetworkDeadline, NetworkDeadlineExceeded, check_deadline
 from ultra_fast_fetcher import fetch_aave_data_ultra_fast
 from governance_monitoring import governance_monitor, save_governance_report, validate_against_governance_snapshots
 from governance_html_output import save_governance_html_output
@@ -36,6 +39,7 @@ class PerformanceMonitor:
     
     def __init__(self):
         self.start_time = time.time()
+        self._monotonic_start = time.monotonic()
         self.network_times = {}
         self.total_assets = 0
         self.total_rpc_calls = 0
@@ -58,7 +62,7 @@ class PerformanceMonitor:
     
     def get_elapsed_time(self) -> float:
         """Get total elapsed time in seconds."""
-        return time.time() - self.start_time
+        return time.monotonic() - self._monotonic_start
     
     def is_approaching_limit(self, buffer_seconds: int = 60) -> bool:
         """Check if we're approaching GitHub Actions time limit."""
@@ -178,17 +182,21 @@ def fetch_data_with_parallel_processing(max_workers: int = 4, timeout_per_networ
     
     Args:
         max_workers: Maximum number of concurrent network fetches
-        timeout_per_network: Timeout per network in seconds
+        timeout_per_network: Base active-worker budget, adjusted by strategy/priority
         
     Returns:
         Tuple of (data_dict, performance_report)
     """
     from network_prioritization import (
-        get_prioritized_networks, get_worker_allocation, 
+        get_prioritized_networks,
         record_network_performance, get_execution_strategy
     )
     from performance_cache import performance_cache
     
+    if not math.isfinite(timeout_per_network) or timeout_per_network <= 0:
+        raise ValueError("Network timeout must be finite and positive")
+    if max_workers <= 0:
+        raise ValueError("max_workers must be positive")
     performance_monitor = PerformanceMonitor()
     networks = get_active_networks()
     all_data = {}
@@ -202,11 +210,12 @@ def fetch_data_with_parallel_processing(max_workers: int = 4, timeout_per_networ
     # Get prioritized networks
     prioritized_networks = get_prioritized_networks(networks)
     
-    # Allocate workers based on network priority
-    worker_allocation = get_worker_allocation(strategy['max_workers'], networks)
+    worker_count = min(max_workers, strategy['max_workers'])
+    cancel_event = threading.Event()
+    cancelled_networks = []
     
     # Use ThreadPoolExecutor for I/O-bound network operations
-    with ThreadPoolExecutor(max_workers=strategy['max_workers']) as executor:
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
         # Submit network fetch tasks with priority-based allocation
         future_to_network = {}
         
@@ -224,35 +233,37 @@ def fetch_data_with_parallel_processing(max_workers: int = 4, timeout_per_networ
                 network_config, 
                 performance_monitor,
                 adjusted_timeout,
-                priority
+                priority,
+                cancel_event
             )
             future_to_network[future] = network_key
         
-        # Process completed tasks
-        total_timeout = timeout_per_network * len(future_to_network) * strategy['timeout_multiplier']
-        
-        for future in as_completed(future_to_network, timeout=total_timeout):
-            network_key = future_to_network[future]
-            
-            try:
-                result_network_key, network_data, execution_time = future.result(timeout=timeout_per_network)
-                
-                if network_data:
-                    all_data[result_network_key] = network_data
-                    record_network_performance(result_network_key, execution_time, True)
-                else:
-                    record_network_performance(result_network_key, execution_time, False)
-                
-                # Check if we're approaching time limits
-                if performance_monitor.is_approaching_limit():
-                    print("⚠️  Approaching time limit - may cancel remaining networks")
-                    break
-                    
-            except Exception as e:
-                print(f"❌ Network {network_key} failed with exception: {e}")
-                record_network_performance(network_key, timeout_per_network, False)
-                continue
-    
+        pending = set(future_to_network)
+        try:
+            while pending:
+                if not cancel_event.is_set() and performance_monitor.is_approaching_limit():
+                    print("Time limit reached - cancelling remaining networks")
+                    cancel_event.set()
+                    for future in pending:
+                        if not future.done():
+                            cancelled_networks.append(future_to_network[future])
+                            future.cancel()  # Queued work only; running RPCs see the event.
+                completed, pending = wait(pending, timeout=0.05, return_when=FIRST_COMPLETED)
+                for future in completed:
+                    network_key = future_to_network[future]
+                    try:
+                        result_network_key, network_data, execution_time = future.result()
+                        if network_data:
+                            all_data[result_network_key] = network_data
+                        record_network_performance(result_network_key, execution_time, bool(network_data))
+                    except Exception as e:
+                        print(f"Network {network_key} failed with exception: {e}")
+                        record_network_performance(network_key, 0, False)
+        finally:
+            cancel_event.set()
+            for future in pending:
+                future.cancel()
+
     # Save cache after processing
     performance_cache.save()
     
@@ -262,6 +273,7 @@ def fetch_data_with_parallel_processing(max_workers: int = 4, timeout_per_networ
         "total_assets": performance_monitor.total_assets,
         "networks_processed": len(performance_monitor.network_times),
         "successful_networks": len(all_data),
+        "cancelled_networks": sorted(set(cancelled_networks)),
         "network_timings": performance_monitor.network_times,
         "github_actions_compliant": performance_monitor.get_elapsed_time() < 540,
         "execution_strategy": strategy['mode'],
@@ -274,6 +286,42 @@ def fetch_data_with_parallel_processing(max_workers: int = 4, timeout_per_networ
 
 
 def fetch_network_data_parallel_optimized(
+    network_key: str,
+    network_config: Dict,
+    performance_monitor: PerformanceMonitor,
+    timeout: float,
+    priority,
+    cancel_event=None,
+) -> Tuple[str, Optional[List[Dict]], float]:
+    """Fetch within one adjusted deadline, including transport cleanup.
+
+    Budget starts when this worker runs, not while queued. It covers RPC
+    transport startup, operations, retries and backoff. Cleanup can add two
+    bounded transport shutdown grace periods. Expired results are discarded.
+    """
+    started = time.monotonic()
+    with NetworkDeadline(timeout, cancel_event):
+        try:
+            check_deadline()
+            result = _fetch_network_data_parallel_optimized(
+                network_key, network_config, performance_monitor, timeout, priority
+            )
+            check_deadline()
+            return result
+        except NetworkDeadlineExceeded as exc:
+            if network_key in performance_monitor.network_times:
+                timing = performance_monitor.network_times[network_key]
+                if 'end' not in timing or timing.get('assets', 0):
+                    performance_monitor.total_assets -= timing.get('assets', 0)
+                    performance_monitor.finish_network(network_key, 0)
+            if network_key in health_monitor.network_metrics:
+                health_monitor.finish_network_monitoring(network_key, 0)
+                health_monitor.network_metrics[network_key].errors.append(str(exc))
+            print(f"Network {network_key}: {exc}")
+            return network_key, None, time.monotonic() - started
+
+
+def _fetch_network_data_parallel_optimized(
     network_key: str, 
     network_config: Dict, 
     performance_monitor: PerformanceMonitor,
@@ -336,7 +384,8 @@ def fetch_network_data_parallel_optimized(
             network_data = fetcher.fetch_network_data(
                 network_key, network_config, prefetched_reserves=reserves
             )
-        
+
+        check_deadline()
         execution_time = time.time() - start_time
         
         if network_data:
@@ -369,6 +418,8 @@ def fetch_network_data_parallel_optimized(
             print(f"❌ {network_config['name']}: No data returned")
             return network_key, None, execution_time
             
+    except NetworkDeadlineExceeded:
+        raise
     except Exception as e:
         execution_time = time.time() - start_time
         performance_monitor.finish_network(network_key, 0)
@@ -444,7 +495,7 @@ def main():
     parser.add_argument('--output-html', default='aave_v3_data.html', help='HTML output file')
     parser.add_argument('--validate', action='store_true', help='Validate data against known values')
     parser.add_argument('--skip-reports', action='store_true', help='Skip saving health/fetch reports')
-    parser.add_argument('--timeout', type=int, default=120, help='Timeout per network in seconds')
+    parser.add_argument('--timeout', type=int, default=120, help='Base deadline in seconds for default/parallel mode; adjusted by strategy and network priority, plus bounded RPC cleanup. Not used by sequential/ultra-fast/turbo modes.')
     
     # New monitoring and debugging arguments
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
