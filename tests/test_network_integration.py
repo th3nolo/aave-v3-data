@@ -60,7 +60,8 @@ class TestNetworkIntegration(unittest.TestCase):
                 self.assertIsNotNone(fallbacks, f"Network {network_key} should have fallback URLs")
                 self.assertGreater(len(fallbacks), 0, f"Network {network_key} should have at least one fallback URL")
     
-    def test_rpc_connectivity_with_fallbacks(self):
+    @patch('utils.rpc_call_with_retry', side_effect=NetworkError('Offline fixture: endpoints unavailable'))
+    def test_rpc_connectivity_with_fallbacks(self, mock_rpc):
         """Test RPC connectivity testing with fallback logic."""
         test_config = {
             'name': 'Test Network',
@@ -75,6 +76,8 @@ class TestNetworkIntegration(unittest.TestCase):
         # This should fail gracefully and return False with error message
         is_accessible, error_message = test_rpc_connectivity('test', test_config)
         
+        mock_rpc.assert_called_once()
+        self.assertEqual(mock_rpc.call_args.kwargs['fallback_urls'], test_config['rpc_fallback'])
         self.assertFalse(is_accessible)
         self.assertIn("RPC connection failed", error_message)
     

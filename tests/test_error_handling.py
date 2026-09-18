@@ -139,7 +139,7 @@ class TestRPCErrorHandling(unittest.TestCase):
                 fp=None
             )
             
-            success_response = Mock()
+            success_response = MagicMock(status=200)
             success_response.status = 200
             success_response.read.return_value = json.dumps(mock_response).encode('utf-8')
             success_response.__enter__.return_value = success_response
@@ -170,7 +170,7 @@ class TestRPCErrorHandling(unittest.TestCase):
                 fp=None
             )
             
-            success_response = Mock()
+            success_response = MagicMock(status=200)
             success_response.status = 200
             success_response.read.return_value = json.dumps(mock_response).encode('utf-8')
             success_response.__enter__.return_value = success_response
@@ -200,7 +200,7 @@ class TestRPCErrorHandling(unittest.TestCase):
                 }
                 
                 with patch('urllib.request.urlopen') as mock_urlopen:
-                    mock_response_obj = Mock()
+                    mock_response_obj = MagicMock(status=200)
                     mock_response_obj.status = 200
                     mock_response_obj.read.return_value = json.dumps(mock_error_response).encode('utf-8')
                     mock_response_obj.__enter__.return_value = mock_response_obj
@@ -212,8 +212,13 @@ class TestRPCErrorHandling(unittest.TestCase):
                     # Check error classification
                     if error_info["code"] == -32602:
                         self.assertEqual(context.exception.error_type, "invalid_request")
+                        self.assertEqual(mock_urlopen.call_count, 1)
                     elif error_info["code"] == -32000:
                         self.assertEqual(context.exception.error_type, "server_error")
+                        self.assertEqual(mock_urlopen.call_count, 3)
+                    else:
+                        self.assertEqual(context.exception.error_type, "rate_limit")
+                        self.assertEqual(mock_urlopen.call_count, 3)
     
     def test_all_endpoints_fail(self):
         """Test behavior when all endpoints and retries fail."""
@@ -221,7 +226,7 @@ class TestRPCErrorHandling(unittest.TestCase):
             mock_urlopen.side_effect = urllib.error.URLError("All endpoints down")
             
             with patch('time.sleep'):  # Speed up test
-                with self.assertRaises(RPCError) as context:
+                with self.assertRaises(NetworkError) as context:
                     rpc_call_with_retry(
                         self.test_url, 
                         self.test_method, 
@@ -239,7 +244,7 @@ class TestRPCErrorHandling(unittest.TestCase):
             mock_urlopen.side_effect = urllib.error.URLError("Network error")
             
             with patch('time.sleep') as mock_sleep:
-                with self.assertRaises(RPCError):
+                with self.assertRaises(NetworkError):
                     rpc_call_with_retry(self.test_url, self.test_method, self.test_params, max_retries=3)
                 
                 # Check that sleep was called with increasing delays
@@ -269,7 +274,7 @@ class TestHighLevelFunctionErrorHandling(unittest.TestCase):
             "result": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000087870bca3f3fd6335c3f4ce8392d69350b4fa4e2"
         }
         
-        with patch('src.utils.rpc_call_with_retry') as mock_rpc:
+        with patch('utils.rpc_call_with_retry') as mock_rpc:
             mock_rpc.return_value = mock_response
             
             result = get_reserves(self.pool_address, self.rpc_url, self.fallback_urls)
@@ -281,7 +286,7 @@ class TestHighLevelFunctionErrorHandling(unittest.TestCase):
     
     def test_get_asset_symbol_graceful_failure(self):
         """Test get_asset_symbol graceful failure handling."""
-        with patch('src.utils.rpc_call_with_retry') as mock_rpc:
+        with patch('utils.rpc_call_with_retry') as mock_rpc:
             mock_rpc.side_effect = RPCError("RPC failed", error_type="network")
             
             # Should return fallback symbol instead of raising exception
@@ -292,7 +297,7 @@ class TestHighLevelFunctionErrorHandling(unittest.TestCase):
     
     def test_get_reserve_data_error_propagation(self):
         """Test get_reserve_data error propagation."""
-        with patch('src.utils.rpc_call_with_retry') as mock_rpc:
+        with patch('utils.rpc_call_with_retry') as mock_rpc:
             mock_rpc.side_effect = NetworkError("Network down")
             
             with self.assertRaises(Exception) as context:
@@ -308,7 +313,7 @@ class TestHighLevelFunctionErrorHandling(unittest.TestCase):
             "result": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000455534443000000000000000000000000000000000000000000000000000000"
         }
         
-        with patch('src.utils.rpc_call_with_retry') as mock_rpc:
+        with patch('utils.rpc_call_with_retry') as mock_rpc:
             mock_rpc.return_value = mock_response
             
             # Test all functions that should accept fallback URLs

@@ -171,11 +171,11 @@ class TestJSONOutput(unittest.TestCase):
         parsed = json.loads(json_output)
         
         # Test structure
-        self.assertIn('aave_v3_data', parsed)
+        self.assertIn('networks', parsed)
         self.assertIn('metadata', parsed)
         
         # Test data content
-        data = parsed['aave_v3_data']
+        data = parsed['networks']
         self.assertIn('ethereum', data)
         self.assertIn('polygon', data)
         
@@ -192,7 +192,7 @@ class TestJSONOutput(unittest.TestCase):
         parsed = json.loads(json_output)
         
         # Test structure
-        self.assertIn('aave_v3_data', parsed)
+        self.assertIn('networks', parsed)
         self.assertNotIn('metadata', parsed)
     
     def test_validate_json_schema_valid(self):
@@ -302,7 +302,7 @@ class TestJSONOutput(unittest.TestCase):
         parsed = json.loads(json_output)
         
         # Assets should be sorted by symbol
-        assets = parsed['aave_v3_data']['ethereum']
+        assets = parsed['networks']['ethereum']
         symbols = [asset['symbol'] for asset in assets]
         self.assertEqual(symbols, ['DAI', 'USDC', 'WETH'])
     
@@ -322,7 +322,7 @@ class TestJSONOutput(unittest.TestCase):
         json_output = generate_json_output(test_data)
         parsed = json.loads(json_output)
         
-        asset = parsed['aave_v3_data']['ethereum'][0]
+        asset = parsed['networks']['ethereum'][0]
         
         # Should be rounded to 6 decimal places
         self.assertEqual(asset['liquidation_threshold'], 0.123457)

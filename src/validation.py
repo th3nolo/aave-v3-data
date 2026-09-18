@@ -229,6 +229,8 @@ class AaveDataValidator:
         
         # Basic structure validation
         self._validate_data_structure(data, result)
+        if result.errors:
+            return result  # Do not dereference a structure already found invalid.
         
         # Network-level validation
         for network_key, assets in data.items():

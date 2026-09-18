@@ -115,7 +115,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         result = fetch_address_book_networks()
         self.assertIsNone(result)
 
-    @patch('src.networks.fetch_address_book_networks')
+    @patch('networks.fetch_address_book_networks')
     def test_update_networks_from_address_book_success(self, mock_fetch):
         """Test successful network update from address book."""
         mock_fetch.return_value = {
@@ -132,7 +132,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         # In test environment, there might be warnings but the function should still work
         self.assertTrue(len(updated_networks) > 0)
 
-    @patch('src.networks.fetch_address_book_networks')
+    @patch('networks.fetch_address_book_networks')
     def test_update_networks_from_address_book_failure(self, mock_fetch):
         """Test handling of address book fetch failure."""
         mock_fetch.return_value = None
@@ -143,7 +143,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         self.assertTrue(len(errors) > 0)
         self.assertIn("Failed to fetch networks from aave-address-book", errors[0])
 
-    @patch('src.networks.fetch_address_book_networks')
+    @patch('networks.fetch_address_book_networks')
     def test_update_networks_invalid_config(self, mock_fetch):
         """Test handling of invalid network configurations."""
         invalid_config = {
@@ -166,7 +166,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
                          'Failed to fetch networks' in error for error in errors)
         self.assertTrue(error_found)
 
-    @patch('src.networks.update_networks_from_address_book')
+    @patch('networks.update_networks_from_address_book')
     def test_get_networks_with_fallback_success(self, mock_update):
         """Test successful network retrieval with fallback."""
         mock_update.return_value = (
@@ -179,7 +179,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         self.assertIsInstance(result, dict)
         self.assertIn('ethereum', result)
 
-    @patch('src.networks.update_networks_from_address_book')
+    @patch('networks.update_networks_from_address_book')
     def test_get_networks_with_fallback_error(self, mock_update):
         """Test fallback to static configuration on error."""
         mock_update.side_effect = Exception("Update failed")
@@ -189,7 +189,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         # Should fallback to static configuration
         self.assertEqual(result, AAVE_V3_NETWORKS)
 
-    @patch('src.networks.update_networks_from_address_book')
+    @patch('networks.update_networks_from_address_book')
     def test_get_networks_with_fallback_insufficient_networks(self, mock_update):
         """Test fallback when too few networks are discovered."""
         # Return only 1 active network (less than minimum of 3)
@@ -203,8 +203,8 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         # Should fallback to static configuration
         self.assertEqual(result, AAVE_V3_NETWORKS)
 
-    @patch('src.networks.update_networks_from_address_book')
-    @patch('src.networks.test_rpc_connectivity')
+    @patch('networks.update_networks_from_address_book')
+    @patch('networks.test_rpc_connectivity')
     def test_periodic_network_discovery_success(self, mock_rpc_test, mock_update):
         """Test successful periodic network discovery."""
         # Mock new network discovery
@@ -225,7 +225,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         # In test environment, success might be False due to mocking, but function should work
         self.assertIn('new_network', networks)
 
-    @patch('src.networks.update_networks_from_address_book')
+    @patch('networks.update_networks_from_address_book')
     def test_periodic_network_discovery_with_errors(self, mock_update):
         """Test periodic discovery with errors."""
         mock_update.return_value = (
@@ -238,21 +238,21 @@ class TestNetworkAutoUpdate(unittest.TestCase):
         self.assertFalse(success)
         self.assertEqual(networks, AAVE_V3_NETWORKS)
 
+    @patch('networks.fetch_network_from_github_api')
     @patch('urllib.request.urlopen')
-    def test_discover_new_networks_success(self, mock_urlopen):
+    def test_discover_new_networks_success(self, mock_urlopen, mock_fetch):
         """Test successful discovery of new networks."""
         # Mock GitHub API response
         mock_response = MagicMock()
         mock_response.read.return_value = json.dumps(self.github_api_response).encode('utf-8')
         mock_response.__enter__.return_value = mock_response
         mock_urlopen.return_value = mock_response
+        mock_fetch.return_value = self.sample_network_config
         
         result = discover_new_networks()
         
-        # Test that the function runs without error and returns a list
-        self.assertIsInstance(result, list)
-        # In a real scenario with network access, this would discover networks
-        # For this test, we just verify the function works correctly
+        self.assertEqual(result, ['newnetwork'])
+        mock_fetch.assert_called_once_with('newnetwork')
 
     @patch('urllib.request.urlopen')
     def test_discover_new_networks_api_failure(self, mock_urlopen):
@@ -374,7 +374,7 @@ class TestNetworkAutoUpdate(unittest.TestCase):
 
     def test_integration_full_workflow(self):
         """Integration test for the complete auto-update workflow."""
-        with patch('src.networks.fetch_address_book_networks') as mock_fetch:
+        with patch('networks.fetch_address_book_networks') as mock_fetch:
             # Mock successful discovery of networks
             mock_fetch.return_value = {
                 'ethereum': self.sample_network_config,

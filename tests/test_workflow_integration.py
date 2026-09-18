@@ -136,8 +136,8 @@ class TestWorkflowIntegration(unittest.TestCase):
         self.assertTrue(os.path.exists(json_file))
         
         # Verify JSON content
-        with open(json_file, 'r') as f:
-            loaded_data = json.load(f)
+        with open(json_file, 'r', encoding='utf-8') as f:
+            loaded_data = json.load(f)['networks']
         
         self.assertEqual(len(loaded_data), 2)  # 2 networks
         self.assertIn('ethereum', loaded_data)
@@ -150,10 +150,10 @@ class TestWorkflowIntegration(unittest.TestCase):
         self.assertTrue(os.path.exists(html_file))
         
         # Verify HTML content
-        with open(html_file, 'r') as f:
+        with open(html_file, 'r', encoding='utf-8') as f:
             html_content = f.read()
         
-        self.assertIn('<html>', html_content)
+        self.assertIn('<html lang="en">', html_content)
         self.assertIn('USDC', html_content)
         self.assertIn('USDC.e', html_content)
         self.assertIn('ethereum', html_content.lower())
@@ -232,8 +232,8 @@ class TestWorkflowIntegration(unittest.TestCase):
         json_success = save_json_output(mock_data_with_arbitrum, json_file)
         self.assertTrue(json_success)
         
-        with open(json_file, 'r') as f:
-            loaded_data = json.load(f)
+        with open(json_file, 'r', encoding='utf-8') as f:
+            loaded_data = json.load(f)['networks']
         
         self.assertEqual(len(loaded_data), 3)  # 3 networks now
         self.assertIn('arbitrum', loaded_data)
@@ -350,11 +350,11 @@ class TestWorkflowIntegration(unittest.TestCase):
         self.assertTrue(html_success)
         
         # Load JSON data
-        with open(json_file, 'r') as f:
-            json_data = json.load(f)
+        with open(json_file, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)['networks']
         
         # Read HTML content
-        with open(html_file, 'r') as f:
+        with open(html_file, 'r', encoding='utf-8') as f:
             html_content = f.read()
         
         # Verify key data points appear in both outputs
@@ -371,8 +371,8 @@ class TestWorkflowIntegration(unittest.TestCase):
                 self.assertIn(symbol, html_content)
                 
                 # Key values should appear in HTML (allowing for formatting differences)
-                self.assertIn(f"{lt:.3f}", html_content)
-                self.assertIn(f"{ltv:.3f}", html_content)
+                self.assertIn(f"{lt * 100:.2f}%", html_content)
+                self.assertIn(f"{ltv * 100:.2f}%", html_content)
         
         print("✓ Data consistency test passed")
     
@@ -388,31 +388,11 @@ class TestWorkflowIntegration(unittest.TestCase):
         json_success = save_json_output(mock_data, json_file)
         # This might fail depending on implementation, which is acceptable
         
-        # Test writing to read-only location (if possible)
-        readonly_file = os.path.join(self.test_dir, 'readonly.json')
-        
-        # Create file first
-        with open(readonly_file, 'w') as f:
-            json.dump({}, f)
-        
-        # Make it read-only
-        try:
-            os.chmod(readonly_file, 0o444)
-            
-            # Try to overwrite - should handle gracefully
-            json_success = save_json_output(mock_data, readonly_file)
-            # Implementation should handle this gracefully
-            
-        except (OSError, PermissionError):
-            # Some systems might not support chmod
-            pass
-        finally:
-            # Restore permissions for cleanup
-            try:
-                os.chmod(readonly_file, 0o644)
-            except (OSError, PermissionError):
-                pass
-        
+        self.assertFalse(json_success)
+        # Model the OS failure directly, independent of runner privilege/Windows ACLs.
+        with patch('builtins.open', side_effect=PermissionError('read-only fixture')):
+            self.assertFalse(save_json_output(mock_data, os.path.join(self.test_dir, 'readonly.json')))
+
         print("✓ File handling edge cases test passed")
     
     @patch('src.graceful_fetcher.fetch_aave_data_gracefully')
