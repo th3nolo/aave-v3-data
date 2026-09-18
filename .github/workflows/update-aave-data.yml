@@ -38,6 +38,9 @@ jobs:
         
     - name: Run Aave data fetcher with governance monitoring
       run: python aave_fetcher.py --turbo --monitor-governance --governance-alerts --validate-governance
+
+    - name: Reject stale, malformed or partial network artifacts before publication
+      run: python check_operational.py --artifact aave_v3_data.json
       
     - name: Configure Git
       run: |
