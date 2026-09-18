@@ -311,9 +311,6 @@ def fetch_network_data_parallel_optimized(
         reserves = get_cached_reserve_list(network_key)
         
         if not reserves:
-            # Use graceful fetcher for individual network
-            fetcher = GracefulDataFetcher()
-            
             with profiler.profile_operation(f"fetch_reserves_{network_key}"):
                 reserves = get_reserves(
                     network_config['pool'], 
@@ -336,7 +333,9 @@ def fetch_network_data_parallel_optimized(
         # Fetch network data with caching
         with profiler.profile_operation(f"fetch_network_{network_key}"):
             fetcher = GracefulDataFetcher()
-            network_data = fetcher.fetch_network_data(network_key, network_config)
+            network_data = fetcher.fetch_network_data(
+                network_key, network_config, prefetched_reserves=reserves
+            )
         
         execution_time = time.time() - start_time
         
