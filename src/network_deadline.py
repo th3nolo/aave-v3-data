@@ -37,8 +37,15 @@ def retry_sleep(seconds):
     if deadline is None:
         time.sleep(seconds)
     else:
-        deadline.cancel.wait(min(seconds, deadline.remaining()))
-        deadline.remaining()
+        wake_at = time.monotonic() + seconds
+        while True:
+            remaining = deadline.remaining()
+            delay = wake_at - time.monotonic()
+            if delay <= 0:
+                return
+            # Event.wait may return slightly early (notably on Windows).
+            # Recheck both clocks instead of starting the next RPC early.
+            deadline.cancel.wait(min(delay, remaining))
 
 
 def _transport_worker(connection):

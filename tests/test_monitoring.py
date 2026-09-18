@@ -76,8 +76,8 @@ class TestHealthMonitor(unittest.TestCase):
             mock_rpc.return_value = {"result": "0x1"}
             
             # Mock time to simulate slow response
-            with patch('time.time') as mock_time:
-                mock_time.side_effect = [0, 15]  # 15 second response time
+            with patch('monitoring.time') as mock_time:
+                mock_time.time.side_effect = [0, 15]  # Do not replace logging's clock.
                 
                 health = self.monitor.check_endpoint_health(url)
                 

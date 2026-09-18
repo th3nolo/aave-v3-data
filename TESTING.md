@@ -48,6 +48,12 @@ were dereferenced after being rejected, and damaged `USD` symbols were relabeled
 as `USDT`. Bonus conversion now subtracts integer basis points before division,
 avoiding floating-point cancellation.
 
+Cross-platform CI also exposed an early-returning timed wait on Windows. Backoff
+now rechecks the monotonic wake time instead of starting another RPC early; a
+deterministic fake-clock regression preserves the one-call deadline assertion.
+The monitoring test scopes its clock mock to its module so Python 3.12 logging
+does not consume the fake response-time values.
+
 ## Dependencies
 
 `requirements.txt` records the direct Requests requirement. `requirements.lock`

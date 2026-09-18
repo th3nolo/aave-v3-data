@@ -139,6 +139,30 @@ class DeadlineTests(unittest.TestCase):
         self.assertEqual(call.call_count, 1)
         self.assertLess(time.monotonic() - started, 0.6)
 
+    def test_early_wait_return_does_not_start_another_rpc(self):
+        clock = [0.0]
+        waits = []
+
+        class EarlyWait:
+            def is_set(self):
+                return False
+
+            def wait(self, timeout):
+                waits.append(timeout)
+                clock[0] += min(timeout, 0.1)
+                return False
+
+        with patch('network_deadline.time', SimpleNamespace(monotonic=lambda: clock[0])):
+            with patch.object(utils, '_make_single_rpc_call', side_effect=utils.RPCError(
+                'rate limited', error_type='rate_limit', retry_after=60
+            )) as call:
+                with self.assertRaises(NetworkDeadlineExceeded):
+                    with NetworkDeadline(0.15, cancel=EarlyWait()):
+                        utils.rpc_call_with_retry('primary', 'eth_call', [], fallback_urls=['backup'])
+                self.assertEqual(call.call_count, 1)
+                self.assertEqual(len(waits), 2)
+                self.assertAlmostEqual(clock[0], 0.15)
+
     def test_retry_then_success_and_fallback_preserve_budget(self):
         with NetworkDeadline(3):
             with patch.object(utils, "_make_single_rpc_call", side_effect=[
