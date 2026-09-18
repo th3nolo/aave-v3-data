@@ -107,13 +107,18 @@ class GracefulDataFetcher:
         
         return all_data
     
-    def fetch_network_data(self, network_key: str, network_config: Dict) -> Optional[List[Dict]]:
+    def fetch_network_data(
+        self, network_key: str, network_config: Dict, *,
+        prefetched_reserves: Optional[List[str]] = None
+    ) -> Optional[List[Dict]]:
         """
         Fetch data for a single network with graceful degradation.
         
         Args:
             network_key: Network identifier
             network_config: Network configuration
+            prefetched_reserves: Reserve list already retrieved by the caller.
+                None fetches the list; an empty list means no reserves.
             
         Returns:
             List of asset data or None if network failed
@@ -140,14 +145,16 @@ class GracefulDataFetcher:
                 if fallback_urls and len(fallback_urls) > 3:
                     fallback_urls = fallback_urls[:3]
             
-            # Get list of reserves
+            # Standalone callers own discovery; wrappers may supply their cached list.
             try:
-                reserves = get_reserves(
-                    network_config['pool'], 
-                    primary_url, 
-                    fallback_urls,
-                    network_key
-                )
+                reserves = prefetched_reserves
+                if reserves is None:
+                    reserves = get_reserves(
+                        network_config['pool'],
+                        primary_url,
+                        fallback_urls,
+                        network_key
+                    )
             except Exception as e:
                 print(f"⚠️  Failed to get reserves for {network_config['name']}: {e}")
                 return None
