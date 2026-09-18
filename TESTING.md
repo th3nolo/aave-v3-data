@@ -71,3 +71,67 @@ Environment proxies and normal matching-host authentication remain supported.
 
 The separate traffic-analytics workflow's pandas/tooling dependencies are outside
 this fetcher lock and have not been audited by this change.
+
+## Operational assurance for the daily turbo publication
+
+The daily `update-aave-data.yml` runs `aave_fetcher.py --turbo` and publishes the
+JSON only after `check_operational.py --artifact aave_v3_data.json` passes.
+This gate checks the supported schema, addresses/types, timezone-aware timestamp
+(36-hour maximum age, five-minute future tolerance), configured network coverage,
+nonempty/unique reserves and metadata counts. A fresh timestamp alone does not
+establish reserve completeness: turbo can return a nonempty partial reserve list.
+
+Run the independent public check with the existing locked environment:
+
+```sh
+uv run --no-project --no-sync python check_operational.py --live
+uv run --no-project --no-sync python check_operational.py --source pages
+```
+
+`operational-check.yml` runs the first command daily at 06:30 UTC, manually, and
+on checker PRs. It has read-only repository permissions and never invokes the
+publisher. The JSON report is printed in logs and copied into the job summary,
+including on failure. Every missing required sample or provider outage exits 1;
+the job must not be interpreted as passing when no report exists. Local output
+defaults to ignored `operational_local_report.json`; `--output` selects another
+path. Without `--live`, success is artifact validation only.
+
+The live scope is exactly Ethereum, Arbitrum and Base, using their configured
+primary and first fallback public RPCs. For each chain, compare the complete
+on-chain reserve address set with the publication and sample two reserves
+(prefer USDC/WETH) for decimals and aToken/variable-debt-token identity. Calls
+use a single block hash with EIP-1898 canonical enforcement, and recheck the
+block hash at the end. Rates and mutable risk parameters from different blocks
+are deliberately not compared. No historical scan or transaction is performed.
+The other configured networks receive artifact validation, not live attestation.
+
+Budgets: two artifact HTTP attempts in a 15-second subprocess; at most 20 RPC
+HTTP attempts per network, five-second socket timeouts, one fallback attempt per
+call, four MB decoded response size, and a hard 45-second subprocess deadline
+per chain. Timed-out workers are killed and reaped, bounding DNS and slow-drip
+responses too. The complete check normally uses 27 RPC requests and is bounded
+by 150 seconds of child execution plus process/report overhead. CI has a separate
+five-minute job cap including environment setup.
+
+Interpret report issues before deciding on a repair:
+
+- `stale`: inspect the latest daily fetch/push workflow and artifact timestamp;
+  restore daily publication, then rerun the check.
+- `partial` / `missing_coverage`: inspect the named missing network/reserve data;
+  do not accept an empty or skipped sample as success.
+- `coverage_mismatch`: compare the listed missing/removed reserve addresses with
+  protocol listing changes since the artifact timestamp; rerun the fetch.
+- `provider_unavailable` / `artifact_unavailable`: inspect provider attempt details
+  and rerun when service returns. This is incomplete assurance, not proof of a
+  fetcher defect. EIP-1898 support is required; no silent weaker fallback is used.
+- `schema`, `configuration_mismatch`, `invariant_mismatch`: inspect the named
+  field, configuration, decoder or contract upgrade before changing code. An
+  observation mismatch is evidence to investigate, not an automatic bug diagnosis.
+- `checker_error`: the worker crashed or returned an invalid result; fix the
+  checker/runtime and repeat the required coverage.
+
+`tests/test_operational_check.py` exercises synthetic fresh/stale/future and
+malformed artifacts, missing/duplicate coverage, wrong chains, reserve-list and
+identity mismatches, block changes, provider timeouts/errors, retry/request/byte
+budgets, worker failures and missing CLI coverage. These deterministic tests run
+in the offline gate; only explicitly invoked RPC checks provide live evidence.
