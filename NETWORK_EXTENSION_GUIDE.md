@@ -18,6 +18,34 @@ The system automatically discovers new Aave V3 networks by:
 3. Validating RPC endpoints and contract accessibility
 4. Integrating new networks into the fetching process
 
+### Periodic discovery admission and status
+
+`src/networks.py:periodic_network_discovery()` returns `(networks, success)`.
+It starts with the existing `AAVE_V3_NETWORKS` configuration, preserving entries
+missing from the discovery result. Updates to existing entries keep the config
+validation performed by `update_networks_from_address_book()`; they do not gain
+a new RPC connectivity requirement.
+
+New entries are added only after both configuration validation and RPC
+connectivity succeed. Rejected entries are absent from the returned map. A
+candidate rejection or validation/probe exception returns `success=False`, logs
+the network and reason, and retains other accepted entries and existing-network
+updates. `True` means the update and all candidate checks completed without
+errors, including when there were no new networks.
+
+If the address-book updater reports an error or discovery fails before candidate
+processing, the entire update batch is discarded and the original configuration
+is returned with `False`. Upstream diagnostics are printed. The updater copies
+the static configuration deeply so deprecation marking cannot alter that fallback.
+Callers can continue unpacking the same two values; `False` may now accompany a
+usable partial result and does not mean that the returned map is empty.
+
+Offline regression coverage is in `tests/test_periodic_discovery.py`:
+
+```bash
+uv run --no-project --python /path/to/python -m unittest tests.test_periodic_discovery -v
+```
+
 ### Configuration
 
 Auto-discovery is enabled by default. To customize:
