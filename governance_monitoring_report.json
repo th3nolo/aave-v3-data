@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-30T04:07:58.842315",
+  "timestamp": "2026-10-31T03:50:57.730497",
   "governance_posts_found": 48,
-  "parameter_changes_detected": 64,
+  "parameter_changes_detected": 43,
   "alerts_generated": 2,
   "governance_posts": [
     {
@@ -97,317 +97,344 @@
   ],
   "parameter_changes": [
     {
+      "asset": "WBTC",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.73,
+      "change_percentage": 730.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WETH",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.8,
+      "change_percentage": 800.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "wstETH",
+      "network": "polygon",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
+      "risk_level": "critical"
+    },
+    {
       "asset": "WBNB",
       "network": "bnb",
       "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
       "risk_level": "critical"
     },
     {
       "asset": "BTCB",
       "network": "bnb",
       "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
       "risk_level": "critical"
     },
     {
       "asset": "ETH",
       "network": "bnb",
       "parameter": "loan_to_value",
-      "old_value": 0.8,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.8,
+      "change_percentage": 800.0,
       "risk_level": "critical"
     },
     {
-      "asset": "USDC",
-      "network": "bnb",
+      "asset": "WETH",
+      "network": "base",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
       "risk_level": "critical"
     },
     {
-      "asset": "USDT",
-      "network": "bnb",
+      "asset": "cbETH",
+      "network": "base",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
-      "asset": "USDC",
-      "network": "celo",
+      "asset": "wstETH",
+      "network": "base",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
-      "asset": "USD\u20ae",
-      "network": "celo",
+      "asset": "weETH",
+      "network": "base",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "cbBTC",
+      "network": "base",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WBTC",
+      "network": "optimism",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.73,
+      "change_percentage": 730.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WETH",
+      "network": "optimism",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.8,
+      "change_percentage": 800.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "wstETH",
+      "network": "optimism",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
       "asset": "CELO",
       "network": "celo",
       "parameter": "loan_to_value",
-      "old_value": 0.55,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.55,
+      "change_percentage": 550.0,
       "risk_level": "critical"
     },
     {
       "asset": "WETH",
       "network": "celo",
       "parameter": "loan_to_value",
-      "old_value": 0.78,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.78,
+      "change_percentage": 780.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WETH.e",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.8,
+      "change_percentage": 800.0,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "BTC.b",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "USDe",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "sUSDe",
+      "network": "avalanche",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
+      "risk_level": "critical"
+    },
+    {
+      "asset": "WBTC",
+      "network": "arbitrum",
+      "parameter": "loan_to_value",
+      "old_value": 0.0,
+      "new_value": 0.78,
+      "change_percentage": 780.0,
       "risk_level": "critical"
     },
     {
       "asset": "WETH",
-      "network": "base",
+      "network": "arbitrum",
       "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "cbETH",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
       "risk_level": "critical"
     },
     {
       "asset": "wstETH",
-      "network": "base",
+      "network": "arbitrum",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
       "asset": "weETH",
-      "network": "base",
+      "network": "arbitrum",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
-      "asset": "cbBTC",
-      "network": "base",
+      "asset": "GNO",
+      "network": "gnosis",
       "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.48,
+      "change_percentage": 480.0,
       "risk_level": "critical"
     },
     {
-      "asset": "WBTC",
-      "network": "polygon",
+      "asset": "WXDAI",
+      "network": "gnosis",
       "parameter": "loan_to_value",
-      "old_value": 0.73,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.8,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDT0",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WPOL",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.68,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.63,
+      "change_percentage": 630.0,
       "risk_level": "critical"
     },
     {
       "asset": "WETH",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
       "risk_level": "critical"
     },
     {
       "asset": "wstETH",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.79,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.79,
+      "change_percentage": 790.0,
       "risk_level": "critical"
     },
     {
       "asset": "WBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
       "risk_level": "critical"
     },
     {
       "asset": "AAVE",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.69,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.69,
+      "change_percentage": 689.9999999999999,
       "risk_level": "critical"
     },
     {
       "asset": "cbETH",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDT",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
       "asset": "rETH",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
       "asset": "weETH",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.78,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.78,
+      "change_percentage": 780.0,
       "risk_level": "critical"
     },
     {
       "asset": "tBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.73,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.73,
+      "change_percentage": 730.0,
       "risk_level": "critical"
     },
     {
       "asset": "cbBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.81,
+      "change_percentage": 810.0,
       "risk_level": "critical"
     },
     {
       "asset": "LBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.7,
+      "change_percentage": 699.9999999999999,
       "risk_level": "critical"
     },
     {
       "asset": "eBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.67,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.67,
+      "change_percentage": 670.0,
       "risk_level": "critical"
     },
     {
       "asset": "syrupUSDT",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.0005,
-      "new_value": 0.0,
+      "old_value": 0.0,
+      "new_value": 0.0005,
       "change_percentage": 0.5,
       "risk_level": "critical"
     },
@@ -415,270 +442,54 @@
       "asset": "BTC.b",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.73,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "GNO",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.48,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WXDAI",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.63,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC.e",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH.e",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.8,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDt",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WAVAX",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.68,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "sAVAX",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.5,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "BTC.b",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDe",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "sUSDe",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.7,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.78,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.81,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USD\u20ae0",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "weETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.73,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.8,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDT",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.73,
+      "change_percentage": 730.0,
       "risk_level": "critical"
     },
     {
       "asset": "WETH",
       "network": "linea",
       "parameter": "loan_to_value",
-      "old_value": 0.8,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.8,
+      "change_percentage": 800.0,
       "risk_level": "critical"
     },
     {
       "asset": "WBTC",
       "network": "linea",
       "parameter": "loan_to_value",
-      "old_value": 0.73,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDC",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDT",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.73,
+      "change_percentage": 730.0,
       "risk_level": "critical"
     },
     {
       "asset": "wstETH",
       "network": "linea",
       "parameter": "loan_to_value",
-      "old_value": 0.75,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.75,
+      "change_percentage": 750.0,
       "risk_level": "critical"
     },
     {
       "asset": "weETH",
       "network": "linea",
       "parameter": "loan_to_value",
-      "old_value": 0.725,
-      "new_value": 0.0,
-      "change_percentage": 1.0,
+      "old_value": 0.0,
+      "new_value": 0.725,
+      "change_percentage": 725.0,
       "risk_level": "critical"
     }
   ],
   "alerts": [
     {
       "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 64 critical parameter changes detected",
+      "message": "CRITICAL: 43 critical parameter changes detected",
       "severity": "critical",
-      "parameter_changes_count": 64
+      "parameter_changes_count": 43
     },
     {
       "alert_type": "high_relevance_governance_activity",
@@ -688,7 +499,7 @@
     }
   ],
   "summary": {
-    "critical_changes": 64,
+    "critical_changes": 43,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,

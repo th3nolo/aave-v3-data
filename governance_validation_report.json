@@ -1,9 +1,14 @@
 {
-  "timestamp": "2026-10-30T04:07:58.843475",
-  "validation_passed": true,
-  "validation_errors": [],
+  "timestamp": "2026-10-31T03:50:57.731976",
+  "validation_passed": false,
+  "validation_errors": [
+    "Governance mismatch: WETH on linea loan_to_value is 0.8, expected 0.0 from governance change",
+    "Governance mismatch: WBTC on linea loan_to_value is 0.73, expected 0.0 from governance change",
+    "Governance mismatch: wstETH on linea loan_to_value is 0.75, expected 0.0 from governance change",
+    "Governance mismatch: weETH on linea loan_to_value is 0.725, expected 0.0 from governance change"
+  ],
   "validation_warnings": [],
-  "governance_consistency_score": 1.0,
+  "governance_consistency_score": 0.6,
   "networks_validated": 13,
   "assets_validated": 218
 }
