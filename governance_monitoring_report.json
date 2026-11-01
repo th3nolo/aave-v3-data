@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-31T03:50:57.730497",
+  "timestamp": "2026-11-01T04:00:52.029088",
   "governance_posts_found": 48,
-  "parameter_changes_detected": 43,
+  "parameter_changes_detected": 1,
   "alerts_generated": 2,
   "governance_posts": [
     {
@@ -59,13 +59,13 @@
       "relevance_score": 7.0
     },
     {
-      "title": "[ARFC] Aave V4 Deployment on Tempo",
-      "link": "https://governance.aave.com/t/arfc-aave-v4-deployment-on-tempo/25857",
-      "description": "\n            <h2><a name=\"p-65797-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-summary-1\" aria-label=\"Heading link\"></a><strong>Summary</strong></h2>\n<p>This ARFC proposes deploying Aave Protocol V4 on Tempo Mainnet.</p>\n<h2><a name=\"p-65797-motivation-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-motivation-2\" aria-label=\"Heading link\"></a><strong>Motivation</strong></h2>\n<p>Tempo is a Layer 1 blockchain built for payments. It was incubated by Stripe and Paradigm and is developed in partnership with fintechs and large enterprises including DoorDash, Deel, Shopify and MoneyGram. Tempo is designed for stablecoin use cases including cross-border payments, remittances, embedded finance, payroll and treasury management.</p>\n<p>Tempo Mainnet launched on March 18, 2026 and uses chain ID 4217. The network has no native gas token. Transaction fees are paid in USD-denominated stablecoins, with pathUSD used as the default fee token when no other token is specified. Stablecoins on Tempo are issued under the TIP-20 token standard, and the protocol includes an enshrined stablecoin DEX that uses pathUSD as its quote token.</p>\n<p>Since launch, the Tempo team has been building yield and credit products with enterprise partners. Deploying Aave V4 on Tempo would make Aave the lending infrastructure available to the enterprises and fintechs building on the network.</p>\n<p>The deployment is intended to expand Aave\u2019s liquidity footprint to include traditional enterprises and fintechs, to develop new markets by listing real-world assets available on Tempo, to support stablecoin liquidity growth, and to generate additional protocol revenue for the Aave DAO.</p>\n<p>The TEMP CHECK for this deployment passed <a href=\"https://snapshot.org/#/s:aavedao.eth/proposal/0xdca149f83dc6fd292f76a10a20a36a8aa7358255b31cf7f27645d28a1d489b69\" rel=\"noopener nofollow ugc\">Snapshot</a>. This ARFC sets out the proposed market scope.</p>\n<h2><a name=\"p-65797-hub-and-spoke-configuration-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-hub-and-spoke-configuration-3\" aria-label=\"Heading link\"></a><strong>Hub and Spoke Configuration</strong></h2>\n<p>The proposed initial Tempo deployment will activate with one Liquidity Hub and two Spokes. The Liquidity Hub enables pathUSD and OUSD stablecoins to be borrowed against collateral assets listed in the Main Spoke and RWA Spoke.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Assets</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Tempo Core Hub</td>\n<td>OUSD, cbBTC, PRIME</td>\n</tr>\n</tbody>\n</table>\n</div><div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Collateral</th>\n<th>Borrowable</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Tempo Core Hub</td>\n<td>Main Spoke</td>\n<td>cbBTC, OUSD</td>\n<td>OUSD</td>\n</tr>\n<tr>\n<td>Tempo Core Hub</td>\n<td>RWA Spoke</td>\n<td>PRIME</td>\n<td>OUSD</td>\n</tr>\n</tbody>\n</table>\n</div><p>Other assets may become available before the Aave deployment, and this ARFC may be updated before deployment to include them, subject to risk assessment.</p>\n<h2><a name=\"p-65797-risk-parameters-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-risk-parameters-4\" aria-label=\"Heading link\"></a><strong>Risk Parameters</strong></h2>\n<p>The initial token listing and parameters will be updated based on Aave DAO risk service provider analyses.</p>\n<p><strong>Links</strong></p>\n<p>Website: <a href=\"https://tempo.xyz/\" rel=\"noopener nofollow ugc\">https://tempo.xyz/</a></p>\n<p>Customer stories: <a href=\"https://tempo.xyz/customer-stories/\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Customer Stories</a></p>\n<p>Developer docs: <a href=\"https://tempo.xyz/developers/docs\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Tempo Developer Docs: APIs, SDKs &amp; Guides</a></p>\n<p>Explorer: <a href=\"https://explore.tempo.xyz/\" rel=\"noopener nofollow ugc\">https://explore.tempo.xyz/</a></p>\n<h2><a name=\"p-65797-next-steps-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-next-steps-5\" aria-label=\"Heading link\"></a><strong>Next Steps</strong></h2>\n<ul>\n<li>\n<p>Gather community feedback and complete risk analysis from LlamaRisk.</p>\n</li>\n<li>\n<p>Escalate the proposal to the ARFC Snapshot stage.</p>\n</li>\n</ul>\n<h2><a name=\"p-65797-copyright-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-copyright-6\" aria-label=\"Heading link\"></a><strong>Copyright</strong></h2>\n<p>Copyright and related rights waived via <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"noopener nofollow ugc\">CC0</a>.</p>\n            <p><small>4 posts - 3 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/arfc-aave-v4-deployment-on-tempo/25857\">Read full topic</a></p>\n          ",
-      "pub_date": "Fri, 16 Oct 2026 00:04:06 +0000",
-      "content": "\n            <h2><a name=\"p-65797-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-summary-1\" aria-label=\"Heading link\"></a><strong>Summary</strong></h2>\n<p>This ARFC proposes deploying Aave Protocol V4 on Tempo Mainnet.</p>\n<h2><a name=\"p-65797-motivation-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-motivation-2\" aria-label=\"Heading link\"></a><strong>Motivation</strong></h2>\n<p>Tempo is a Layer 1 blockchain built for payments. It was incubated by Stripe and Paradigm and is developed in partnership with fintechs and large enterprises including DoorDash, Deel, Shopify and MoneyGram. Tempo is designed for stablecoin use cases including cross-border payments, remittances, embedded finance, payroll and treasury management.</p>\n<p>Tempo Mainnet launched on March 18, 2026 and uses chain ID 4217. The network has no native gas token. Transaction fees are paid in USD-denominated stablecoins, with pathUSD used as the default fee token when no other token is specified. Stablecoins on Tempo are issued under the TIP-20 token standard, and the protocol includes an enshrined stablecoin DEX that uses pathUSD as its quote token.</p>\n<p>Since launch, the Tempo team has been building yield and credit products with enterprise partners. Deploying Aave V4 on Tempo would make Aave the lending infrastructure available to the enterprises and fintechs building on the network.</p>\n<p>The deployment is intended to expand Aave\u2019s liquidity footprint to include traditional enterprises and fintechs, to develop new markets by listing real-world assets available on Tempo, to support stablecoin liquidity growth, and to generate additional protocol revenue for the Aave DAO.</p>\n<p>The TEMP CHECK for this deployment passed <a href=\"https://snapshot.org/#/s:aavedao.eth/proposal/0xdca149f83dc6fd292f76a10a20a36a8aa7358255b31cf7f27645d28a1d489b69\" rel=\"noopener nofollow ugc\">Snapshot</a>. This ARFC sets out the proposed market scope.</p>\n<h2><a name=\"p-65797-hub-and-spoke-configuration-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-hub-and-spoke-configuration-3\" aria-label=\"Heading link\"></a><strong>Hub and Spoke Configuration</strong></h2>\n<p>The proposed initial Tempo deployment will activate with one Liquidity Hub and two Spokes. The Liquidity Hub enables pathUSD and OUSD stablecoins to be borrowed against collateral assets listed in the Main Spoke and RWA Spoke.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Assets</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Tempo Core Hub</td>\n<td>OUSD, cbBTC, PRIME</td>\n</tr>\n</tbody>\n</table>\n</div><div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Collateral</th>\n<th>Borrowable</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Tempo Core Hub</td>\n<td>Main Spoke</td>\n<td>cbBTC, OUSD</td>\n<td>OUSD</td>\n</tr>\n<tr>\n<td>Tempo Core Hub</td>\n<td>RWA Spoke</td>\n<td>PRIME</td>\n<td>OUSD</td>\n</tr>\n</tbody>\n</table>\n</div><p>Other assets may become available before the Aave deployment, and this ARFC may be updated before deployment to include them, subject to risk assessment.</p>\n<h2><a name=\"p-65797-risk-parameters-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-risk-parameters-4\" aria-label=\"Heading link\"></a><strong>Risk Parameters</strong></h2>\n<p>The initial token listing and parameters will be updated based on Aave DAO risk service provider analyses.</p>\n<p><strong>Links</strong></p>\n<p>Website: <a href=\"https://tempo.xyz/\" rel=\"noopener nofollow ugc\">https://tempo.xyz/</a></p>\n<p>Customer stories: <a href=\"https://tempo.xyz/customer-stories/\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Customer Stories</a></p>\n<p>Developer docs: <a href=\"https://tempo.xyz/developers/docs\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">Tempo Developer Docs: APIs, SDKs &amp; Guides</a></p>\n<p>Explorer: <a href=\"https://explore.tempo.xyz/\" rel=\"noopener nofollow ugc\">https://explore.tempo.xyz/</a></p>\n<h2><a name=\"p-65797-next-steps-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-next-steps-5\" aria-label=\"Heading link\"></a><strong>Next Steps</strong></h2>\n<ul>\n<li>\n<p>Gather community feedback and complete risk analysis from LlamaRisk.</p>\n</li>\n<li>\n<p>Escalate the proposal to the ARFC Snapshot stage.</p>\n</li>\n</ul>\n<h2><a name=\"p-65797-copyright-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65797-copyright-6\" aria-label=\"Heading link\"></a><strong>Copyright</strong></h2>\n<p>Copyright and related rights waived via <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"noopener nofollow ugc\">CC0</a>.</p>\n            <p><small>4 posts - 3 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/arfc-aave-v4-deployment-on-tempo/25857\">Read full topic</a></p>\n          ",
+      "title": "tBTC Mint & Redeem Pause: Aave's Response",
+      "link": "https://governance.aave.com/t/tbtc-mint-redeem-pause-aaves-response/25965",
+      "description": "\n            <p><em>Last updated 10:26 UTC, 31 October 2026.</em></p>\n<h2><a name=\"p-65991-what-happened-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-what-happened-1\" aria-label=\"Heading link\"></a>What happened</h2>\n<p>On 31 October 2026, Threshold Network <a href=\"https://x.com/TheTNetwork/status/2116298061626368495\">issued a pre-emptive pause</a> of tBTC mints &amp; redeems. We are in communication with the Threshold team and are closely monitoring their updates.</p>\n<p>tBTC is listed on Aave V3 on Ethereum Core, Base, and Arbitrum. The Base and Arbitrum reserves were previously frozen in earlier asset deprecation rounds, making Ethereum Core the only market where tBTC could still support new borrowing.</p>\n<h2><a name=\"p-65991-what-we-did-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-what-we-did-2\" aria-label=\"Heading link\"></a>What we did</h2>\n<p>We recommended a pre-emptive freeze of tBTC on Aave V3 Ethereum Core. The aim is to prevent Aave\u2019s exposure to tBTC from growing while the pause is in place by stopping new borrowing against tBTC and new tBTC deposits until the incident is confirmed to be fully mitigated by Threshold. We prepared the freeze transaction and proposed it to the guardian multisig, which executed it at <a href=\"https://etherscan.io/tx/0x99857320799ca8f5b74a92636871bc621d5b1fd212f0cefda50a6cef1522ac82\">10:01 UTC</a>.</p>\n<p>A freeze stops new tBTC deposits and stops tBTC from adding borrowing power to any position. Users can still repay and withdraw; liquidations continue to run; and borrowing against other collateral works as normal. tBTC keeps its liquidation threshold, so the health factors of existing positions do not change and no position becomes liquidatable due to the freeze. Frozen reserves accept no new supply, so while the freeze is on, users can raise their health factor by repaying debt or adding additional collateral.</p>\n<p>The freeze applies only to tBTC on Ethereum Core. No other reserve is affected, and no market has been paused.</p>\n<h2><a name=\"p-65991-next-steps-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-next-steps-3\" aria-label=\"Heading link\"></a>Next steps</h2>\n<p>We will continue to follow Threshold\u2019s updates and monitor tBTC positions on Aave and tBTC liquidity on secondary markets. Once we have assurance that tBTC operations return to normal, we will propose restorative measures, and we will share that update in this thread.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/tbtc-mint-redeem-pause-aaves-response/25965\">Read full topic</a></p>\n          ",
+      "pub_date": "Sat, 31 Oct 2026 10:28:51 +0000",
+      "content": "\n            <p><em>Last updated 10:26 UTC, 31 October 2026.</em></p>\n<h2><a name=\"p-65991-what-happened-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-what-happened-1\" aria-label=\"Heading link\"></a>What happened</h2>\n<p>On 31 October 2026, Threshold Network <a href=\"https://x.com/TheTNetwork/status/2116298061626368495\">issued a pre-emptive pause</a> of tBTC mints &amp; redeems. We are in communication with the Threshold team and are closely monitoring their updates.</p>\n<p>tBTC is listed on Aave V3 on Ethereum Core, Base, and Arbitrum. The Base and Arbitrum reserves were previously frozen in earlier asset deprecation rounds, making Ethereum Core the only market where tBTC could still support new borrowing.</p>\n<h2><a name=\"p-65991-what-we-did-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-what-we-did-2\" aria-label=\"Heading link\"></a>What we did</h2>\n<p>We recommended a pre-emptive freeze of tBTC on Aave V3 Ethereum Core. The aim is to prevent Aave\u2019s exposure to tBTC from growing while the pause is in place by stopping new borrowing against tBTC and new tBTC deposits until the incident is confirmed to be fully mitigated by Threshold. We prepared the freeze transaction and proposed it to the guardian multisig, which executed it at <a href=\"https://etherscan.io/tx/0x99857320799ca8f5b74a92636871bc621d5b1fd212f0cefda50a6cef1522ac82\">10:01 UTC</a>.</p>\n<p>A freeze stops new tBTC deposits and stops tBTC from adding borrowing power to any position. Users can still repay and withdraw; liquidations continue to run; and borrowing against other collateral works as normal. tBTC keeps its liquidation threshold, so the health factors of existing positions do not change and no position becomes liquidatable due to the freeze. Frozen reserves accept no new supply, so while the freeze is on, users can raise their health factor by repaying debt or adding additional collateral.</p>\n<p>The freeze applies only to tBTC on Ethereum Core. No other reserve is affected, and no market has been paused.</p>\n<h2><a name=\"p-65991-next-steps-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65991-next-steps-3\" aria-label=\"Heading link\"></a>Next steps</h2>\n<p>We will continue to follow Threshold\u2019s updates and monitor tBTC positions on Aave and tBTC liquidity on secondary markets. Once we have assurance that tBTC operations return to normal, we will propose restorative measures, and we will share that update in this thread.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/tbtc-mint-redeem-pause-aaves-response/25965\">Read full topic</a></p>\n          ",
       "feed_source": "aave_governance",
-      "relevance_score": 7.0
+      "relevance_score": 6.0
     },
     {
       "title": "Temp Check / Discussion: Exploration of Aave Deployment on Cardano (Feasibility Study Proposal)",
@@ -77,15 +77,6 @@
       "relevance_score": 6.0
     },
     {
-      "title": "Risk Stewards: Cap Increases on Aave V4 / 2026.10.16",
-      "link": "https://governance.aave.com/t/risk-stewards-cap-increases-on-aave-v4-2026-10-16/25860",
-      "description": "\n            <h2><a name=\"p-65805-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>LlamaRisk recommends the following parameter changes based on user behavior, on-chain liquidity, and position health observed in the latest review of Aave V4 reserves.</p>\n<p>Aave V4 Ethereum:</p>\n<ul>\n<li>Increase the add cap for USDC on the Core Hub Main Spoke from 40M to 50M.</li>\n<li>Increase the add cap for USDT on the Core Hub Main Spoke from 40M to 50M.</li>\n<li>Increase the add cap for USDC on the Core Hub Forex Spoke from 10M to 15M.</li>\n<li>Increase the draw cap for USDC on the Core Hub Forex Spoke from 3.33M to 5M.</li>\n<li>Increase the add cap for USDT on the Core Hub Forex Spoke from 10M to 15M.</li>\n</ul>\n<p>Aave V4 Avalanche:</p>\n<ul>\n<li>Increase the add cap for USDt on the Core Hub Main Spoke from 10M to 20M.</li>\n</ul>\n<h2><a name=\"p-65805-usdc-and-usdt-ethereum-core-hub-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-usdc-and-usdt-ethereum-core-hub-2\" aria-label=\"Heading link\"></a>USDC and USDT (Ethereum Core Hub)</h2>\n<p>USDC on the Aave V4 Ethereum Core Hub holds 32.90M added and 30.67M drawn, for a hub utilization of 93.2%, and USDT holds 27.68M added and 22.69M drawn, for a hub utilization of 82.0%, both against an optimal usage ratio of 92.00%.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Added</th>\n<th style=\"text-align:right\">Add Cap</th>\n<th style=\"text-align:right\">Add Cap Utilization</th>\n<th style=\"text-align:right\">Drawn</th>\n<th style=\"text-align:right\">Draw Cap</th>\n<th style=\"text-align:right\">Draw Cap Utilization</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Main</td>\n<td>USDC</td>\n<td style=\"text-align:right\">24,584,515</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">61.5%</td>\n<td style=\"text-align:right\">19,162,838</td>\n<td style=\"text-align:right\">36,000,000</td>\n<td style=\"text-align:right\">53.2%</td>\n</tr>\n<tr>\n<td>Main</td>\n<td>USDT</td>\n<td style=\"text-align:right\">21,274,629</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">53.2%</td>\n<td style=\"text-align:right\">14,381,553</td>\n<td style=\"text-align:right\">30,000,000</td>\n<td style=\"text-align:right\">47.9%</td>\n</tr>\n<tr>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">8,084,810</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">80.8%</td>\n<td style=\"text-align:right\">3,325,802</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">99.9%</td>\n</tr>\n<tr>\n<td>Forex</td>\n<td>USDT</td>\n<td style=\"text-align:right\">6,365,003</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">63.7%</td>\n<td style=\"text-align:right\">2,888</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">0.1%</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-recommendation-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-recommendation-3\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>The USDC and USDT add cap increases on the Main Spoke, expand stablecoin supply capacity on the Core Hub ahead of upcoming Babylon Native BTC collateral listings, which may draw on Core Hub liquidity. The proposed add caps of 50M land at approximately 49.2% post-change add cap utilization for USDC and 42.5% for USDT.</p>\n<p>On the Forex Spoke, the USDC draw cap is fully utilized, and the USDC add cap is 80.8% utilized. The proposed USDC draw cap of 5M results in approximately 66.5% post-change draw cap utilization, and the proposed add caps of 15M result in approximately 53.9% for USDC and 42.4% for USDT.</p>\n<h2><a name=\"p-65805-usdt-avalanche-core-hub-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-usdt-avalanche-core-hub-4\" aria-label=\"Heading link\"></a>USDt (Avalanche Core Hub)</h2>\n<p>USDt on the Aave V4 Avalanche Core Hub holds 9.62M added and 2.48M drawn, for a hub utilization of 25.7% against an optimal usage ratio of 90.00%.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Spoke</th>\n<th style=\"text-align:right\">Added</th>\n<th style=\"text-align:right\">Add Cap</th>\n<th style=\"text-align:right\">Add Cap Utilization</th>\n<th style=\"text-align:right\">Drawn</th>\n<th style=\"text-align:right\">Draw Cap</th>\n<th style=\"text-align:right\">Draw Cap Utilization</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Main</td>\n<td style=\"text-align:right\">8,791,525</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">87.9%</td>\n<td style=\"text-align:right\">2,444,125</td>\n<td style=\"text-align:right\">5,000,000</td>\n<td style=\"text-align:right\">48.9%</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-recommendation-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-recommendation-5\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>The USDt add cap on the Main Spoke is 87.9% utilized. The proposed add cap of 20M lands at approximately 44.0% post-change add cap utilization.</p>\n<h2><a name=\"p-65805-specification-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-specification-6\" aria-label=\"Heading link\"></a>Specification</h2>\n<h3><a name=\"p-65805-add-caps-7\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-add-caps-7\" aria-label=\"Heading link\"></a>Add Caps</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Current Add Cap</th>\n<th style=\"text-align:right\">Recommended Add Cap</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>Main</td>\n<td>USDC</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">50,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Main</td>\n<td>USDT</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">50,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">15,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDT</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">15,000,000</td>\n</tr>\n<tr>\n<td>Avalanche Core</td>\n<td>Main</td>\n<td>USDt</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">20,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-draw-caps-8\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-draw-caps-8\" aria-label=\"Heading link\"></a>Draw Caps</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Current Draw Cap</th>\n<th style=\"text-align:right\">Recommended Draw Cap</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">5,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h2><a name=\"p-65805-next-steps-9\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-next-steps-9\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<p>We will move forward and implement these updates via the Risk Steward process. The implemented changes can be reviewed on the <a href=\"https://dashboard.llamarisk.com/protocols/aave/risk-parameter-updates/v4\">LlamaRisk Risk Stewards Dashboard</a>.</p>\n<h2><a name=\"p-65805-disclosure-10\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-disclosure-10\" aria-label=\"Heading link\"></a>Disclosure</h2>\n<p>This review was independently prepared by LlamaRisk, a DeFi risk service provider funded in part by the Aave DAO. LlamaRisk is not directly affiliated with the protocol(s) reviewed in this assessment and did not receive any compensation from the protocol(s) or their affiliated entities for this work.</p>\n<p>The information provided should not be construed as legal, financial, tax, or professional advice.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/risk-stewards-cap-increases-on-aave-v4-2026-10-16/25860\">Read full topic</a></p>\n          ",
-      "pub_date": "Fri, 16 Oct 2026 14:44:56 +0000",
-      "content": "\n            <h2><a name=\"p-65805-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>LlamaRisk recommends the following parameter changes based on user behavior, on-chain liquidity, and position health observed in the latest review of Aave V4 reserves.</p>\n<p>Aave V4 Ethereum:</p>\n<ul>\n<li>Increase the add cap for USDC on the Core Hub Main Spoke from 40M to 50M.</li>\n<li>Increase the add cap for USDT on the Core Hub Main Spoke from 40M to 50M.</li>\n<li>Increase the add cap for USDC on the Core Hub Forex Spoke from 10M to 15M.</li>\n<li>Increase the draw cap for USDC on the Core Hub Forex Spoke from 3.33M to 5M.</li>\n<li>Increase the add cap for USDT on the Core Hub Forex Spoke from 10M to 15M.</li>\n</ul>\n<p>Aave V4 Avalanche:</p>\n<ul>\n<li>Increase the add cap for USDt on the Core Hub Main Spoke from 10M to 20M.</li>\n</ul>\n<h2><a name=\"p-65805-usdc-and-usdt-ethereum-core-hub-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-usdc-and-usdt-ethereum-core-hub-2\" aria-label=\"Heading link\"></a>USDC and USDT (Ethereum Core Hub)</h2>\n<p>USDC on the Aave V4 Ethereum Core Hub holds 32.90M added and 30.67M drawn, for a hub utilization of 93.2%, and USDT holds 27.68M added and 22.69M drawn, for a hub utilization of 82.0%, both against an optimal usage ratio of 92.00%.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Added</th>\n<th style=\"text-align:right\">Add Cap</th>\n<th style=\"text-align:right\">Add Cap Utilization</th>\n<th style=\"text-align:right\">Drawn</th>\n<th style=\"text-align:right\">Draw Cap</th>\n<th style=\"text-align:right\">Draw Cap Utilization</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Main</td>\n<td>USDC</td>\n<td style=\"text-align:right\">24,584,515</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">61.5%</td>\n<td style=\"text-align:right\">19,162,838</td>\n<td style=\"text-align:right\">36,000,000</td>\n<td style=\"text-align:right\">53.2%</td>\n</tr>\n<tr>\n<td>Main</td>\n<td>USDT</td>\n<td style=\"text-align:right\">21,274,629</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">53.2%</td>\n<td style=\"text-align:right\">14,381,553</td>\n<td style=\"text-align:right\">30,000,000</td>\n<td style=\"text-align:right\">47.9%</td>\n</tr>\n<tr>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">8,084,810</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">80.8%</td>\n<td style=\"text-align:right\">3,325,802</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">99.9%</td>\n</tr>\n<tr>\n<td>Forex</td>\n<td>USDT</td>\n<td style=\"text-align:right\">6,365,003</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">63.7%</td>\n<td style=\"text-align:right\">2,888</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">0.1%</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-recommendation-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-recommendation-3\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>The USDC and USDT add cap increases on the Main Spoke, expand stablecoin supply capacity on the Core Hub ahead of upcoming Babylon Native BTC collateral listings, which may draw on Core Hub liquidity. The proposed add caps of 50M land at approximately 49.2% post-change add cap utilization for USDC and 42.5% for USDT.</p>\n<p>On the Forex Spoke, the USDC draw cap is fully utilized, and the USDC add cap is 80.8% utilized. The proposed USDC draw cap of 5M results in approximately 66.5% post-change draw cap utilization, and the proposed add caps of 15M result in approximately 53.9% for USDC and 42.4% for USDT.</p>\n<h2><a name=\"p-65805-usdt-avalanche-core-hub-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-usdt-avalanche-core-hub-4\" aria-label=\"Heading link\"></a>USDt (Avalanche Core Hub)</h2>\n<p>USDt on the Aave V4 Avalanche Core Hub holds 9.62M added and 2.48M drawn, for a hub utilization of 25.7% against an optimal usage ratio of 90.00%.</p>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Spoke</th>\n<th style=\"text-align:right\">Added</th>\n<th style=\"text-align:right\">Add Cap</th>\n<th style=\"text-align:right\">Add Cap Utilization</th>\n<th style=\"text-align:right\">Drawn</th>\n<th style=\"text-align:right\">Draw Cap</th>\n<th style=\"text-align:right\">Draw Cap Utilization</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Main</td>\n<td style=\"text-align:right\">8,791,525</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">87.9%</td>\n<td style=\"text-align:right\">2,444,125</td>\n<td style=\"text-align:right\">5,000,000</td>\n<td style=\"text-align:right\">48.9%</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-recommendation-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-recommendation-5\" aria-label=\"Heading link\"></a>Recommendation</h3>\n<p>The USDt add cap on the Main Spoke is 87.9% utilized. The proposed add cap of 20M lands at approximately 44.0% post-change add cap utilization.</p>\n<h2><a name=\"p-65805-specification-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-specification-6\" aria-label=\"Heading link\"></a>Specification</h2>\n<h3><a name=\"p-65805-add-caps-7\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-add-caps-7\" aria-label=\"Heading link\"></a>Add Caps</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Current Add Cap</th>\n<th style=\"text-align:right\">Recommended Add Cap</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>Main</td>\n<td>USDC</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">50,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Main</td>\n<td>USDT</td>\n<td style=\"text-align:right\">40,000,000</td>\n<td style=\"text-align:right\">50,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">15,000,000</td>\n</tr>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDT</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">15,000,000</td>\n</tr>\n<tr>\n<td>Avalanche Core</td>\n<td>Main</td>\n<td>USDt</td>\n<td style=\"text-align:right\">10,000,000</td>\n<td style=\"text-align:right\">20,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h3><a name=\"p-65805-draw-caps-8\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-draw-caps-8\" aria-label=\"Heading link\"></a>Draw Caps</h3>\n<div class=\"md-table\">\n<table>\n<thead>\n<tr>\n<th>Hub</th>\n<th>Spoke</th>\n<th>Asset</th>\n<th style=\"text-align:right\">Current Draw Cap</th>\n<th style=\"text-align:right\">Recommended Draw Cap</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Ethereum Core</td>\n<td>Forex</td>\n<td>USDC</td>\n<td style=\"text-align:right\">3,330,000</td>\n<td style=\"text-align:right\">5,000,000</td>\n</tr>\n</tbody>\n</table>\n</div><h2><a name=\"p-65805-next-steps-9\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-next-steps-9\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<p>We will move forward and implement these updates via the Risk Steward process. The implemented changes can be reviewed on the <a href=\"https://dashboard.llamarisk.com/protocols/aave/risk-parameter-updates/v4\">LlamaRisk Risk Stewards Dashboard</a>.</p>\n<h2><a name=\"p-65805-disclosure-10\" class=\"anchor\" href=\"https://governance.aave.com#p-65805-disclosure-10\" aria-label=\"Heading link\"></a>Disclosure</h2>\n<p>This review was independently prepared by LlamaRisk, a DeFi risk service provider funded in part by the Aave DAO. LlamaRisk is not directly affiliated with the protocol(s) reviewed in this assessment and did not receive any compensation from the protocol(s) or their affiliated entities for this work.</p>\n<p>The information provided should not be construed as legal, financial, tax, or professional advice.</p>\n            <p><small>1 post - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/risk-stewards-cap-increases-on-aave-v4-2026-10-16/25860\">Read full topic</a></p>\n          ",
-      "feed_source": "aave_governance",
-      "relevance_score": 5.0
-    },
-    {
       "title": "[Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche",
       "link": "https://governance.aave.com/t/direct-to-aip-onboard-usat-to-aave-v4-core-instance-on-avalanche/25880",
       "description": "\n            <p>Title: [Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche<br>\nAuthor: <a class=\"mention\" href=\"https://governance.aave.com/u/aavelabs\">@AaveLabs</a><br>\nDate: 2026-10-19</p>\n<hr>\n<h2><a name=\"p-65836-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>This proposal seeks to onboard USAT to the Aave V4 Core Instance on Avalanche. This proposal follows the Direct to AIP route.</p>\n<h2><a name=\"p-65836-motivation-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-motivation-2\" aria-label=\"Heading link\"></a>Motivation</h2>\n<p>USAT (Tether America USD) is a dollar stablecoin issued by Anchorage Digital Bank, N.A., a federally chartered national trust bank supervised by the Office of the Comptroller of the Currency (OCC). USAT is subject to the GENIUS Act and is redeemable 1:1 for U.S. dollars.</p>\n<p>Onboarding USAT would:</p>\n<ul>\n<li>Add a stablecoin issued by a bank under federal supervision in the United States to the Aave V4 Core Instance on Avalanche.</li>\n<li>Support demand from institutional participants seeking a stablecoin issued under the federal stablecoin framework of the United States.</li>\n<li>Broaden the range of regulated dollar assets available across Aave deployments.</li>\n</ul>\n<h2><a name=\"p-65836-specification-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-specification-3\" aria-label=\"Heading link\"></a>Specification</h2>\n<p>This proposal onboards USAT to the Aave V4 Core Instance on Avalanche.</p>\n<p><strong>USAT</strong>: <a href=\"https://snowtrace.io/token/0x9A5926fd88F747c357738b1e82aFB46AB80f0A6b\"><code>0x9A5926fd88F747c357738b1e82aFB46AB80f0A6b</code></a></p>\n<p>Risk parameters and final configuration will be provided by the Risk Service Providers and this proposal will be updated accordingly.</p>\n<h3><a name=\"p-65836-useful-links-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-useful-links-4\" aria-label=\"Heading link\"></a>Useful Links</h3>\n<ul>\n<li><a href=\"https://usat.io/\">USAT website</a></li>\n<li><a href=\"https://usat.io/faq\">USAT FAQ</a></li>\n</ul>\n<h2><a name=\"p-65836-disclaimer-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-disclaimer-5\" aria-label=\"Heading link\"></a>Disclaimer</h2>\n<p>This proposal was prepared by Aave Labs in its capacity as a contributor to the Aave ecosystem. Aave Labs has no direct financial relationship with Anchorage Digital Bank, N.A., Tether, or their affiliates and has not received compensation from any of these parties in connection with this proposal.</p>\n<h2><a name=\"p-65836-next-steps-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-next-steps-6\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<ol>\n<li>Gather community and Service Provider feedback.</li>\n<li>Incorporate the Risk Service Providers\u2019 final configuration for the Aave V4 Core Instance on Avalanche.</li>\n<li>Publish the AIP vote for final confirmation and onchain enforcement of the proposal.</li>\n</ol>\n            <p><small>2 posts - 2 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/direct-to-aip-onboard-usat-to-aave-v4-core-instance-on-avalanche/25880\">Read full topic</a></p>\n          ",
@@ -93,413 +84,44 @@
       "content": "\n            <p>Title: [Direct to AIP] Onboard USAT to Aave V4 Core Instance on Avalanche<br>\nAuthor: <a class=\"mention\" href=\"https://governance.aave.com/u/aavelabs\">@AaveLabs</a><br>\nDate: 2026-10-19</p>\n<hr>\n<h2><a name=\"p-65836-summary-1\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-summary-1\" aria-label=\"Heading link\"></a>Summary</h2>\n<p>This proposal seeks to onboard USAT to the Aave V4 Core Instance on Avalanche. This proposal follows the Direct to AIP route.</p>\n<h2><a name=\"p-65836-motivation-2\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-motivation-2\" aria-label=\"Heading link\"></a>Motivation</h2>\n<p>USAT (Tether America USD) is a dollar stablecoin issued by Anchorage Digital Bank, N.A., a federally chartered national trust bank supervised by the Office of the Comptroller of the Currency (OCC). USAT is subject to the GENIUS Act and is redeemable 1:1 for U.S. dollars.</p>\n<p>Onboarding USAT would:</p>\n<ul>\n<li>Add a stablecoin issued by a bank under federal supervision in the United States to the Aave V4 Core Instance on Avalanche.</li>\n<li>Support demand from institutional participants seeking a stablecoin issued under the federal stablecoin framework of the United States.</li>\n<li>Broaden the range of regulated dollar assets available across Aave deployments.</li>\n</ul>\n<h2><a name=\"p-65836-specification-3\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-specification-3\" aria-label=\"Heading link\"></a>Specification</h2>\n<p>This proposal onboards USAT to the Aave V4 Core Instance on Avalanche.</p>\n<p><strong>USAT</strong>: <a href=\"https://snowtrace.io/token/0x9A5926fd88F747c357738b1e82aFB46AB80f0A6b\"><code>0x9A5926fd88F747c357738b1e82aFB46AB80f0A6b</code></a></p>\n<p>Risk parameters and final configuration will be provided by the Risk Service Providers and this proposal will be updated accordingly.</p>\n<h3><a name=\"p-65836-useful-links-4\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-useful-links-4\" aria-label=\"Heading link\"></a>Useful Links</h3>\n<ul>\n<li><a href=\"https://usat.io/\">USAT website</a></li>\n<li><a href=\"https://usat.io/faq\">USAT FAQ</a></li>\n</ul>\n<h2><a name=\"p-65836-disclaimer-5\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-disclaimer-5\" aria-label=\"Heading link\"></a>Disclaimer</h2>\n<p>This proposal was prepared by Aave Labs in its capacity as a contributor to the Aave ecosystem. Aave Labs has no direct financial relationship with Anchorage Digital Bank, N.A., Tether, or their affiliates and has not received compensation from any of these parties in connection with this proposal.</p>\n<h2><a name=\"p-65836-next-steps-6\" class=\"anchor\" href=\"https://governance.aave.com#p-65836-next-steps-6\" aria-label=\"Heading link\"></a>Next Steps</h2>\n<ol>\n<li>Gather community and Service Provider feedback.</li>\n<li>Incorporate the Risk Service Providers\u2019 final configuration for the Aave V4 Core Instance on Avalanche.</li>\n<li>Publish the AIP vote for final confirmation and onchain enforcement of the proposal.</li>\n</ol>\n            <p><small>2 posts - 2 participants</small></p>\n            <p><a href=\"https://governance.aave.com/t/direct-to-aip-onboard-usat-to-aave-v4-core-instance-on-avalanche/25880\">Read full topic</a></p>\n          ",
       "feed_source": "aave_governance",
       "relevance_score": 4.0
+    },
+    {
+      "title": "Introducing AaveAPY: An Yield Dashboard and Simulator",
+      "link": "https://governance.aave.com/t/introducing-aaveapy-an-yield-dashboard-and-simulator/24472",
+      "description": "\n            <p>Hi fellow Aave community members,</p>\n<p>I am sharing with you an open-source analytics dashboard and simulator that I have been building: <strong><a href=\"https://aaveapy.com\" rel=\"noopener nofollow ugc\">AaveAPY</a></strong>.</p>\n<p><strong>Live Dashboard:</strong> <a href=\"https://aaveapy.com\" rel=\"noopener nofollow ugc\">aaveapy.com</a><br>\n<strong>Code Source:</strong> <a href=\"https://github.com/0xPabloLI/aaveapy\" rel=\"noopener nofollow ugc\">github.com/0xPabloLI/aaveapy</a></p>\n<hr>\n<h2><a name=\"p-62878-key-features-1\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-key-features-1\" aria-label=\"Heading link\"></a>Key Features</h2>\n<p>AaveAPY operates as an analytics layer on top of Aave V3.</p>\n<h3><a name=\"p-62878-h-1-omni-chain-yield-comparison-2\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-1-omni-chain-yield-comparison-2\" aria-label=\"Heading link\"></a>1. Omni-Chain Yield Comparison</h3>\n<p>Instead of switching networks, AaveAPY displays a consolidated table showing Native APY + Incentive APY (including <strong>points</strong> calculator). You can instantly spot the best yield opportunities, filter by asset type, and identify markets with the strongest <code>Supply APY \u2212 Borrow APY</code> spread for looping strategies.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/1/1a16b7ebd85b41818cb452e318d5e12584c93915.jpeg\" data-download-href=\"/uploads/short-url/3IN5tjfDx9Zay0eU0GVNSGBqd6J.jpeg?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/1/1a16b7ebd85b41818cb452e318d5e12584c93915.jpeg\" alt=\"\" data-base62-sha1=\"3IN5tjfDx9Zay0eU0GVNSGBqd6J\" role=\"presentation\" width=\"1920\" height=\"1322\"></a></div><p></p>\n<h3><a name=\"p-62878-h-2-what-if-simulation-with-on-chain-protocol-math-3\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-2-what-if-simulation-with-on-chain-protocol-math-3\" aria-label=\"Heading link\"></a>2. \u201cWhat-If\u201d Simulation with On-Chain Protocol Math</h3>\n<p>Enter a hypothetical supply or borrow amount to simulate the exact impact on your rates. The calculator uses Aave\u2019s native on-chain math (two-slope curve) to show:</p>\n<ul>\n<li>Supply/borrow APR/APY at the new utilization rate</li>\n<li>Distance from the optimal utilization (kink) point</li>\n<li>Remaining borrow cap room and pool liquidity constraints</li>\n</ul>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png\" data-download-href=\"/uploads/short-url/uawZ7qQzT0DpsPAsaIXjl1G3zdO.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c_2_2000x736.png\" alt=\"\" data-base62-sha1=\"uawZ7qQzT0DpsPAsaIXjl1G3zdO\" role=\"presentation\" width=\"2000\" height=\"736\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c_2_2000x736.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png 2x\" data-dominant-color=\"F3F3F1\"></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png\" data-download-href=\"/uploads/short-url/5auoG15wGuAWKHYKDoQTUPUki2b.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf_2_2000x769.png\" alt=\"\" data-base62-sha1=\"5auoG15wGuAWKHYKDoQTUPUki2b\" role=\"presentation\" width=\"2000\" height=\"769\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf_2_2000x769.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png 2x\" data-dominant-color=\"F3F4F1\"></a></div><p></p>\n<h3><a name=\"p-62878-h-3-real-yield-after-incentive-caps-dilution-4\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-3-real-yield-after-incentive-caps-dilution-4\" aria-label=\"Heading link\"></a>3. Real Yield After Incentive Caps &amp; Dilution</h3>\n<p>AaveAPY simulates your actual APY after accounting for incentive caps and dilution, for example:</p>\n<ul>\n<li><strong>Celo Self-Authentication:</strong> Factors in the $1,000 cap per user</li>\n<li><strong>Merkl/Brevis Forecasts:</strong> Estimates the next-run daily rewards and APR for hypothetical deposit amounts based on different campaign type and finite reward pools</li>\n<li><strong>INK FDV Calculator:</strong> Estimate Ink incentive APR based on different Fully Diluted Valuation assumptions</li>\n</ul>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png\" data-download-href=\"/uploads/short-url/1ZGWVvbHSm1Oz8SMYXbTHuFI5VI.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe_2_2000x715.png\" alt=\"\" data-base62-sha1=\"1ZGWVvbHSm1Oz8SMYXbTHuFI5VI\" role=\"presentation\" width=\"2000\" height=\"715\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe_2_2000x715.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png 2x\" data-dominant-color=\"F2F4F3\"></a></div><p></p>\n<hr>\n<h2><a name=\"p-62878-roadmap-5\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-roadmap-5\" aria-label=\"Heading link\"></a>Roadmap</h2>\n<ul>\n<li>Aave V4 protocol support with unified V3/V4 frontend display</li>\n<li>Complex simulation scenarios across different supply/borrow combinations</li>\n<li>Smart deployment recommendation with multi-chain yield optimization and cross-chain bridge integration</li>\n<li>Wallet connection with portfolio import and incentive blacklist/whitelist detection</li>\n</ul>\n<p>I built this tool for my own needs, but I hope it brings value to the broader Aave community. Any of your feedback is appreciated.</p>\n<p>Enjoy!</p>\n            <p><small>2 posts - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/introducing-aaveapy-an-yield-dashboard-and-simulator/24472\">Read full topic</a></p>\n          ",
+      "pub_date": "Fri, 17 Apr 2026 05:41:54 +0000",
+      "content": "\n            <p>Hi fellow Aave community members,</p>\n<p>I am sharing with you an open-source analytics dashboard and simulator that I have been building: <strong><a href=\"https://aaveapy.com\" rel=\"noopener nofollow ugc\">AaveAPY</a></strong>.</p>\n<p><strong>Live Dashboard:</strong> <a href=\"https://aaveapy.com\" rel=\"noopener nofollow ugc\">aaveapy.com</a><br>\n<strong>Code Source:</strong> <a href=\"https://github.com/0xPabloLI/aaveapy\" rel=\"noopener nofollow ugc\">github.com/0xPabloLI/aaveapy</a></p>\n<hr>\n<h2><a name=\"p-62878-key-features-1\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-key-features-1\" aria-label=\"Heading link\"></a>Key Features</h2>\n<p>AaveAPY operates as an analytics layer on top of Aave V3.</p>\n<h3><a name=\"p-62878-h-1-omni-chain-yield-comparison-2\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-1-omni-chain-yield-comparison-2\" aria-label=\"Heading link\"></a>1. Omni-Chain Yield Comparison</h3>\n<p>Instead of switching networks, AaveAPY displays a consolidated table showing Native APY + Incentive APY (including <strong>points</strong> calculator). You can instantly spot the best yield opportunities, filter by asset type, and identify markets with the strongest <code>Supply APY \u2212 Borrow APY</code> spread for looping strategies.</p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/1/1a16b7ebd85b41818cb452e318d5e12584c93915.jpeg\" data-download-href=\"/uploads/short-url/3IN5tjfDx9Zay0eU0GVNSGBqd6J.jpeg?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/1/1a16b7ebd85b41818cb452e318d5e12584c93915.jpeg\" alt=\"\" data-base62-sha1=\"3IN5tjfDx9Zay0eU0GVNSGBqd6J\" role=\"presentation\" width=\"1920\" height=\"1322\"></a></div><p></p>\n<h3><a name=\"p-62878-h-2-what-if-simulation-with-on-chain-protocol-math-3\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-2-what-if-simulation-with-on-chain-protocol-math-3\" aria-label=\"Heading link\"></a>2. \u201cWhat-If\u201d Simulation with On-Chain Protocol Math</h3>\n<p>Enter a hypothetical supply or borrow amount to simulate the exact impact on your rates. The calculator uses Aave\u2019s native on-chain math (two-slope curve) to show:</p>\n<ul>\n<li>Supply/borrow APR/APY at the new utilization rate</li>\n<li>Distance from the optimal utilization (kink) point</li>\n<li>Remaining borrow cap room and pool liquidity constraints</li>\n</ul>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png\" data-download-href=\"/uploads/short-url/uawZ7qQzT0DpsPAsaIXjl1G3zdO.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c_2_2000x736.png\" alt=\"\" data-base62-sha1=\"uawZ7qQzT0DpsPAsaIXjl1G3zdO\" role=\"presentation\" width=\"2000\" height=\"736\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c_2_2000x736.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/d/d371ff7b704a46c13d58baa75c47cc978ceda70c.png 2x\" data-dominant-color=\"F3F3F1\"></a></div><p></p>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png\" data-download-href=\"/uploads/short-url/5auoG15wGuAWKHYKDoQTUPUki2b.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf_2_2000x769.png\" alt=\"\" data-base62-sha1=\"5auoG15wGuAWKHYKDoQTUPUki2b\" role=\"presentation\" width=\"2000\" height=\"769\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf_2_2000x769.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/2/243a70e00fb73ff7a9c5e8245b3bd0b1a28195cf.png 2x\" data-dominant-color=\"F3F4F1\"></a></div><p></p>\n<h3><a name=\"p-62878-h-3-real-yield-after-incentive-caps-dilution-4\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-h-3-real-yield-after-incentive-caps-dilution-4\" aria-label=\"Heading link\"></a>3. Real Yield After Incentive Caps &amp; Dilution</h3>\n<p>AaveAPY simulates your actual APY after accounting for incentive caps and dilution, for example:</p>\n<ul>\n<li><strong>Celo Self-Authentication:</strong> Factors in the $1,000 cap per user</li>\n<li><strong>Merkl/Brevis Forecasts:</strong> Estimates the next-run daily rewards and APR for hypothetical deposit amounts based on different campaign type and finite reward pools</li>\n<li><strong>INK FDV Calculator:</strong> Estimate Ink incentive APR based on different Fully Diluted Valuation assumptions</li>\n</ul>\n<p></p><div class=\"lightbox-wrapper\"><a class=\"lightbox\" href=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png\" data-download-href=\"/uploads/short-url/1ZGWVvbHSm1Oz8SMYXbTHuFI5VI.png?dl=1\" title=\"\" rel=\"noopener nofollow ugc\"><img src=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe_2_2000x715.png\" alt=\"\" data-base62-sha1=\"1ZGWVvbHSm1Oz8SMYXbTHuFI5VI\" role=\"presentation\" width=\"2000\" height=\"715\" srcset=\"https://europe1.discourse-cdn.com/flex013/uploads/aave/optimized/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe_2_2000x715.png, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png 1.5x, https://europe1.discourse-cdn.com/flex013/uploads/aave/original/2X/0/0dfb74e527dabed2865ca0c0c96a99a468bbbebe.png 2x\" data-dominant-color=\"F2F4F3\"></a></div><p></p>\n<hr>\n<h2><a name=\"p-62878-roadmap-5\" class=\"anchor\" href=\"https://governance.aave.com#p-62878-roadmap-5\" aria-label=\"Heading link\"></a>Roadmap</h2>\n<ul>\n<li>Aave V4 protocol support with unified V3/V4 frontend display</li>\n<li>Complex simulation scenarios across different supply/borrow combinations</li>\n<li>Smart deployment recommendation with multi-chain yield optimization and cross-chain bridge integration</li>\n<li>Wallet connection with portfolio import and incentive blacklist/whitelist detection</li>\n</ul>\n<p>I built this tool for my own needs, but I hope it brings value to the broader Aave community. Any of your feedback is appreciated.</p>\n<p>Enjoy!</p>\n            <p><small>2 posts - 1 participant</small></p>\n            <p><a href=\"https://governance.aave.com/t/introducing-aaveapy-an-yield-dashboard-and-simulator/24472\">Read full topic</a></p>\n          ",
+      "feed_source": "risk_updates",
+      "relevance_score": 4.0
     }
   ],
   "parameter_changes": [
     {
-      "asset": "WBTC",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.73,
-      "change_percentage": 730.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.8,
-      "change_percentage": 800.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "polygon",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBNB",
-      "network": "bnb",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "BTCB",
-      "network": "bnb",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "ETH",
-      "network": "bnb",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.8,
-      "change_percentage": 800.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "cbETH",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "weETH",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "cbBTC",
-      "network": "base",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.73,
-      "change_percentage": 730.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.8,
-      "change_percentage": 800.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "optimism",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "CELO",
-      "network": "celo",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.55,
-      "change_percentage": 550.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "celo",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.78,
-      "change_percentage": 780.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH.e",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.8,
-      "change_percentage": 800.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "BTC.b",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "USDe",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "sUSDe",
-      "network": "avalanche",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.78,
-      "change_percentage": 780.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "weETH",
-      "network": "arbitrum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "GNO",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.48,
-      "change_percentage": 480.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WXDAI",
-      "network": "gnosis",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.63,
-      "change_percentage": 630.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.79,
-      "change_percentage": 790.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "AAVE",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.69,
-      "change_percentage": 689.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "cbETH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "rETH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "weETH",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.78,
-      "change_percentage": 780.0,
-      "risk_level": "critical"
-    },
-    {
       "asset": "tBTC",
       "network": "ethereum",
       "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.73,
-      "change_percentage": 730.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "cbBTC",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.81,
-      "change_percentage": 810.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "LBTC",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.7,
-      "change_percentage": 699.9999999999999,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "eBTC",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.67,
-      "change_percentage": 670.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "syrupUSDT",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.0005,
-      "change_percentage": 0.5,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "BTC.b",
-      "network": "ethereum",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.73,
-      "change_percentage": 730.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WETH",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.8,
-      "change_percentage": 800.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "WBTC",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.73,
-      "change_percentage": 730.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "wstETH",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.75,
-      "change_percentage": 750.0,
-      "risk_level": "critical"
-    },
-    {
-      "asset": "weETH",
-      "network": "linea",
-      "parameter": "loan_to_value",
-      "old_value": 0.0,
-      "new_value": 0.725,
-      "change_percentage": 725.0,
+      "old_value": 0.73,
+      "new_value": 0.0,
+      "change_percentage": 1.0,
       "risk_level": "critical"
     }
   ],
   "alerts": [
     {
       "alert_type": "critical_parameter_change",
-      "message": "CRITICAL: 43 critical parameter changes detected",
+      "message": "CRITICAL: 1 critical parameter changes detected",
       "severity": "critical",
-      "parameter_changes_count": 43
+      "parameter_changes_count": 1
     },
     {
       "alert_type": "high_relevance_governance_activity",
-      "message": "INFO: 9 high-relevance governance posts detected",
+      "message": "INFO: 8 high-relevance governance posts detected",
       "severity": "low",
       "parameter_changes_count": 0
     }
   ],
   "summary": {
-    "critical_changes": 43,
+    "critical_changes": 1,
     "high_risk_changes": 0,
     "medium_risk_changes": 0,
     "low_risk_changes": 0,
