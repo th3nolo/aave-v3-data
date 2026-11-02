@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-11-01T04:00:52.029852",
+  "timestamp": "2026-11-02T04:05:12.014786",
   "validation_passed": false,
   "validation_errors": [
+    "Governance mismatch: tBTC on ethereum loan_to_value is 0.0, expected 0.73 from governance change",
     "Governance mismatch: WETH on linea loan_to_value is 0.8, expected 0.0 from governance change",
     "Governance mismatch: WBTC on linea loan_to_value is 0.73, expected 0.0 from governance change",
     "Governance mismatch: wstETH on linea loan_to_value is 0.75, expected 0.0 from governance change",
-    "Governance mismatch: weETH on linea loan_to_value is 0.725, expected 0.0 from governance change",
-    "Governance mismatch: tBTC on ethereum loan_to_value is 0.0, expected 0.73 from governance change"
+    "Governance mismatch: weETH on linea loan_to_value is 0.725, expected 0.0 from governance change"
   ],
   "validation_warnings": [],
   "governance_consistency_score": 0.5,
