@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-20T05:30:18.068417",
+  "timestamp": "2026-11-21T05:24:31.637594",
   "validation_passed": false,
   "validation_errors": [
     "Governance mismatch: tBTC on ethereum loan_to_value is 0.0, expected 0.73 from governance change",
